@@ -4,53 +4,54 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-AddressBook - Level 4 was developed by the https://se-edu.github.io/docs/Team.html[se-edu] team. +
-_{The dummy content given below serves as a placeholder to be used by future forks of the project.}_ +
+main was developed by the https://github.com/CS2103-AY1819S1-T12-3[T12-3] team. +
 {empty} +
 We are a team based in the http://www.comp.nus.edu.sg[School of Computing, National University of Singapore].
 
 == Project Team
 
-=== John Doe
-image::damithc.jpg[width="150", align="left"]
-{empty}[http://www.comp.nus.edu.sg/~damithch[homepage]] [https://github.com/damithc[github]] [<<johndoe#, portfolio>>]
+=== Ang Chen Shin
+image::CrimsonAng.jpg[width="150", align="left"]
+{empty}[https://github.com/CrimsonAng[github]] [<<johndoe#, portfolio>>]
 
-Role: Project Advisor
-
+Role: Team Lead, Scheduling and Tracking +
+Responsibilities: Responsible for overall project coordination.
 '''
 
-=== John Roe
-image::lejolly.jpg[width="150", align="left"]
+=== Lin Xu
+image::linxu.jpg[width="150", align="left"]
 {empty}[http://github.com/lejolly[github]] [<<johndoe#, portfolio>>]
 
-Role: Team Lead +
-Responsibilities: UI
+Role: Documentation, Code Quality +
+Responsibilities: Maintaining the quality of various project documents +
+Looks after code quality, ensures adherence to coding standards, etc.
 
 '''
 
-=== Johnny Doe
-image::yijinl.jpg[width="150", align="left"]
-{empty}[http://github.com/yijinl[github]] [<<johndoe#, portfolio>>]
+=== Park Sang Jun
+image::park-sang-jun.jpg[width="150", align="left"]
+{empty}[https://github.com/park-sang-jun[github]] [<<johndoe#, portfolio>>]
 
-Role: Developer +
-Responsibilities: Data
+Role: Deliverables and Deadlines +
+Responsibilities: Ensure project deliverables are done on time and in the right format.
 
 '''
 
-=== Johnny Roe
-image::m133225.jpg[width="150", align="left"]
+=== Thaddeus Lim Zhi Yu
+image::thaddeuslzy.jpg[width="150", align="left"]
 {empty}[http://github.com/m133225[github]] [<<johndoe#, portfolio>>]
 
-Role: Developer +
-Responsibilities: Dev Ops + Threading
+Role: Integration +
+Responsibilities: In charge of versioning of the code, maintaining the code repository,
+integrating various parts of the software to create a whole.
 
 '''
 
-=== Benson Meier
-image::yl_coder.jpg[width="150", align="left"]
-{empty}[http://github.com/yl-coder[github]] [<<johndoe#, portfolio>>]
+=== Xiao Yilin
+image::hotarumin.jpg[width="150", align="left"]
+{empty}[https://github.com/hotarumin[github]] [<<johndoe#, portfolio>>]
 
-Role: Developer +
-Responsibilities: UI
+Role: Testing +
+Responsibilities: Ensures the testing of the project is done properly and on time.
 
 '''
