@@ -2194,7 +2194,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add and view subtasks under each task</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">know specifically what tasks requires
-E.g CS2103T Project * bullet Write User guide * bullet Review Pull Requests * bullet Peer Evaluation</p></td>
+E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2237,25 +2237,19 @@ E.g CS2103T Project * bullet Write User guide * bullet Review Pull Requests * bu
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix D: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>Student Schedule Planner</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-add-exam" class="discrete">Use case: Add Exam</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to add exam into Student Schedule Planner.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
-</li>
-<li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
+<p>Student Schedule Planner add the exam into exam list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2268,22 +2262,229 @@ E.g CS2103T Project * bullet Write User guide * bullet Review Pull Requests * bu
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list is empty.</p>
+<p>1a. The add Exam command did not follow the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Student Schedule Planner shows an error message.</p>
+<div class="paragraph">
+<p>Use case resume at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-list-exam" class="discrete">Use case: List Exam</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view exam list from Student Schedule Planner.</p>
+</li>
+<li>
+<p>Student Schedule Planner display the exam list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The list exam command did not follow the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Student Schedule Planner shows an error message.</p>
+<div class="paragraph">
+<p>Use case resume at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a1. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-modify-exam" class="discrete">Use case: Modify Exam</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list exam list from Student Schedule Planner.</p>
+</li>
+<li>
+<p>Student Schedule Planner display the exam list.</p>
+</li>
+<li>
+<p>User request to edit a specific exam in the list.</p>
+</li>
+<li>
+<p>Student Schedule Planner updates the exam.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The list exam command did not follow the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Student Schedule Planner shows an error message.</p>
+<div class="paragraph">
+<p>Use case resume at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a1. The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
+<p>3a. The Modify exam command did not follow the correct format.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. Student Schedule Planner shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case resume at step 3.</p>
 </div>
 </li>
 </ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-delete-exam" class="discrete">Use case: Delete Exam</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list exam list from Student Schedule Planner.</p>
+</li>
+<li>
+<p>Student Schedule Planner display the exam list.</p>
+</li>
+<li>
+<p>User request to delete a specific exam in the list.</p>
+</li>
+<li>
+<p>Student Schedule Planner delete the exam.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The list exam command did not follow the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Student Schedule Planner shows an error message.</p>
+<div class="paragraph">
+<p>Use case resume at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a1. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The Delete exam command did not follow the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. Student Schedule Planner shows an error message.</p>
+<div class="paragraph">
+<p>Use case resume at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-search-exam" class="discrete">Use case: Search Exam</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to search a specific exam from Student Schedule Planner.</p>
+</li>
+<li>
+<p>Student Schedule Planner filter the exam by the given parameter.</p>
+</li>
+<li>
+<p>Student Schedule Planner display the filtered exam.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The search exam command did not follow the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Student Schedule Planner shows an error message.</p>
+<div class="paragraph">
+<p>Use case resume at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. The filtered exam list is empty and thus display empty list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -2299,13 +2500,10 @@ E.g CS2103T Project * bullet Write User guide * bullet Review Pull Requests * bu
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>9</code> or higher installed.</p>
+<p>Should work on most Mainstream OS as long as it has Java <code>9</code> or higher installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
-</li>
-<li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p>Each command execution time should not take more than 3 seconds.</p>
 </li>
 </ol>
 </div>
@@ -2319,6 +2517,10 @@ E.g CS2103T Project * bullet Write User guide * bullet Review Pull Requests * bu
 <div class="sectionbody">
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><a id="MSS"></a> MSS</dt>
+<dd>
+<p>Main Success Scenario (MSS) is the steps of a scenario to be followed to accomplish the objective goal.</p>
+</dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
@@ -2477,4 +2679,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 09:08:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 15:29:49 UTC</div></div></div></body></html>
