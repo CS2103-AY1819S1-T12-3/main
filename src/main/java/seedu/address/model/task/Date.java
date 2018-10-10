@@ -40,22 +40,30 @@ public class Date {
      * Returns true if a given string is a valid date.
      */
     public static boolean isValidDate(String test) {
+        String dayString = test.substring(0, 2);
+        int day = Integer.parseInt(dayString);
+        String monthString = test.substring(2, 4);
+        int month = Integer.parseInt(monthString);
+        String yearString = test.substring(4, 6);
+        int year = Integer.parseInt(yearString) + 2000;
+
+
         if (!test.matches(DATE_VALIDATION_REGEX)) {
             return false;
-        } else if (this.month > 12 || this.month == 0) {
+        } else if (month > 12 || month == 0) {
             return false;
-        } else if (this.day == 0) {
+        } else if (day == 0) {
             return false;
-        } else if (isLargeMonth(this.month)) {
-            return this.day <= 31;
-        } else if (this.month == 2) {
-            if (isLeapYear(this.year)) {
-                return this.day <= 29;
+        } else if (isLargeMonth(month)) {
+            return day <= 31;
+        } else if (month == 2) {
+            if (isLeapYear(year)) {
+                return day <= 29;
             } else {
-                return this.day <= 28;
+                return day <= 28;
             }
         } else {
-            return this.day <= 30;
+            return day <= 30;
         }
     }
 
