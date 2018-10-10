@@ -44,11 +44,11 @@ public class UniqueTaskListTest {
     }
 
     @Test
-    public void contains_personWithSameIdentityFieldsInList_returnsTrue() {
+    public void contains_personWithNotAllSameFieldsInList_returnsFalse() {
         uniqueTaskList.add(ALICE);
         Task editedAlice = new TaskBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(uniqueTaskList.contains(editedAlice));
+        assertFalse(uniqueTaskList.contains(editedAlice));
     }
 
     @Test

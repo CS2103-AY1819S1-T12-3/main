@@ -4,14 +4,14 @@
     <persons>
         <name>Hans Muster</name>
         <date isPrivate="false">9482424</date>
-        <priority isPrivate="false">hans@example.com</priority>
+        <priority isPrivate="false">1</priority>
         <venue isPrivate="false">4th street</venue>
     </persons>
     <!-- Task with invalid date field -->
     <persons>
         <name>Hans Muster</name>
         <date isPrivate="false">948asdf2424</date>
-        <priority isPrivate="false">hans@example.com</priority>
+        <priority isPrivate="false">2</priority>
         <venue isPrivate="false">4th street</venue>
     </persons>
 </addressbook>

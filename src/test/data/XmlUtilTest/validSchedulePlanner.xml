@@ -3,56 +3,56 @@
     <persons>
         <name>Hans Muster</name>
         <date isPrivate="false">9482424</date>
-        <priority isPrivate="false">hans@example.com</priority>
+        <priority isPrivate="false">1</priority>
         <venue isPrivate="false">4th street</venue>
     </persons>
     <persons>
         <name>Ruth Mueller</name>
         <date isPrivate="false">87249245</date>
-        <priority isPrivate="false">ruth@example.com</priority>
+        <priority isPrivate="false">1</priority>
         <venue isPrivate="false">81th street</venue>
     </persons>
     <persons>
         <name>Heinz Kurz</name>
         <date isPrivate="false">95352563</date>
-        <priority isPrivate="false">heinz@example.com</priority>
+        <priority isPrivate="false">1</priority>
         <venue isPrivate="false">wall street</venue>
     </persons>
     <persons>
         <name>Cornelia Meier</name>
         <date isPrivate="false">87652533</date>
-        <priority isPrivate="false">cornelia@example.com</priority>
+        <priority isPrivate="false">1</priority>
         <venue isPrivate="false">10th street</venue>
     </persons>
     <persons>
         <name>Werner Meyer</name>
         <date isPrivate="false">9482224</date>
-        <priority isPrivate="false">werner@example.com</priority>
+        <priority isPrivate="false">1</priority>
         <venue isPrivate="false">michegan ave</venue>
     </persons>
     <persons>
         <name>Lydia Kunz</name>
         <date isPrivate="false">9482427</date>
-        <priority isPrivate="false">lydia@example.com</priority>
+        <priority isPrivate="false">2</priority>
         <venue isPrivate="false">little tokyo</venue>
     </persons>
     <persons>
         <name>Anna Best</name>
         <date isPrivate="false">9482442</date>
-        <priority isPrivate="false">anna@example.com</priority>
+        <priority isPrivate="false">3</priority>
         <venue isPrivate="false">4th street</venue>
     </persons>
     <persons>
         <name>Stefan Meier</name>
         <date isPrivate="false">8482424</date>
-        <priority isPrivate="false">stefan@example.com</priority>
+        <priority isPrivate="false">2</priority>
         <venue isPrivate="false">little india</venue>
 
     </persons>
     <persons>
         <name>Martin Mueller</name>
         <date isPrivate="false">8482131</date>
-        <priority isPrivate="false">hans@example.com</priority>
+        <priority isPrivate="false">1</priority>
         <venue isPrivate="false">chicago ave</venue>
     </persons>
 </addressbook>

@@ -4,7 +4,7 @@
     <persons>
         <name>Alice Pauline</name>
         <date>94351253</date>
-        <priority>alice@example.com</priority>
+        <priority>1</priority>
         <venue>123, Jurong West Ave 6, #08-111</venue>
         <tagged>friends</tagged>
     </persons>
@@ -13,8 +13,9 @@
     <persons>
         <name>Alice Pauline</name>
         <date>94351253</date>
-        <priority>pauline@example.com</priority>
-        <venue>4th street</venue>
+        <priority>1</priority>
+        <venue>123, Jurong West Ave 6, #08-111</venue>
+        <tagged>friends</tagged>
     </persons>
 
 </addressbook>

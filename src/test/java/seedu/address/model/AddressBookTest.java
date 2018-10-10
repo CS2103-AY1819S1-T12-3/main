@@ -50,9 +50,10 @@ public class AddressBookTest {
 
     @Test
     public void resetData_withDuplicatePersons_throwsDuplicatePersonException() {
-        // Two tasks with the same identity fields
-        Task editedAlice = new TaskBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
-                .build();
+        // Two tasks with the same fields
+
+        //Task editedAlice = new TaskBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+        Task editedAlice = new TaskBuilder(ALICE).build();
         List<Task> newTasks = Arrays.asList(ALICE, editedAlice);
         SchedulePlannerStub newData = new SchedulePlannerStub(newTasks);
 
@@ -78,11 +79,11 @@ public class AddressBookTest {
     }
 
     @Test
-    public void hasPerson_personWithSameIdentityFieldsInAddressBook_returnsTrue() {
+    public void hasPerson_personWithNotAllSameFieldsInAddressBook_returnsFalse() {
         addressBook.addTask(ALICE);
         Task editedAlice = new TaskBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertTrue(addressBook.hasTask(editedAlice));
+        assertFalse(addressBook.hasTask(editedAlice));
     }
 
     @Test
