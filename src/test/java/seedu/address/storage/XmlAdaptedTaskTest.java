@@ -54,7 +54,7 @@ public class XmlAdaptedTaskTest {
     }
 
     @Test
-    public void toModelType_invalidDATE_throwsIllegalValueException() {
+    public void toModelType_invalidDate_throwsIllegalValueException() {
         XmlAdaptedTask person =
                 new XmlAdaptedTask(VALID_NAME, INVALID_DATE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = Date.MESSAGE_DATE_CONSTRAINTS;
@@ -62,7 +62,7 @@ public class XmlAdaptedTaskTest {
     }
 
     @Test
-    public void toModelType_nullDATE_throwsIllegalValueException() {
+    public void toModelType_nullDate_throwsIllegalValueException() {
         XmlAdaptedTask person = new XmlAdaptedTask(VALID_NAME, null, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Date.class.getSimpleName());
         Assert.assertThrows(IllegalValueException.class, expectedMessage, person::toModelType);
