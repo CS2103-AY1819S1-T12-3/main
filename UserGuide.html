@@ -18,23 +18,19 @@
 <li><a href="#listing-all-tasks-code-list-task-code">3.3. Listing all tasks : <code>list task</code></a></li>
 <li><a href="#editing-a-task-code-edit-code">3.4. Editing a task : <code>edit</code></a></li>
 <li><a href="#searching-tasks-by-name-code-search-task-code">3.5. Searching tasks by name: <code>search task</code></a></li>
-<li><a href="#searching-tasks-by-category-code-search-category-code">3.6. Searching tasks by category: <code>search category</code></a></li>
+<li><a href="#searching-tasks-by-category-code-search-tag-code">3.6. Searching tasks by category: <code>search tag</code></a></li>
 <li><a href="#deleting-a-task-code-delete-task-code">3.7. Deleting a task : <code>delete task</code></a></li>
 <li><a href="#viewing-tasks-due-code-view-task-code">3.8. Viewing tasks due : <code>view task</code></a></li>
 <li><a href="#listing-overdue-tasks-code-list-overdue-code">3.9. Listing overdue tasks: <code>list overdue</code></a></li>
 <li><a href="#sorting-task-by-priority-level-code-sort-priority-code">3.10. Sorting task by priority level : <code>sort priority</code></a></li>
 <li><a href="#listing-categories-code-list-category-code">3.11. Listing categories : <code>list category</code></a></li>
-<li><a href="#adding-an-exam-code-add-exam-code">3.12. Adding an exam : <code>add exam</code></a></li>
-<li><a href="#view-exam-date-code-list-exam-code">3.13. View exam date : <code>list exam</code></a></li>
-<li><a href="#modify-exam-date-code-modify-exam-code">3.14. Modify exam date : <code>modify exam</code></a></li>
-<li><a href="#delete-exam-code-delete-exam-code">3.15. Delete exam : <code>delete exam</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.16. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.17. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.18. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.19. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.21. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.17. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -138,7 +134,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">3.2. Adding a task: <code>add task</code></a></h3>
 <div class="paragraph">
 <p>Adds a task to the schedule planner<br>
-Format: <code>add n/NAME p/PRIORITYLEVEL [c/CATEGORY]&#8230;&#8203; [d/DEADLINE]</code></p>
+Format: <code>add n/NAME p/PRIORITYLEVEL [t/TAG]&#8230;&#8203; [d/DEADLINE]</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -147,7 +143,7 @@ Format: <code>add n/NAME p/PRIORITYLEVEL [c/CATEGORY]&#8230;&#8203; [d/DEADLINE]
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A task can have any number of categories (including 0)
+A task can have any number of tags (including 0).
 </td>
 </tr>
 </table>
@@ -160,15 +156,13 @@ A task can have any number of categories (including 0)
 </ul>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/Buy Apples p/1 c/Groceries d/270319</code></p>
-</li>
-<li>
-<p><code>add n/Buy Apples c/Groceries d/270319 p/1</code></p>
+<p><code>add n/Buy Apples p/1 t/Groceries d/270319</code><br>
+Adds a task named "Buy Apples" with priority level "1", tag "Groceries" and deadline of 27th March 2019.</p>
 </li>
 </ul>
 </div>
@@ -184,7 +178,7 @@ Format: <code>list task</code></p>
 <h3 id="editing-a-task-code-edit-code"><a class="link" href="#editing-a-task-code-edit-code">3.4. Editing a task : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing task in the schedule planner.<br>
-Format: <code>edit INDEX [n/NAME] [p/PRIORITYLEVEL] [c/CATEGORY]&#8230;&#8203; [d/DEADLINE]</code></p>
+Format: <code>edit INDEX [n/NAME] [p/PRIORITYLEVEL] [t/TAGS]&#8230;&#8203; [d/DEADLINE]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -215,7 +209,7 @@ Format: <code>edit INDEX [n/NAME] [p/PRIORITYLEVEL] [c/CATEGORY]&#8230;&#8203; [
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit ask 1 n/CS2103T Milestone 2 p/3 c/School Work d/270398</code><br>
+<p><code>edit ask 1 n/CS2103T Milestone 2 p/3 t/School Work d/270398</code><br>
 Edits the name, priority level, category and deadline of the 1st task to be CS2103 Milestone 2, 3, School Work and 270398 respectively.</p>
 </li>
 <li>
@@ -271,23 +265,23 @@ Returns any task containing words <code>CS2103</code>, <code>group</code>, or <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="searching-tasks-by-category-code-search-category-code"><a class="link" href="#searching-tasks-by-category-code-search-category-code">3.6. Searching tasks by category: <code>search category</code></a></h3>
+<h3 id="searching-tasks-by-category-code-search-tag-code"><a class="link" href="#searching-tasks-by-category-code-search-tag-code">3.6. Searching tasks by category: <code>search tag</code></a></h3>
 <div class="paragraph">
-<p>Finds tasks whose category contain any of the given keywords.<br>
-Format: <code>search category KEYWORD</code></p>
+<p>Finds tasks whose tags contain any of the given keywords.<br>
+Format: <code>search tag KEYWORD</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>apples</code> will match <code>Apples</code></p>
+<p>The search is case insensitive. e.g <code>apples</code> will match <code>Apples</code>.</p>
 </li>
 <li>
 <p>Only the category is searched.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>apple</code> will not match <code>apples</code></p>
+<p>Only full words will be matched e.g. <code>apple</code> will not match <code>apples</code>.</p>
 </li>
 </ul>
 </div>
@@ -299,8 +293,8 @@ Format: <code>search category KEYWORD</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>search category tutorial</code><br>
-Returns any task whose categories contain <code>tutorial</code></p>
+<p><code>search tag tutorial</code><br>
+Returns any task which has the tag "tutorial"</p>
 </li>
 </ul>
 </div>
@@ -407,7 +401,7 @@ Format: <code>list category</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The categories will be listed in alphabetical order</p>
+<p>The categories will be listed in alphabetical order.</p>
 </li>
 </ul>
 </div>
@@ -415,133 +409,7 @@ Format: <code>list category</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-exam-code-add-exam-code"><a class="link" href="#adding-an-exam-code-add-exam-code">3.12. Adding an exam : <code>add exam</code></a></h3>
-<div class="paragraph">
-<p>Adds an exam to the list of exams.<br>
-Format: <code>add exam e/EXAMNAME d/DATE</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>DATE <strong>must be in the format DDMMYY format</strong>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add exam CS2103T 270398</code><br>
-Adds an exam named "CS2103T" on 27th March 1998.</p>
-</li>
-<li>
-<p><code>add exam CS9999 270399</code><br>
-Adds an exam named "CS9999" on 27th March 1999.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="view-exam-date-code-list-exam-code"><a class="link" href="#view-exam-date-code-list-exam-code">3.13. View exam date : <code>list exam</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all the exam dates.<br>
-Format: <code>list exam</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="modify-exam-date-code-modify-exam-code"><a class="link" href="#modify-exam-date-code-modify-exam-code">3.14. Modify exam date : <code>modify exam</code></a></h3>
-<div class="paragraph">
-<p>Modifies an existing exam in the list of exams.<br>
-Format: <code>modify exam INDEX e/EXAMNAME d/DATE</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the exam at the specified INDEX.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed exam list.</p>
-</li>
-<li>
-<p>The index must be a positive integer 1, 2, 3, …</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing value will be updated to the input values.</p>
-</li>
-<li>
-<p>d/DATE must follow the DDMMYY format.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>modify exam 1 e/CS2100 d/270300</code><br>
-Modifies the exam at INDEX 1 to have the name "CS2100" and date of 27th March 2000.</p>
-</li>
-<li>
-<p><code>modify exam 2 e/CS2929 d/270301</code><br>
-Modifies the exam at INDEX 2 to have the name "CS2929" and date of 27th March 2001.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="delete-exam-code-delete-exam-code"><a class="link" href="#delete-exam-code-delete-exam-code">3.15. Delete exam : <code>delete exam</code></a></h3>
-<div class="paragraph">
-<p>Deletes an existing exam from the exam list.<br>
-Format: <code>delete exam INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the exam at the specified INDEX.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed exam list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list exam</code><br></p>
-</li>
-<li>
-<p><code>delete 2</code><br>
-Deletes the exam at the second index of the exam list.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.16. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -562,7 +430,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.17. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -607,7 +475,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.18. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -639,28 +507,28 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.19. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Student Schedule Planner data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.22. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -682,8 +550,8 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add task</strong> <code>add task n/NAME p/PRIORITYLEVEL [d/DEADLINE] [c/CATEGORY]&#8230;&#8203;</code><br>
-e.g. <code>add task n/buy apples p/1 d/111118 c/groceries</code></p>
+<p><strong>Add task</strong> <code>add task n/NAME p/PRIORITYLEVEL [d/DEADLINE] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add task n/buy apples p/1 d/111118 t/groceries</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -693,7 +561,7 @@ e.g. <code>add task n/buy apples p/1 d/111118 c/groceries</code></p>
 e.g. <code>delete task 3</code></p>
 </li>
 <li>
-<p><strong>Edit task</strong> : <code>edit INDEX [n/NAME] [p/PRIORITYLEVEL] [d/DEADLINE] [c/CATEGORY]&#8230;&#8203;</code><br>
+<p><strong>Edit task</strong> : <code>edit INDEX [n/NAME] [p/PRIORITYLEVEL] [d/DEADLINE] [t/TAGS]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/buy bread d/211118</code></p>
 </li>
 <li>
@@ -710,20 +578,7 @@ e.g. <code>find James Jake</code></p>
 <p><strong>Sort tasks by priority</strong> : <code>sort priority</code></p>
 </li>
 <li>
-<p><strong>List categories</strong> : <code>list category</code></p>
-</li>
-<li>
-<p><strong>Add exam</strong> : <code>add exam</code></p>
-</li>
-<li>
-<p><strong>List exam</strong> : <code>list exam</code></p>
-</li>
-<li>
-<p><strong>Modify exam date</strong> : <code>modify exam</code><br>
-e.g. <code>modify exam 1 CS9998 270397</code></p>
-</li>
-<li>
-<p><strong>Delete exam</strong> : <code>delete exam</code></p>
+<p><strong>List tags</strong> : <code>list tags</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
@@ -740,4 +595,4 @@ e.g. <code>modify exam 1 CS9998 270397</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-09 12:41:17 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-10 04:40:08 UTC</div></div></div></body></html>
