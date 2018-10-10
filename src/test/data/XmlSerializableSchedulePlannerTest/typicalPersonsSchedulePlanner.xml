@@ -4,14 +4,14 @@
     <persons>
         <name>Alice Pauline</name>
         <date>94351253</date>
-        <priority>alice@example.com</priority>
+        <priority>1</priority>
         <venue>123, Jurong West Ave 6, #08-111</venue>
         <tagged>friends</tagged>
     </persons>
     <persons>
         <name>Benson Meier</name>
         <date>98765432</date>
-        <priority>johnd@example.com</priority>
+        <priority>2</priority>
         <venue>311, Clementi Ave 2, #02-25</venue>
         <tagged>owesMoney</tagged>
         <tagged>friends</tagged>
@@ -19,32 +19,32 @@
     <persons>
         <name>Carl Kurz</name>
         <date>95352563</date>
-        <priority>heinz@example.com</priority>
+        <priority>3</priority>
         <venue>wall street</venue>
     </persons>
     <persons>
         <name>Daniel Meier</name>
         <date>87652533</date>
-        <priority>cornelia@example.com</priority>
+        <priority>1</priority>
         <venue>10th street</venue>
         <tagged>friends</tagged>
     </persons>
     <persons>
         <name>Elle Meyer</name>
         <date>9482224</date>
-        <priority>werner@example.com</priority>
+        <priority>2</priority>
         <venue>michegan ave</venue>
     </persons>
     <persons>
         <name>Fiona Kunz</name>
         <date>9482427</date>
-        <priority>lydia@example.com</priority>
+        <priority>3</priority>
         <venue>little tokyo</venue>
     </persons>
     <persons>
         <name>George Best</name>
         <date>9482442</date>
-        <priority>anna@example.com</priority>
+        <priority>1</priority>
         <venue>4th street</venue>
     </persons>
 </addressbook>

@@ -101,8 +101,8 @@ public class XmlAdaptedTask {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
                     Priority.class.getSimpleName()));
         }
-        if (!Priority.isValidEmail(priority)) {
-            throw new IllegalValueException(Priority.MESSAGE_EMAIL_CONSTRAINTS);
+        if (!Priority.isValidPriority(priority)) {
+            throw new IllegalValueException(Priority.MESSAGE_PRIORITY_CONSTRAINTS);
         }
         final Priority modelPriority = new Priority(priority);
 

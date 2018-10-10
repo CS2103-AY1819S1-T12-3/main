@@ -2,7 +2,7 @@
 <!-- Task with missing name field -->
 <task>
     <date>9482424</date>
-    <priority>hans@example</priority>
+    <priority>1</priority>
     <venue>4th street</venue>
     <tagged>friends</tagged>
 </task>

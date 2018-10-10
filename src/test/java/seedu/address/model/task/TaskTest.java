@@ -44,18 +44,23 @@ public class TaskTest {
         assertFalse(ALICE.isSameTask(editedAlice));
 
         // same name, same phone, different attributes -> returns true
+        // same name, same phone, different attributes -> return false as task are unique
         editedAlice = new TaskBuilder(ALICE).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
-        assertTrue(ALICE.isSameTask(editedAlice));
+        //assertTrue(ALICE.isSameTask(editedAlice));
+        assertFalse(ALICE.isSameTask(editedAlice));
 
         // same name, same email, different attributes -> returns true
+        // same name, same phone, different attributes -> return false as task are unique
         editedAlice = new TaskBuilder(ALICE).withPhone(VALID_PHONE_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
-        assertTrue(ALICE.isSameTask(editedAlice));
+        //assertTrue(ALICE.isSameTask(editedAlice));
+        assertFalse(ALICE.isSameTask(editedAlice));
 
-        // same name, same phone, same email, different attributes -> returns true
-        editedAlice = new TaskBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
-        assertTrue(ALICE.isSameTask(editedAlice));
+        // same fields -> returns true
+        // commented off as the following test below check if alice is same as alice
+        //editedAlice = new TaskBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND).build();
+        //assertFalse(ALICE.isSameTask(editedAlice));
     }
 
     @Test
