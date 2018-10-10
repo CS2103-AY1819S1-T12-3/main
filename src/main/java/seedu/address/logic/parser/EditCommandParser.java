@@ -47,7 +47,7 @@ public class EditCommandParser implements Parser<EditCommand> {
             editTaskDescriptor.setName(ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get()));
         }
         if (argMultimap.getValue(PREFIX_PHONE).isPresent()) {
-            editTaskDescriptor.setDate(ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get()));
+            editTaskDescriptor.setDate(ParserUtil.parseDate(argMultimap.getValue(PREFIX_PHONE).get()));
         }
         if (argMultimap.getValue(PREFIX_EMAIL).isPresent()) {
             editTaskDescriptor.setPriority(ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get()));
