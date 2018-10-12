@@ -3,7 +3,7 @@
     <!-- Task with invalid name field -->
     <tasks>
         <name>Ha!ns Mu@ster</name>
-        <date isPrivate="false">9482424</date>
+        <date isPrivate="false">111124</date>
         <priority isPrivate="false">hans@example.com</priority>
         <venue isPrivate="false">4th street</venue>
     </tasks>

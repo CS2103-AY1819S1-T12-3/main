@@ -15,27 +15,31 @@ public class DateTest {
     }
 
     @Test
-    public void constructor_invalidPhone_throwsIllegalArgumentException() {
-        String invalidPhone = "";
-        Assert.assertThrows(IllegalArgumentException.class, () -> new Date(invalidPhone));
+    public void constructor_invalidDate_throwsIllegalArgumentException() {
+        String invalidDate = "";
+        Assert.assertThrows(IllegalArgumentException.class, () -> new Date(invalidDate));
     }
 
     @Test
-    public void isValidPhone() {
-        // null phone number
-        Assert.assertThrows(NullPointerException.class, () -> Date.isValidPhone(null));
+    public void isValidDate() {
+        // null date
+        Assert.assertThrows(NullPointerException.class, () -> Date.isValidDate(null));
 
-        // invalid phone numbers
-        assertFalse(Date.isValidPhone("")); // empty string
-        assertFalse(Date.isValidPhone(" ")); // spaces only
-        assertFalse(Date.isValidPhone("91")); // less than 3 numbers
-        assertFalse(Date.isValidPhone("phone")); // non-numeric
-        assertFalse(Date.isValidPhone("9011p041")); // alphabets within digits
-        assertFalse(Date.isValidPhone("9312 1534")); // spaces within digits
+        // invalid dates
+        assertFalse(Date.isValidDate("")); // empty string
+        assertFalse(Date.isValidDate(" ")); // spaces only
+        assertFalse(Date.isValidDate("91")); // less than 3 numbers
+        assertFalse(Date.isValidDate("date")); // non-numeric
+        assertFalse(Date.isValidDate("9011p041")); // alphabets within digits
+        assertFalse(Date.isValidDate("9312 1534")); // spaces within digits
+        assertFalse(Date.isValidDate("931234")); // more than 31 days
+        assertFalse(Date.isValidDate("001134")); // 0 day
+        assertFalse(Date.isValidDate("210034")); // 0 month
+        assertFalse(Date.isValidDate("021434")); // more than 12 months
 
-        // valid phone numbers
-        assertTrue(Date.isValidPhone("911")); // exactly 3 numbers
-        assertTrue(Date.isValidPhone("93121534"));
-        assertTrue(Date.isValidPhone("124293842033123")); // long phone numbers
+        // valid dates
+        assertTrue(Date.isValidDate("091112")); // exactly 6 numbers
+        assertTrue(Date.isValidDate("031234"));
+        assertTrue(Date.isValidDate("120223"));
     }
 }

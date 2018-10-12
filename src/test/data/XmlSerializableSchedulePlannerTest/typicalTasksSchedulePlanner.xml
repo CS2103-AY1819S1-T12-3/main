@@ -3,14 +3,14 @@
 <scheduleplanner>
     <tasks>
         <name>Alice Pauline</name>
-        <date>94351253</date>
+        <date>120823</date>
         <priority>1</priority>
         <venue>123, Jurong West Ave 6, #08-111</venue>
         <tagged>friends</tagged>
     </tasks>
     <tasks>
         <name>Benson Meier</name>
-        <date>98765432</date>
+        <date>130921</date>
         <priority>2</priority>
         <venue>311, Clementi Ave 2, #02-25</venue>
         <tagged>owesMoney</tagged>
@@ -18,32 +18,32 @@
     </tasks>
     <tasks>
         <name>Carl Kurz</name>
-        <date>95352563</date>
+        <date>110434</date>
         <priority>3</priority>
         <venue>wall street</venue>
     </tasks>
     <tasks>
         <name>Daniel Meier</name>
-        <date>87652533</date>
+        <date>070503</date>
         <priority>1</priority>
         <venue>10th street</venue>
         <tagged>friends</tagged>
     </tasks>
     <tasks>
         <name>Elle Meyer</name>
-        <date>9482224</date>
+        <date>040602</date>
         <priority>2</priority>
         <venue>michegan ave</venue>
     </tasks>
     <tasks>
         <name>Fiona Kunz</name>
-        <date>9482427</date>
+        <date>030512</date>
         <priority>3</priority>
         <venue>little tokyo</venue>
     </tasks>
     <tasks>
         <name>George Best</name>
-        <date>9482442</date>
+        <date>030295</date>
         <priority>1</priority>
         <venue>4th street</venue>
     </tasks>
