@@ -1,3 +1,13 @@
+// Quick Guide for ASCIIDocs
+// [Tip] : Nifty tricks
+// [Important] : Don't forget . . .
+// [Warning] : Watch out for . . .
+// [Caution] : To ensure . . .
+//
+// Italics : _(word)_
+// Bold : *(word)*
+
+
 = Student Schedule Planner - User Guide
 :site-section: UserGuide
 :toc:
@@ -21,8 +31,10 @@ By: `Team T12-3`      Since: `Sep 2018`      Licence: `MIT`
 Student Schedule Planner (SSP) is a desktop application *aimed at helping students manage their schedules effectively*. SSP is *optimised for those who prefer to work with a Command Line Interface* (CLI) while retaining the benefits of a Graphical User Interface (GUI). If you can type fast, SSP can get your schedule management tasks done faster than traditional GUI apps. Interested? Jump to the <<Quick Start>> to get started. Enjoy!
 
 == Quick Start
+.  If you do not already have Java `9` installed, download it from link:{https://www.oracle.com/technetwork/java/javase/downloads/index.html}[here]. +
+[WARNING]
+The application may not run correctly on Java `10` or Java `11`.
 
-.  Ensure you have Java version `9` or later installed in your Computer.
 .  Download the latest `studentscheduleplanner.jar` link:{repoURL}/releases[here].
 .  Copy the file to the folder that you want to use as the home folder for your planner.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
@@ -31,7 +43,7 @@ image::Ui.png[width="790"]
 +
 .  Type the command in the command box and press kbd:[Enter] to execute it. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
-.  Some example commands you can try:
+.  To test that the application is working correctly, test out some commands:
 
 * *`list task`* : lists all tasks
 * **`add`**`task n/Buy Apples p/1 c/Groceries d/270319` : adds a task named `Buy Apples` to the Student Schedule Planner.
@@ -59,10 +71,13 @@ Format: `help`
 === Adding a task: `add task`
 
 Adds a task to the schedule planner +
-Format: `add n/NAME p/PRIORITYLEVEL [t/TAG]... [d/DEADLINE]`
+Format: `add [n/NAME] [p/PRIORITYLEVEL] [t/TAG]... [d/DEADLINE]`
+
+[CAUTION]
+Ensure that you have included the name, priority level and deadline.
 
 [TIP]
-A task can have any number of tags (including 0).
+Tags are optional, you do not need to add them.
 
 * The priority level must be an integer between 1 to 3, where 3 denotes highest priority.
 
@@ -89,6 +104,9 @@ Format: `edit INDEX [n/NAME] [p/PRIORITYLEVEL] [t/TAGS]... [d/DEADLINE]`
 * When editing categories, the existing categories of the task will be removed i.e adding of categories is not cumulative.
 * You can remove all the task's categories by typing `c/` without specifying any categories after it.
 ****
+
+[TIP]
+Use the `list task` command to find out the index of the task to be modified.
 
 Examples:
 
@@ -129,6 +147,9 @@ Format: `search tag KEYWORD`
 * Only full words will be matched e.g. `apple` will not match `apples`.
 ****
 
+[TIP]
+You can include multiple tags to improve to make your searches more specific.
+
 Examples:
 
 * `search tag tutorial` +
@@ -144,6 +165,10 @@ Format: `delete task INDEX`
 * The index refers to the index number shown in the displayed task list.
 * The index *must be a positive integer* 1, 2, 3, ...
 ****
+
+[TIP]
+Use the `list task` command to find out the index of the task to be modified.
+
 
 Examples:
 
@@ -210,6 +235,10 @@ Format: `undo`
 ====
 Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`).
 ====
+
+[TIP]
+Use the `history` command to decide if you want to undo the previous _undoable_ command.
+
 
 Examples:
 
