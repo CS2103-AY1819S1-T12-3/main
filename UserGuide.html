@@ -52,7 +52,19 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java version <code>9</code> or later installed in your Computer.</p>
+<p>If you do not already have Java <code>9</code> installed, download it from <a href="{https://www.oracle.com/technetwork/java/javase/downloads/index.html}">here</a>.<br></p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The application may not run correctly on Java <code>10</code> or Java <code>11</code>.
+</td>
+</tr>
+</table>
+</div>
 </li>
 <li>
 <p>Download the latest <code>studentscheduleplanner.jar</code> <a href="https://github.com/CS2103-AY1819S1-T12-3/main//releases">here</a>.</p>
@@ -73,7 +85,7 @@
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Some example commands you can try:</p>
+<p>To test that the application is working correctly, test out some commands:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -134,7 +146,19 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="adding-a-task-code-add-task-code"><a class="link" href="#adding-a-task-code-add-task-code">3.2. Adding a task: <code>add task</code></a></h3>
 <div class="paragraph">
 <p>Adds a task to the schedule planner<br>
-Format: <code>add n/NAME p/PRIORITYLEVEL [t/TAG]&#8230;&#8203; [d/DEADLINE]</code></p>
+Format: <code>add [n/NAME] [p/PRIORITYLEVEL] [t/TAG]&#8230;&#8203; [d/DEADLINE]</code></p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Ensure that you have included the name, priority level and deadline.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -143,7 +167,7 @@ Format: <code>add n/NAME p/PRIORITYLEVEL [t/TAG]&#8230;&#8203; [d/DEADLINE]</cod
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A task can have any number of tags (including 0).
+Tags are optional, you do not need to add them.
 </td>
 </tr>
 </table>
@@ -202,6 +226,18 @@ Format: <code>edit INDEX [n/NAME] [p/PRIORITYLEVEL] [t/TAGS]&#8230;&#8203; [d/DE
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use the <code>list task</code> command to find out the index of the task to be modified.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -287,6 +323,18 @@ Format: <code>search tag KEYWORD</code></p>
 </div>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can include multiple tags to improve to make your searches more specific.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -321,6 +369,18 @@ Format: <code>delete task INDEX</code></p>
 </ul>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use the <code>list task</code> command to find out the index of the task to be modified.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -445,6 +505,18 @@ Format: <code>undo</code></p>
 <div class="paragraph">
 <p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use the <code>history</code> command to decide if you want to undo the previous <em>undoable</em> command.
 </td>
 </tr>
 </table>
@@ -595,4 +667,4 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-11 09:02:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-12 09:56:08 UTC</div></div></div></body></html>
