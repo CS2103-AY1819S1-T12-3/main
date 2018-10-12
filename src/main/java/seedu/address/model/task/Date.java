@@ -4,33 +4,92 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
- * Represents a Task's phone number in the Schedule Planner.
- * Guarantees: immutable; is valid as declared in {@link #isValidPhone(String)}
+ * Represents a Task's date in the Schedule Planner.
+ * Guarantees: immutable; is valid as declared in {@link #isValidDate(String)}
  */
 public class Date {
 
 
-    public static final String MESSAGE_PHONE_CONSTRAINTS =
-            "Date numbers should only contain numbers, and it should be at least 3 digits long";
-    public static final String PHONE_VALIDATION_REGEX = "\\d{3,}";
+    public static final String MESSAGE_DATE_CONSTRAINTS =
+            "Date should only contain numbers, and it should be exactly 6 digits long";
+    public static final String DATE_VALIDATION_REGEX = "\\d{6}";
     public final String value;
+    public final int day;
+    public final int month;
+    public final int year;
 
     /**
      * Constructs a {@code Date}.
      *
-     * @param phone A valid phone number.
+     * @param date A valid date.
      */
-    public Date(String phone) {
-        requireNonNull(phone);
-        checkArgument(isValidPhone(phone), MESSAGE_PHONE_CONSTRAINTS);
-        value = phone;
+    public Date(String date) {
+        requireNonNull(date);
+        checkArgument(isValidDate(date), MESSAGE_DATE_CONSTRAINTS);
+        value = date;
+
+        String dayString = date.substring(0, 2);
+        day = Integer.parseInt(dayString);
+        String monthString = date.substring(2, 4);
+        month = Integer.parseInt(monthString);
+        String yearString = date.substring(4, 6);
+        year = Integer.parseInt(yearString) + 2000;
     }
 
     /**
-     * Returns true if a given string is a valid phone number.
+     * Returns true if a given string is a valid date.
      */
-    public static boolean isValidPhone(String test) {
-        return test.matches(PHONE_VALIDATION_REGEX);
+    public static boolean isValidDate(String test) {
+        if (!test.matches(DATE_VALIDATION_REGEX)) {
+            return false;
+        }
+        String dayString = test.substring(0, 2);
+        int day = Integer.parseInt(dayString);
+        String monthString = test.substring(2, 4);
+        int month = Integer.parseInt(monthString);
+        String yearString = test.substring(4, 6);
+        int year = Integer.parseInt(yearString) + 2000;
+        if (month > 12 || month == 0) {
+            return false;
+        } else if (day == 0) {
+            return false;
+        } else if (isLargeMonth(month)) {
+            return day <= 31;
+        } else if (month == 2) {
+            if (isLeapYear(year)) {
+                return day <= 29;
+            } else {
+                return day <= 28;
+            }
+        } else {
+            return day <= 30;
+        }
+    }
+
+    /**
+     * Returns true if a given year is a leap year.
+     * @param year A year
+     */
+    private static boolean isLeapYear(int year) {
+        if (year % 4 != 0) {
+            return false;
+        } else if (year % 400 == 0) {
+            return true;
+        } else if (year % 100 == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Returns true if a given month has 31 days.
+     * @param month A month
+     */
+    private static boolean isLargeMonth(int month) {
+        return month == 1 || month == 3 || month == 5
+                || month == 7 || month == 8
+                || month == 10 || month == 12;
     }
 
     @Override

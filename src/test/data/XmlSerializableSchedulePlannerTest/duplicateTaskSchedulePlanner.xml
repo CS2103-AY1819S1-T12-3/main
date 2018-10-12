@@ -3,7 +3,7 @@
 
     <tasks>
         <name>Alice Pauline</name>
-        <date>94351253</date>
+        <date>120823</date>
         <priority>1</priority>
         <venue>123, Jurong West Ave 6, #08-111</venue>
         <tagged>friends</tagged>
@@ -12,7 +12,7 @@
     <!-- Task with same identity as Alice Pauline -->
     <tasks>
         <name>Alice Pauline</name>
-        <date>94351253</date>
+        <date>120823</date>
         <priority>1</priority>
         <venue>123, Jurong West Ave 6, #08-111</venue>
         <tagged>friends</tagged>

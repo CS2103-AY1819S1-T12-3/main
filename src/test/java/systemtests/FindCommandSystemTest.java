@@ -111,7 +111,7 @@ public class FindCommandSystemTest extends SchedulePlannerSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find phone number of task in address book -> 0 persons found */
+        /* Case: find date of task in address book -> 0 persons found */
         command = FindCommand.COMMAND_WORD + " " + DANIEL.getDate().value;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();

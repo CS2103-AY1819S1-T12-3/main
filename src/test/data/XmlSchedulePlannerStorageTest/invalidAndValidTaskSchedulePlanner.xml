@@ -7,7 +7,7 @@
         <priority isPrivate="false">1</priority>
         <venue isPrivate="false">4th street</venue>
     </tasks>
-    <!-- Task with invalid phone field -->
+    <!-- Task with invalid date field -->
     <tasks>
         <name>Hans Muster</name>
         <date isPrivate="false">948asdf2424</date>

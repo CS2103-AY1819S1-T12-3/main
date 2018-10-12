@@ -34,10 +34,10 @@ public class XmlUtilTest {
     private static final Path VALID_TASK_FILE = TEST_DATA_FOLDER.resolve("validTask.xml");
     private static final Path TEMP_FILE = TestUtil.getFilePathInSandboxFolder("tempSchedulePlanner.xml");
 
-    private static final String INVALID_PHONE = "9482asf424";
+    private static final String INVALID_DATE = "9482asf424";
 
     private static final String VALID_NAME = "Hans Muster";
-    private static final String VALID_PHONE = "9482424";
+    private static final String VALID_DATE = "111124";
     private static final String VALID_EMAIL = "1";
     private static final String VALID_ADDRESS = "4th street";
     private static final List<XmlAdaptedTag> VALID_TAGS = Collections.singletonList(new XmlAdaptedTag("friends"));
@@ -81,7 +81,7 @@ public class XmlUtilTest {
         XmlAdaptedTask actualTask = XmlUtil.getDataFromFile(
                 MISSING_TASK_FIELD_FILE, XmlAdaptedTaskWithRootElement.class);
         XmlAdaptedTask expectedTask = new XmlAdaptedTask(
-                null, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
+                null, VALID_DATE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         assertEquals(expectedTask, actualTask);
     }
 
@@ -90,7 +90,7 @@ public class XmlUtilTest {
         XmlAdaptedTask actualTask = XmlUtil.getDataFromFile(
                 INVALID_TASK_FIELD_FILE, XmlAdaptedTaskWithRootElement.class);
         XmlAdaptedTask expectedTask = new XmlAdaptedTask(
-                VALID_NAME, INVALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
+                VALID_NAME, INVALID_DATE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         assertEquals(expectedTask, actualTask);
     }
 
@@ -99,7 +99,7 @@ public class XmlUtilTest {
         XmlAdaptedTask actualTask = XmlUtil.getDataFromFile(
                 VALID_TASK_FILE, XmlAdaptedTaskWithRootElement.class);
         XmlAdaptedTask expectedTask = new XmlAdaptedTask(
-                VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
+                VALID_NAME, VALID_DATE, VALID_EMAIL, VALID_ADDRESS, VALID_TAGS);
         assertEquals(expectedTask, actualTask);
     }
 

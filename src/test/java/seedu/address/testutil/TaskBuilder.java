@@ -17,7 +17,7 @@ import seedu.address.model.util.SampleDataUtil;
 public class TaskBuilder {
 
     public static final String DEFAULT_NAME = "Alice Pauline";
-    public static final String DEFAULT_PHONE = "85355255";
+    public static final String DEFAULT_DATE = "111155";
     //public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_EMAIL = "1";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
@@ -31,7 +31,7 @@ public class TaskBuilder {
     public TaskBuilder() {
         name = new Name(
                 DEFAULT_NAME);
-        date = new Date(DEFAULT_PHONE);
+        date = new Date(DEFAULT_DATE);
         priority = new Priority(DEFAULT_EMAIL);
         venue = new Venue(DEFAULT_ADDRESS);
         tags = new HashSet<>();
@@ -75,8 +75,8 @@ public class TaskBuilder {
     /**
      * Sets the {@code Date} of the {@code Task} that we are building.
      */
-    public TaskBuilder withPhone(String phone) {
-        this.date = new Date(phone);
+    public TaskBuilder withDate(String date) {
+        this.date = new Date(date);
         return this;
     }
 
