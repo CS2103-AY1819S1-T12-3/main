@@ -20,17 +20,18 @@
 <li><a href="#searching-tasks-by-name-code-search-task-code">3.5. Searching tasks by name: <code>search task</code></a></li>
 <li><a href="#searching-tasks-by-category-code-search-tag-code">3.6. Searching tasks by category: <code>search tag</code></a></li>
 <li><a href="#deleting-a-task-code-delete-task-code">3.7. Deleting a task : <code>delete task</code></a></li>
-<li><a href="#viewing-tasks-due-code-view-task-code">3.8. Viewing tasks due : <code>view task</code></a></li>
-<li><a href="#listing-overdue-tasks-code-list-overdue-code">3.9. Listing overdue tasks: <code>list overdue</code></a></li>
-<li><a href="#sorting-task-by-priority-level-code-sort-priority-code">3.10. Sorting task by priority level : <code>sort priority</code></a></li>
-<li><a href="#listing-categories-code-list-category-code">3.11. Listing categories : <code>list category</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.17. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#viewing-tasks-due-today-code-listday-code">3.8. Viewing tasks due today : <code>listday</code></a></li>
+<li><a href="#viewing-tasks-due-till-sunday-code-listweek-code">3.9. Viewing tasks due till Sunday : <code>listweek</code></a></li>
+<li><a href="#listing-overdue-tasks-code-list-overdue-code">3.10. Listing overdue tasks: <code>list overdue</code></a></li>
+<li><a href="#sorting-task-by-priority-level-code-sort-priority-code">3.11. Sorting task by priority level : <code>sort priority</code></a></li>
+<li><a href="#listing-categories-code-list-category-code">3.12. Listing categories : <code>list category</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.13. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">3.14. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">3.15. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.16. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -401,57 +402,35 @@ Deletes the 1st task in the results of the <code>search task</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-tasks-due-code-view-task-code"><a class="link" href="#viewing-tasks-due-code-view-task-code">3.8. Viewing tasks due : <code>view task</code></a></h3>
+<h3 id="viewing-tasks-due-today-code-listday-code"><a class="link" href="#viewing-tasks-due-today-code-listday-code">3.8. Viewing tasks due today : <code>listday</code></a></h3>
 <div class="paragraph">
-<p>View tasks that are due within a specified number of days.<br>
-Format: <code>view task DAYS</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>View tasks due within the DAYS number of days.</p>
-</li>
-<li>
-<p>DAYS <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>view task 1</code><br>
-Shows a list of all tasks due within 1 day.</p>
-</li>
-<li>
-<p><code>view task 7</code><br>
-Shows a list of all tasks due within 1 week.</p>
-</li>
-</ul>
+<p>View tasks that are due today.<br>
+Format: <code>listday</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-overdue-tasks-code-list-overdue-code"><a class="link" href="#listing-overdue-tasks-code-list-overdue-code">3.9. Listing overdue tasks: <code>list overdue</code></a></h3>
+<h3 id="viewing-tasks-due-till-sunday-code-listweek-code"><a class="link" href="#viewing-tasks-due-till-sunday-code-listweek-code">3.9. Viewing tasks due till Sunday : <code>listweek</code></a></h3>
+<div class="paragraph">
+<p>View tasks that are due from current date till the closest Sunday.<br>
+Format: <code>listweek</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-overdue-tasks-code-list-overdue-code"><a class="link" href="#listing-overdue-tasks-code-list-overdue-code">3.10. Listing overdue tasks: <code>list overdue</code></a></h3>
 <div class="paragraph">
 <p>Lists all the overdue tasks.<br>
 Format: <code>list overdue</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-task-by-priority-level-code-sort-priority-code"><a class="link" href="#sorting-task-by-priority-level-code-sort-priority-code">3.10. Sorting task by priority level : <code>sort priority</code></a></h3>
+<h3 id="sorting-task-by-priority-level-code-sort-priority-code"><a class="link" href="#sorting-task-by-priority-level-code-sort-priority-code">3.11. Sorting task by priority level : <code>sort priority</code></a></h3>
 <div class="paragraph">
 <p>Sorts the list of tasks by priority. Highest priority tasks (level 3) will be shown first.<br>
 Format: <code>sort priority</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-categories-code-list-category-code"><a class="link" href="#listing-categories-code-list-category-code">3.11. Listing categories : <code>list category</code></a></h3>
+<h3 id="listing-categories-code-list-category-code"><a class="link" href="#listing-categories-code-list-category-code">3.12. Listing categories : <code>list category</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of existing categories.<br>
 Format: <code>list category</code></p>
@@ -469,7 +448,7 @@ Format: <code>list category</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.12. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.13. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -490,7 +469,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.13. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">3.14. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -547,7 +526,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.14. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">3.15. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -579,28 +558,28 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.15. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.16. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
 <div class="paragraph">
 <p>Student Schedule Planner data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.18. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.19. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -641,7 +620,10 @@ e.g. <code>edit 2 n/buy bread d/211118</code></p>
 e.g. <code>find James Jake</code></p>
 </li>
 <li>
-<p><strong>List tasks</strong> : <code>list task</code></p>
+<p><strong>List tasks due today</strong> : <code>listday</code></p>
+</li>
+<li>
+<p><strong>List tasks due till Sunday</strong> : <code>listweek</code></p>
 </li>
 <li>
 <p><strong>List overdue tasks</strong> : <code>list overdue</code></p>
@@ -667,4 +649,4 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-12 15:07:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-14 09:58:33 UTC</div></div></div></body></html>
