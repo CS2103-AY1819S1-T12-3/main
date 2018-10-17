@@ -140,14 +140,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="content">
 <div class="paragraph">
 <p>Format:<br>
-<code class="blue">add [n/NAME] [p/PRIORITYLEVEL] [t/TAG]&#8230;&#8203; [d/DEADLINE]</code><br></p>
+<code class="blue">add [n/NAME] [p/PRIORITYLEVEL] [t/TAG] [d/DEADLINE] [v/VENUE]</code><br></p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">add n/tutorial3 p/<span class="integer">3</span> t/CS3241 d/today</code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">add n/tutorial3 p/<span class="integer">3</span> t/CS3241 d/<span class="integer">101018</span> v/home</code></pre>
 </div>
 </div>
 </div>
@@ -159,7 +159,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-Ensure that you have included the name, priority level and deadline.
+Ensure that you have included the name, priority level, deadline and venue.
 </td>
 </tr>
 </table>
@@ -189,7 +189,7 @@ Tags are optional, you do not need to add them.
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/Buy Apples p/1 t/Groceries d/270319</code><br>
+<p><code>add n/Buy Apples p/1 t/Groceries d/270319 v/market</code><br>
 Adds a task named "Buy Apples" with priority level "1", tag "Groceries" and deadline of 27th March 2019.</p>
 </li>
 </ul>
@@ -249,12 +249,13 @@ Use the <code>list task</code> command to find out the index of the task to be m
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit ask 1 n/CS2103T Milestone 2 p/3 t/School Work d/270398</code><br>
-Edits the name, priority level, category and deadline of the 1st task to be CS2103 Milestone 2, 3, School Work and 270398 respectively.</p>
+<p><code>edit task 1 n/CS2103T Milestone 2 p/3 t/School Work d/270398</code><br>
+Edits the name, priority level, tag and deadline of the 1st task to be CS2103 Milestone 2, 3, School Work and 270398
+respectively.</p>
 </li>
 <li>
-<p><code>edit 2 c/ d/</code><br>
-Edits the category and deadline of the 2nd task to be blank.</p>
+<p><code>edit 2 t/ d/</code><br>
+Edits the tag and deadline of the 2nd task to be blank.</p>
 </li>
 </ul>
 </div>
@@ -604,8 +605,8 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add task</strong> <code>add task n/NAME p/PRIORITYLEVEL [d/DEADLINE] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add task n/buy apples p/1 d/111118 t/groceries</code></p>
+<p><strong>Add task</strong> <code>add task n/NAME p/PRIORITYLEVEL [d/DEADLINE] [v/VENUE] [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add task n/buy apples p/1 d/111118 v/market t/groceries</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -615,12 +616,12 @@ e.g. <code>add task n/buy apples p/1 d/111118 t/groceries</code></p>
 e.g. <code>delete task 3</code></p>
 </li>
 <li>
-<p><strong>Edit task</strong> : <code>edit INDEX [n/NAME] [p/PRIORITYLEVEL] [d/DEADLINE] [t/TAGS]&#8230;&#8203;</code><br>
+<p><strong>Edit task</strong> : <code>edit INDEX [n/NAME] [p/PRIORITYLEVEL] [d/DEADLINE] [v/VENUE] [t/TAGS]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/buy bread d/211118</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+e.g. <code>find Tutorial</code></p>
 </li>
 <li>
 <p><strong>List tasks due today</strong> : <code>listday</code></p>
@@ -652,4 +653,4 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 14:30:09 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:28:39 UTC</div></div></div></body></html>
