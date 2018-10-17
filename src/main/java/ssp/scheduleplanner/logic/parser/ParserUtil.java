@@ -75,7 +75,7 @@ public class ParserUtil {
         requireNonNull(address);
         String trimmedAddress = address.trim();
         if (!Venue.isValidAddress(trimmedAddress)) {
-            throw new ParseException(Venue.MESSAGE_ADDRESS_CONSTRAINTS);
+            throw new ParseException(Venue.MESSAGE_VENUE_CONSTRAINTS);
         }
         return new Venue(trimmedAddress);
     }

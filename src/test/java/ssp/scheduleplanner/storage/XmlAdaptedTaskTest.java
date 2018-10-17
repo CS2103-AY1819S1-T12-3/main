@@ -87,7 +87,7 @@ public class XmlAdaptedTaskTest {
     public void toModelType_invalidAddress_throwsIllegalValueException() {
         XmlAdaptedTask task =
                 new XmlAdaptedTask(VALID_NAME, VALID_DATE, VALID_EMAIL, INVALID_ADDRESS, VALID_TAGS);
-        String expectedMessage = Venue.MESSAGE_ADDRESS_CONSTRAINTS;
+        String expectedMessage = Venue.MESSAGE_VENUE_CONSTRAINTS;
         Assert.assertThrows(IllegalValueException.class, expectedMessage, task::toModelType);
     }
 

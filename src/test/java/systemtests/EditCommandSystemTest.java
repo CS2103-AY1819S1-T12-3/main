@@ -3,13 +3,13 @@ package systemtests;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VENUE_DESC_AMY;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VENUE_DESC_BOB;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.DATE_DESC_AMY;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.DATE_DESC_BOB;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_VENUE_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
@@ -61,7 +61,7 @@ public class EditCommandSystemTest extends SchedulePlannerSystemTest {
          */
         Index index = INDEX_FIRST_TASK;
         String command = " " + EditCommand.COMMAND_WORD + "  " + index.getOneBased() + "  " + NAME_DESC_BOB + "  "
-                + DATE_DESC_BOB + " " + EMAIL_DESC_BOB + "  " + ADDRESS_DESC_BOB + " " + TAG_DESC_HUSBAND + " ";
+                + DATE_DESC_BOB + " " + EMAIL_DESC_BOB + "  " + VENUE_DESC_BOB + " " + TAG_DESC_HUSBAND + " ";
         Task editedTask = new TaskBuilder(BOB).withTags(VALID_TAG_HUSBAND).build();
         assertCommandSuccess(command, index, editedTask);
 
@@ -79,7 +79,7 @@ public class EditCommandSystemTest extends SchedulePlannerSystemTest {
 
         /* Case: edit a task with new values same as existing values -> edited */
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandSuccess(command, index, BOB);
 
         /* Case: edit a task with new values same as another task's values but with different name -> edited */
@@ -87,7 +87,7 @@ public class EditCommandSystemTest extends SchedulePlannerSystemTest {
         index = INDEX_SECOND_TASK;
         assertNotEquals(getModel().getFilteredTaskList().get(index.getZeroBased()), BOB);
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY + DATE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         editedTask = new TaskBuilder(BOB).withName(VALID_NAME_AMY).build();
         assertCommandSuccess(command, index, editedTask);
 
@@ -96,7 +96,7 @@ public class EditCommandSystemTest extends SchedulePlannerSystemTest {
          */
         index = INDEX_SECOND_TASK;
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + DATE_DESC_AMY + EMAIL_DESC_AMY
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         editedTask = new TaskBuilder(BOB).withDate(VALID_DATE_AMY).withEmail(VALID_EMAIL_AMY).build();
         assertCommandSuccess(command, index, editedTask);
 
@@ -135,7 +135,7 @@ public class EditCommandSystemTest extends SchedulePlannerSystemTest {
         index = INDEX_FIRST_TASK;
         selectTask(index);
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_AMY + DATE_DESC_AMY + EMAIL_DESC_AMY
-                + ADDRESS_DESC_AMY + TAG_DESC_FRIEND;
+                + VENUE_DESC_AMY + TAG_DESC_FRIEND;
         // this can be misleading: card selection actually remains unchanged but the
         // browser's url is updated to reflect the new task's name
         assertCommandSuccess(command, index, AMY, index);
@@ -175,8 +175,8 @@ public class EditCommandSystemTest extends SchedulePlannerSystemTest {
                 Priority.MESSAGE_PRIORITY_CONSTRAINTS);
 
         /* Case: invalid address -> rejected */
-        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_TASK.getOneBased() + INVALID_ADDRESS_DESC,
-                Venue.MESSAGE_ADDRESS_CONSTRAINTS);
+        assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_TASK.getOneBased() + INVALID_VENUE_DESC,
+                Venue.MESSAGE_VENUE_CONSTRAINTS);
 
         /* Case: invalid tag -> rejected */
         assertCommandFailure(EditCommand.COMMAND_WORD + " " + INDEX_FIRST_TASK.getOneBased() + INVALID_TAG_DESC,
@@ -188,7 +188,7 @@ public class EditCommandSystemTest extends SchedulePlannerSystemTest {
         index = INDEX_FIRST_TASK;
         assertFalse(getModel().getFilteredTaskList().get(index.getZeroBased()).equals(BOB));
         command = EditCommand.COMMAND_WORD + " " + index.getOneBased() + NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND + TAG_DESC_HUSBAND;
         assertCommandFailure(command, EditCommand.MESSAGE_DUPLICATE_TASK);
 
         /*---------------------------------Performing valid edit-----------------------------------------*/

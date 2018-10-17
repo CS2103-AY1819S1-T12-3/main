@@ -110,7 +110,7 @@ public class XmlAdaptedTask {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Venue.class.getSimpleName()));
         }
         if (!Venue.isValidAddress(venue)) {
-            throw new IllegalValueException(Venue.MESSAGE_ADDRESS_CONSTRAINTS);
+            throw new IllegalValueException(Venue.MESSAGE_VENUE_CONSTRAINTS);
         }
         final Venue modelVenue = new Venue(venue);
 

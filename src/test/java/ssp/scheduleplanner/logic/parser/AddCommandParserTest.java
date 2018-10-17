@@ -1,13 +1,13 @@
 package ssp.scheduleplanner.logic.parser;
 
 import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VENUE_DESC_AMY;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VENUE_DESC_BOB;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.DATE_DESC_AMY;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.DATE_DESC_BOB;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_VENUE_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
@@ -49,28 +49,28 @@ public class AddCommandParserTest {
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
 
         // multiple names - last name accepted
         assertParseSuccess(parser, NAME_DESC_AMY + NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
 
         // multiple dates - last date accepted
         assertParseSuccess(parser, NAME_DESC_BOB + DATE_DESC_AMY + DATE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
 
         // multiple emails - last email accepted
         assertParseSuccess(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_AMY + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
 
         // multiple addresses - last address accepted
-        assertParseSuccess(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_AMY
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
+        assertParseSuccess(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + VENUE_DESC_AMY
+                + VENUE_DESC_BOB + TAG_DESC_FRIEND, new AddCommand(expectedTask));
 
         // multiple tags - all accepted
         Task expectedTaskMultipleTags = new TaskBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
                 .build();
-        assertParseSuccess(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+        assertParseSuccess(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + VENUE_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, new AddCommand(expectedTaskMultipleTags));
     }
 
@@ -78,7 +78,7 @@ public class AddCommandParserTest {
     public void parse_optionalFieldsMissing_success() {
         // zero tags
         Task expectedTask = new TaskBuilder(AMY).withTags().build();
-        assertParseSuccess(parser, NAME_DESC_AMY + DATE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY,
+        assertParseSuccess(parser, NAME_DESC_AMY + DATE_DESC_AMY + EMAIL_DESC_AMY + VENUE_DESC_AMY,
                 new AddCommand(expectedTask));
     }
 
@@ -87,15 +87,15 @@ public class AddCommandParserTest {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
 
         // missing name prefix
-        assertParseFailure(parser, VALID_NAME_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB,
+        assertParseFailure(parser, VALID_NAME_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + VENUE_DESC_BOB,
                 expectedMessage);
 
         // missing date prefix
-        assertParseFailure(parser, NAME_DESC_BOB + VALID_DATE_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB,
+        assertParseFailure(parser, NAME_DESC_BOB + VALID_DATE_BOB + EMAIL_DESC_BOB + VENUE_DESC_BOB,
                 expectedMessage);
 
         // missing email prefix
-        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + VALID_EMAIL_BOB + ADDRESS_DESC_BOB,
+        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + VALID_EMAIL_BOB + VENUE_DESC_BOB,
                 expectedMessage);
 
         // missing address prefix
@@ -110,32 +110,32 @@ public class AddCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         // invalid name
-        assertParseFailure(parser, INVALID_NAME_DESC + DATE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+        assertParseFailure(parser, INVALID_NAME_DESC + DATE_DESC_BOB + EMAIL_DESC_BOB + VENUE_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Name.MESSAGE_NAME_CONSTRAINTS);
 
         // invalid date
-        assertParseFailure(parser, NAME_DESC_BOB + INVALID_DATE_DESC + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+        assertParseFailure(parser, NAME_DESC_BOB + INVALID_DATE_DESC + EMAIL_DESC_BOB + VENUE_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Date.MESSAGE_DATE_CONSTRAINTS);
 
         // invalid email
-        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + INVALID_EMAIL_DESC + ADDRESS_DESC_BOB
+        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + INVALID_EMAIL_DESC + VENUE_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Priority.MESSAGE_PRIORITY_CONSTRAINTS);
 
         // invalid address
-        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + INVALID_ADDRESS_DESC
-                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Venue.MESSAGE_ADDRESS_CONSTRAINTS);
+        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + INVALID_VENUE_DESC
+                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Venue.MESSAGE_VENUE_CONSTRAINTS);
 
         // invalid tag
-        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
+        assertParseFailure(parser, NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB + VENUE_DESC_BOB
                 + INVALID_TAG_DESC + VALID_TAG_FRIEND, Tag.MESSAGE_TAG_CONSTRAINTS);
 
         // two invalid values, only first invalid value reported
-        assertParseFailure(parser, INVALID_NAME_DESC + DATE_DESC_BOB + EMAIL_DESC_BOB + INVALID_ADDRESS_DESC,
+        assertParseFailure(parser, INVALID_NAME_DESC + DATE_DESC_BOB + EMAIL_DESC_BOB + INVALID_VENUE_DESC,
                 Name.MESSAGE_NAME_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + DATE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                + VENUE_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }

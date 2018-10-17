@@ -1,6 +1,6 @@
 package ssp.scheduleplanner.testutil;
 
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VALID_ADDRESS_AMY;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VALID_VENUE_AMY;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VALID_DATE_AMY;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VALID_DATE_BOB;
@@ -50,7 +50,7 @@ public class TypicalTasks {
 
     // Manually added - Task's details found in {@code CommandTestUtil}
     public static final Task AMY = new TaskBuilder().withName(VALID_NAME_AMY).withDate(VALID_DATE_AMY)
-            .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withTags(VALID_TAG_FRIEND).build();
+            .withEmail(VALID_EMAIL_AMY).withAddress(VALID_VENUE_AMY).withTags(VALID_TAG_FRIEND).build();
     public static final Task BOB = new TaskBuilder().withName(VALID_NAME_BOB).withDate(VALID_DATE_BOB)
             .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND, VALID_TAG_FRIEND)
             .build();

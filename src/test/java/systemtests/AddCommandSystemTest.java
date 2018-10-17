@@ -1,13 +1,13 @@
 package systemtests;
 
 import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VENUE_DESC_AMY;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VENUE_DESC_BOB;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.DATE_DESC_AMY;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.DATE_DESC_BOB;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_VENUE_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
@@ -60,7 +60,7 @@ public class AddCommandSystemTest extends SchedulePlannerSystemTest {
          */
         Task toAdd = AMY;
         String command = "   " + AddCommand.COMMAND_WORD + "  " + NAME_DESC_AMY + "  " + DATE_DESC_AMY + " "
-                + EMAIL_DESC_AMY + "   " + ADDRESS_DESC_AMY + "   " + TAG_DESC_FRIEND + " ";
+                + EMAIL_DESC_AMY + "   " + VENUE_DESC_AMY + "   " + TAG_DESC_FRIEND + " ";
         assertCommandSuccess(command, toAdd);
 
         /* Case: undo adding Amy to the list -> Amy deleted */
@@ -76,7 +76,7 @@ public class AddCommandSystemTest extends SchedulePlannerSystemTest {
 
         /* Case: add a task with all fields same as another task in the address book except name -> added */
         toAdd = new TaskBuilder(AMY).withName(VALID_NAME_BOB).build();
-        command = AddCommand.COMMAND_WORD + NAME_DESC_BOB + DATE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
+        command = AddCommand.COMMAND_WORD + NAME_DESC_BOB + DATE_DESC_AMY + EMAIL_DESC_AMY + VENUE_DESC_AMY
                 + TAG_DESC_FRIEND;
         assertCommandSuccess(command, toAdd);
 
@@ -93,7 +93,7 @@ public class AddCommandSystemTest extends SchedulePlannerSystemTest {
 
         /* Case: add a task with tags, command with parameters in random order -> added */
         toAdd = BOB;
-        command = AddCommand.COMMAND_WORD + TAG_DESC_FRIEND + DATE_DESC_BOB + ADDRESS_DESC_BOB + NAME_DESC_BOB
+        command = AddCommand.COMMAND_WORD + TAG_DESC_FRIEND + DATE_DESC_BOB + VENUE_DESC_BOB + NAME_DESC_BOB
                 + TAG_DESC_HUSBAND + EMAIL_DESC_BOB;
         assertCommandSuccess(command, toAdd);
 
@@ -143,15 +143,15 @@ public class AddCommandSystemTest extends SchedulePlannerSystemTest {
         // OLD TESTS
 
         /* Case: missing name -> rejected */
-        command = AddCommand.COMMAND_WORD + DATE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY;
+        command = AddCommand.COMMAND_WORD + DATE_DESC_AMY + EMAIL_DESC_AMY + VENUE_DESC_AMY;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
         /* Case: missing date -> rejected */
-        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY;
+        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + EMAIL_DESC_AMY + VENUE_DESC_AMY;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
         /* Case: missing email -> rejected */
-        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DATE_DESC_AMY + ADDRESS_DESC_AMY;
+        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DATE_DESC_AMY + VENUE_DESC_AMY;
         assertCommandFailure(command, String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
 
         /* Case: missing address -> rejected */
@@ -163,23 +163,23 @@ public class AddCommandSystemTest extends SchedulePlannerSystemTest {
         assertCommandFailure(command, Messages.MESSAGE_UNKNOWN_COMMAND);
 
         /* Case: invalid name -> rejected */
-        command = AddCommand.COMMAND_WORD + INVALID_NAME_DESC + DATE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY;
+        command = AddCommand.COMMAND_WORD + INVALID_NAME_DESC + DATE_DESC_AMY + EMAIL_DESC_AMY + VENUE_DESC_AMY;
         assertCommandFailure(command, Name.MESSAGE_NAME_CONSTRAINTS);
 
         /* Case: invalid date -> rejected */
-        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + INVALID_DATE_DESC + EMAIL_DESC_AMY + ADDRESS_DESC_AMY;
+        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + INVALID_DATE_DESC + EMAIL_DESC_AMY + VENUE_DESC_AMY;
         assertCommandFailure(command, Date.MESSAGE_DATE_CONSTRAINTS);
 
         /* Case: invalid email -> rejected */
-        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DATE_DESC_AMY + INVALID_EMAIL_DESC + ADDRESS_DESC_AMY;
+        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DATE_DESC_AMY + INVALID_EMAIL_DESC + VENUE_DESC_AMY;
         assertCommandFailure(command, Priority.MESSAGE_PRIORITY_CONSTRAINTS);
 
         /* Case: invalid address -> rejected */
-        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DATE_DESC_AMY + EMAIL_DESC_AMY + INVALID_ADDRESS_DESC;
-        assertCommandFailure(command, Venue.MESSAGE_ADDRESS_CONSTRAINTS);
+        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DATE_DESC_AMY + EMAIL_DESC_AMY + INVALID_VENUE_DESC;
+        assertCommandFailure(command, Venue.MESSAGE_VENUE_CONSTRAINTS);
 
         /* Case: invalid tag -> rejected */
-        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DATE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY
+        command = AddCommand.COMMAND_WORD + NAME_DESC_AMY + DATE_DESC_AMY + EMAIL_DESC_AMY + VENUE_DESC_AMY
                 + INVALID_TAG_DESC;
         assertCommandFailure(command, Tag.MESSAGE_TAG_CONSTRAINTS);
     }
