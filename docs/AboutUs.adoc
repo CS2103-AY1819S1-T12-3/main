@@ -4,7 +4,7 @@
 :imagesDir: images
 :stylesDir: stylesheets
 
-main was developed by the https://github.com/CS2103-AY1819S1-T12-3[T12-3] team. +
+Student Schedule Planner was developed by the https://github.com/CS2103-AY1819S1-T12-3[T12-3] team. +
 {empty} +
 We are a team based in the http://www.comp.nus.edu.sg[School of Computing, National University of Singapore].
 

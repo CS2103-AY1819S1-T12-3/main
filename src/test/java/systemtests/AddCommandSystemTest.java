@@ -1,50 +1,50 @@
 package systemtests;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.DATE_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
-import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
-import static seedu.address.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
-//import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_DATE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
-//import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.testutil.TypicalTasks.ALICE;
-import static seedu.address.testutil.TypicalTasks.AMY;
-import static seedu.address.testutil.TypicalTasks.BOB;
-import static seedu.address.testutil.TypicalTasks.CARL;
-import static seedu.address.testutil.TypicalTasks.HOON;
-import static seedu.address.testutil.TypicalTasks.IDA;
-import static seedu.address.testutil.TypicalTasks.KEYWORD_MATCHING_MEIER;
+import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.ADDRESS_DESC_AMY;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.ADDRESS_DESC_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.DATE_DESC_AMY;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.DATE_DESC_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.EMAIL_DESC_AMY;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_ADDRESS_DESC;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_DATE_DESC;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.NAME_DESC_AMY;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.NAME_DESC_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.TAG_DESC_FRIEND;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.TAG_DESC_HUSBAND;
+//import static CommandTestUtil.VALID_ADDRESS_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VALID_DATE_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
+import static ssp.scheduleplanner.logic.commands.CommandTestUtil.VALID_NAME_BOB;
+//import static CliSyntax.PREFIX_TAG;
+import static ssp.scheduleplanner.testutil.TypicalTasks.ALICE;
+import static ssp.scheduleplanner.testutil.TypicalTasks.AMY;
+import static ssp.scheduleplanner.testutil.TypicalTasks.BOB;
+import static ssp.scheduleplanner.testutil.TypicalTasks.CARL;
+import static ssp.scheduleplanner.testutil.TypicalTasks.HOON;
+import static ssp.scheduleplanner.testutil.TypicalTasks.IDA;
+import static ssp.scheduleplanner.testutil.TypicalTasks.KEYWORD_MATCHING_MEIER;
 
 import org.junit.Test;
 
-import seedu.address.commons.core.Messages;
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.UndoCommand;
-import seedu.address.model.Model;
-import seedu.address.model.tag.Tag;
-import seedu.address.model.task.Date;
-import seedu.address.model.task.Name;
-import seedu.address.model.task.Priority;
-import seedu.address.model.task.Task;
-import seedu.address.model.task.Venue;
-import seedu.address.testutil.TaskBuilder;
-import seedu.address.testutil.TaskUtil;
+import ssp.scheduleplanner.commons.core.Messages;
+import ssp.scheduleplanner.commons.core.index.Index;
+import ssp.scheduleplanner.logic.commands.AddCommand;
+import ssp.scheduleplanner.logic.commands.RedoCommand;
+import ssp.scheduleplanner.logic.commands.UndoCommand;
+import ssp.scheduleplanner.model.Model;
+import ssp.scheduleplanner.model.tag.Tag;
+import ssp.scheduleplanner.model.task.Date;
+import ssp.scheduleplanner.model.task.Name;
+import ssp.scheduleplanner.model.task.Priority;
+import ssp.scheduleplanner.model.task.Task;
+import ssp.scheduleplanner.model.task.Venue;
+import ssp.scheduleplanner.testutil.TaskBuilder;
+import ssp.scheduleplanner.testutil.TaskUtil;
 
 
 public class AddCommandSystemTest extends SchedulePlannerSystemTest {
@@ -190,7 +190,7 @@ public class AddCommandSystemTest extends SchedulePlannerSystemTest {
      * 2. Command box has the default style class.<br>
      * 3. Result display box displays the success message of executing {@code AddCommand} with the details of
      * {@code toAdd}.<br>
-     * 4. {@code Storage} and {@code PersonListPanel} equal to the corresponding components in
+     * 4. {@code Storage} and {@code TaskListPanel} equal to the corresponding components in
      * the current model added with {@code toAdd}.<br>
      * 5. Browser url and selected card remain unchanged.<br>
      * 6. Status bar's sync status changes.<br>
@@ -219,7 +219,7 @@ public class AddCommandSystemTest extends SchedulePlannerSystemTest {
      * Performs the same verification as {@code assertCommandSuccess(String, Task)} except asserts that
      * the,<br>
      * 1. Result display box displays {@code expectedResultMessage}.<br>
-     * 2. {@code Storage} and {@code PersonListPanel} equal to the corresponding components in
+     * 2. {@code Storage} and {@code TaskListPanel} equal to the corresponding components in
      * {@code expectedModel}.<br>
      * @see AddCommandSystemTest#assertCommandSuccess(String, Task)
      */
@@ -236,7 +236,7 @@ public class AddCommandSystemTest extends SchedulePlannerSystemTest {
      * 1. Command box displays {@code command}.<br>
      * 2. Command box has the error style class.<br>
      * 3. Result display box displays {@code expectedResultMessage}.<br>
-     * 4. {@code Storage} and {@code PersonListPanel} remain unchanged.<br>
+     * 4. {@code Storage} and {@code TaskListPanel} remain unchanged.<br>
      * 5. Browser url, selected card and status bar remain unchanged.<br>
      * Verifications 1, 3 and 4 are performed by
      * {@code SchedulePlannerSystemTest#assertApplicationDisplaysExpected(String, String, Model)}.<br>

@@ -1,16 +1,16 @@
 package systemtests;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.testutil.TypicalTasks.KEYWORD_MATCHING_MEIER;
+import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static ssp.scheduleplanner.testutil.TypicalTasks.KEYWORD_MATCHING_MEIER;
 
 import org.junit.Test;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.UndoCommand;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
+import ssp.scheduleplanner.commons.core.index.Index;
+import ssp.scheduleplanner.logic.commands.ClearCommand;
+import ssp.scheduleplanner.logic.commands.RedoCommand;
+import ssp.scheduleplanner.logic.commands.UndoCommand;
+import ssp.scheduleplanner.model.Model;
+import ssp.scheduleplanner.model.ModelManager;
 
 public class ClearCommandSystemTest extends SchedulePlannerSystemTest {
 

@@ -1,3 +1,4 @@
+
 // Quick Guide for ASCIIDocs
 // [Tip] : Nifty tricks
 // [Important] : Don't forget . . .
@@ -20,6 +21,7 @@
 :experimental:
 ifdef::env-github[]
 :tip-caption: :bulb:
+:warning-caption: :warning:
 :note-caption: :information_source:
 endif::[]
 :repoURL: https://github.com/CS2103-AY1819S1-T12-3/main/
@@ -31,7 +33,7 @@ By: `Team T12-3`      Since: `Sep 2018`      Licence: `MIT`
 Student Schedule Planner (SSP) is a desktop application *aimed at helping students manage their schedules effectively*. SSP is *optimised for those who prefer to work with a Command Line Interface* (CLI) while retaining the benefits of a Graphical User Interface (GUI). If you can type fast, SSP can get your schedule management tasks done faster than traditional GUI apps. Interested? Jump to the <<Quick Start>> to get started. Enjoy!
 
 == Quick Start
-.  If you do not already have Java `9` installed, download it from link:{https://www.oracle.com/technetwork/java/javase/downloads/index.html}[here]. +
+.  Install Java `9` if you do not have, download it from link:{https://www.oracle.com/technetwork/java/javase/downloads/index.html}[here]. +
 [WARNING]
 The application may not run correctly on Java `10` or Java `11`.
 
@@ -43,12 +45,6 @@ image::Ui.png[width="790"]
 +
 .  Type the command in the command box and press kbd:[Enter] to execute it. +
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
-.  To test that the application is working correctly, test out some commands:
-
-* *`list task`* : lists all tasks
-* **`add`**`task n/Buy Apples p/1 c/Groceries d/270319` : adds a task named `Buy Apples` to the Student Schedule Planner.
-* **`delete`**`3` : deletes the 3rd task shown in the current list
-* *`exit`* : exits the app
 
 .  Refer to <<Features>> for details of each command.
 
@@ -58,20 +54,32 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 ====
 *Command Format*
 
-* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/do CS2100 tutorial`.
-* Items in square brackets are optional e.g `n/NAME [c/CATEGORY]` can be used as `n/do CS2100 tutorial c/CS2100` or as `n/do CS2100 tutorial`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[c/CATEGORY]...` can be used as `{nbsp}` (i.e. 0 times), `c/tutorial`, `c/tutorial c/CS2100` etc.
-* Parameters can be in any order e.g. if the command specifies `n/NAME d/DEADLINE`, `d/DEADLINE n/NAME` is also acceptable.
+* Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in [Blue]`add n/NAME`, `NAME` is a parameter which can be used as [Blue]`add n/do CS2100 tutorial`.
+* Items in square brackets are optional e.g [Blue]`n/NAME [c/CATEGORY]` can be used as [Blue]`n/do CS2100 tutorial c/CS2100` or as [Blue]`n/do CS2100 tutorial`.
+* Items with `…`​ after them can be used multiple times including zero times e.g. [Blue]`[c/CATEGORY]...` can be used as `{nbsp}` (i.e. 0 times), [Blue]`c/tutorial`, [Blue]`c/tutorial c/CS2100` etc.
+* Parameters can be in any order e.g. if the command specifies [Blue]`n/NAME d/DEADLINE`, [Blue]`d/DEADLINE n/NAME` is also acceptable.
 ====
 
-=== Viewing help : `help`
+=== Viewing Help :
 
-Format: `help`
+View complete list of all commands. +
+====
+Format: [Blue]`help` +
+====
 
-=== Adding a task: `add task`
+
+=== Adding a Task:
 
 Adds a task to the schedule planner +
-Format: `add [n/NAME] [p/PRIORITYLEVEL] [t/TAG]... [d/DEADLINE]`
+====
+Format: +
+[blue]`add [n/NAME] [p/PRIORITYLEVEL] [t/TAG]... [d/DEADLINE]` +
+
+Example:
+[#src-listing]
+[source, java]
+add n/tutorial3 p/3 t/CS3241 d/today
+====
 
 [CAUTION]
 Ensure that you have included the name, priority level and deadline.
@@ -179,22 +187,15 @@ Deletes the 2nd task in the schedule planner.
 `delete task 1` +
 Deletes the 1st task in the results of the `search task` command.
 
-=== Viewing tasks due : `view task`
+=== Viewing tasks due today : `listday`
 
-View tasks that are due within a specified number of days. +
-Format: `view task DAYS`
+View tasks that are due today. +
+Format: `listday`
 
-****
-* View tasks due within the DAYS number of days.
-* DAYS *must be a positive integer* 1, 2, 3, ...
-****
+=== Viewing tasks due till Sunday : `listweek`
 
-Examples:
-
-* `view task 1` +
-Shows a list of all tasks due within 1 day.
-* `view task 7` +
-Shows a list of all tasks due within 1 week.
+View tasks that are due from current date till the closest Sunday. +
+Format: `listweek`
 
 === Listing overdue tasks: `list overdue`
 
@@ -228,12 +229,12 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 // tag::undoredo[]
 === Undoing previous command : `undo`
 
-Restores the address book to the state before the previous _undoable_ command was executed. +
+Restores the schedule planner to the state before the previous _undoable_ command was executed. +
 Format: `undo`
 
 [NOTE]
 ====
-Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`).
+Undoable commands: those commands that modify the schedule planner's content (`add`, `delete`, `edit` and `clear`).
 ====
 
 [TIP]
@@ -281,7 +282,7 @@ The `redo` command fails as there are no `undo` commands executed previously.
 
 === Clearing all entries : `clear`
 
-Clears all entries from the address book. +
+Clears all entries from the schedule planner. +
 Format: `clear`
 
 === Exiting the program : `exit`
@@ -303,7 +304,7 @@ _{explain how the user can enable/disable data encryption}_
 == FAQ
 
 *Q*: How do I transfer my data to another Computer? +
-*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.
+*A*: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.
 
 == Command Summary
 
@@ -316,7 +317,8 @@ e.g. `delete task 3`
 e.g. `edit 2 n/buy bread d/211118`
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
-* *List tasks* : `list task`
+* *List tasks due today* : `listday`
+* *List tasks due till Sunday* : `listweek`
 * *List overdue tasks* : `list overdue`
 * *Sort tasks by priority* : `sort priority`
 * *List tags* : `list tags`

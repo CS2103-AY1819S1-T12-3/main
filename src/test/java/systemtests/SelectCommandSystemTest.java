@@ -1,22 +1,22 @@
 package systemtests;
 
 import static org.junit.Assert.assertTrue;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.logic.commands.SelectCommand.MESSAGE_SELECT_TASK_SUCCESS;
-import static seedu.address.testutil.TestUtil.getLastIndex;
-import static seedu.address.testutil.TestUtil.getMidIndex;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_TASK;
-import static seedu.address.testutil.TypicalTasks.KEYWORD_MATCHING_MEIER;
+import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX;
+import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static ssp.scheduleplanner.logic.commands.SelectCommand.MESSAGE_SELECT_TASK_SUCCESS;
+import static ssp.scheduleplanner.testutil.TestUtil.getLastIndex;
+import static ssp.scheduleplanner.testutil.TestUtil.getMidIndex;
+import static ssp.scheduleplanner.testutil.TypicalIndexes.INDEX_FIRST_TASK;
+import static ssp.scheduleplanner.testutil.TypicalTasks.KEYWORD_MATCHING_MEIER;
 
 import org.junit.Test;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.SelectCommand;
-import seedu.address.logic.commands.UndoCommand;
-import seedu.address.model.Model;
+import ssp.scheduleplanner.commons.core.index.Index;
+import ssp.scheduleplanner.logic.commands.RedoCommand;
+import ssp.scheduleplanner.logic.commands.SelectCommand;
+import ssp.scheduleplanner.logic.commands.UndoCommand;
+import ssp.scheduleplanner.model.Model;
 
 public class SelectCommandSystemTest extends SchedulePlannerSystemTest {
     @Test

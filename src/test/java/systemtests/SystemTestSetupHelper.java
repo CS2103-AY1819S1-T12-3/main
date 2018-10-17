@@ -8,8 +8,8 @@ import org.testfx.api.FxToolkit;
 
 import guitests.guihandles.MainWindowHandle;
 import javafx.stage.Stage;
-import seedu.address.TestApp;
-import seedu.address.model.ReadOnlySchedulePlanner;
+import ssp.scheduleplanner.TestApp;
+import ssp.scheduleplanner.model.ReadOnlySchedulePlanner;
 
 /**
  * Contains helper methods that system tests require.
@@ -21,10 +21,10 @@ public class SystemTestSetupHelper {
     /**
      * Sets up a new {@code TestApp} and returns it.
      */
-    public TestApp setupApplication(Supplier<ReadOnlySchedulePlanner> addressBook, Path saveFileLocation) {
+    public TestApp setupApplication(Supplier<ReadOnlySchedulePlanner> shedulePlanner, Path saveFileLocation) {
         try {
             FxToolkit.registerStage(Stage::new);
-            FxToolkit.setupApplication(() -> testApp = new TestApp(addressBook, saveFileLocation));
+            FxToolkit.setupApplication(() -> testApp = new TestApp(shedulePlanner, saveFileLocation));
         } catch (TimeoutException te) {
             throw new AssertionError("Application takes too long to set up.", te);
         }

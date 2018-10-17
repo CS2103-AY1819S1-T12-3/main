@@ -6,7 +6,7 @@ import java.util.Set;
 
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
-import seedu.address.model.task.Task;
+import ssp.scheduleplanner.model.task.Task;
 
 /**
  * Provides a handle for {@code TaskListPanel} containing the list of {@code TaskCard}.

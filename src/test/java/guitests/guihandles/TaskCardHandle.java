@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableMultiset;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
-import seedu.address.model.task.Task;
+import ssp.scheduleplanner.model.task.Task;
 
 /**
  * Provides a handle to a task card in the task list panel.

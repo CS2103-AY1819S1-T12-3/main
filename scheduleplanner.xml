@@ -1,39 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <scheduleplanner>
     <tasks>
-        <name>Bernice Yu</name>
-        <date>99272758</date>
-        <priority>berniceyu@example.com</priority>
-        <venue>Blk 30 Lorong 3 Serangoon Gardens, #07-18</venue>
-        <tagged>colleagues</tagged>
-        <tagged>friends</tagged>
+        <name>CS2100 HW</name>
+        <date>081018</date>
+        <priority>3</priority>
+        <venue>Home</venue>
+        <tagged>Module</tagged>
     </tasks>
     <tasks>
-        <name>Charlotte Oliveiro</name>
-        <date>93210283</date>
-        <priority>charlotte@example.com</priority>
-        <venue>Blk 11 Ang Mo Kio Street 74, #11-04</venue>
-        <tagged>neighbours</tagged>
+        <name>CS2105 Lab</name>
+        <date>091018</date>
+        <priority>3</priority>
+        <venue>NUS</venue>
+        <tagged>Module</tagged>
     </tasks>
     <tasks>
-        <name>David Li</name>
-        <date>91031282</date>
-        <priority>lidavid@example.com</priority>
-        <venue>Blk 436 Serangoon Gardens Street 26, #16-43</venue>
-        <tagged>family</tagged>
+        <name>CS2106 Read lecture</name>
+        <date>101018</date>
+        <priority>1</priority>
+        <venue>Home</venue>
+        <tagged>Module</tagged>
     </tasks>
     <tasks>
-        <name>Irfan Ibrahim</name>
-        <date>92492021</date>
-        <priority>irfan@example.com</priority>
-        <venue>Blk 47 Tampines Street 20, #17-35</venue>
-        <tagged>classmates</tagged>
+        <name>homework</name>
+        <date>111018</date>
+        <priority>2</priority>
+        <venue>home</venue>
     </tasks>
     <tasks>
-        <name>Roy Balakrishnan</name>
-        <date>92624417</date>
-        <priority>royb@example.com</priority>
-        <venue>Blk 45 Aljunied Street 85, #11-31</venue>
-        <tagged>colleagues</tagged>
+        <name>CS2103T Read lecture</name>
+        <date>121018</date>
+        <priority>3</priority>
+        <venue>home</venue>
+    </tasks>
+    <tasks>
+        <name>CS2101 Read Tutorial</name>
+        <date>131018</date>
+        <priority>2</priority>
+        <venue>home</venue>
+    </tasks>
+    <tasks>
+        <name>MA1101R HW</name>
+        <date>141018</date>
+        <priority>3</priority>
+        <venue>home</venue>
+    </tasks>
+    <tasks>
+        <name>CS2030 Lab</name>
+        <date>141018</date>
+        <priority>2</priority>
+        <venue>home</venue>
+    </tasks>
+    <tasks>
+        <name>self study</name>
+        <date>081018</date>
+        <priority>1</priority>
+        <venue>home</venue>
+    </tasks>
+    <tasks>
+        <name>self study</name>
+        <date>091018</date>
+        <priority>1</priority>
+        <venue>home</venue>
+    </tasks>
+    <tasks>
+        <name>self study</name>
+        <date>101018</date>
+        <priority>1</priority>
+        <venue>home</venue>
+    </tasks>
+    <tasks>
+        <name>self study</name>
+        <date>111018</date>
+        <priority>1</priority>
+        <venue>home</venue>
     </tasks>
 </scheduleplanner>

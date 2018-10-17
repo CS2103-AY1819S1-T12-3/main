@@ -1,6 +1,6 @@
 package systemtests;
 
-import static seedu.address.ui.testutil.GuiTestAssert.assertListMatching;
+import static ssp.scheduleplanner.ui.testutil.GuiTestAssert.assertListMatching;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,10 +8,10 @@ import java.nio.file.Path;
 
 import org.junit.Test;
 
-import seedu.address.model.SchedulePlanner;
-import seedu.address.model.task.Task;
-import seedu.address.model.util.SampleDataUtil;
-import seedu.address.testutil.TestUtil;
+import ssp.scheduleplanner.model.SchedulePlanner;
+import ssp.scheduleplanner.model.task.Task;
+import ssp.scheduleplanner.model.util.SampleDataUtil;
+import ssp.scheduleplanner.testutil.TestUtil;
 
 public class SampleDataTest extends SchedulePlannerSystemTest {
     /**

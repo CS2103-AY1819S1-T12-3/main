@@ -1,32 +1,32 @@
 package systemtests;
 
 import static org.junit.Assert.assertFalse;
-import static seedu.address.commons.core.Messages.MESSAGE_TASKS_LISTED_OVERVIEW;
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
-import static seedu.address.testutil.TypicalTasks.BENSON;
-import static seedu.address.testutil.TypicalTasks.CARL;
-import static seedu.address.testutil.TypicalTasks.DANIEL;
-import static seedu.address.testutil.TypicalTasks.KEYWORD_MATCHING_MEIER;
+import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_TASKS_LISTED_OVERVIEW;
+import static ssp.scheduleplanner.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static ssp.scheduleplanner.testutil.TypicalTasks.BENSON;
+import static ssp.scheduleplanner.testutil.TypicalTasks.CARL;
+import static ssp.scheduleplanner.testutil.TypicalTasks.DANIEL;
+import static ssp.scheduleplanner.testutil.TypicalTasks.KEYWORD_MATCHING_MEIER;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.RedoCommand;
-import seedu.address.logic.commands.UndoCommand;
-import seedu.address.model.Model;
-import seedu.address.model.tag.Tag;
+import ssp.scheduleplanner.commons.core.index.Index;
+import ssp.scheduleplanner.logic.commands.DeleteCommand;
+import ssp.scheduleplanner.logic.commands.FindCommand;
+import ssp.scheduleplanner.logic.commands.RedoCommand;
+import ssp.scheduleplanner.logic.commands.UndoCommand;
+import ssp.scheduleplanner.model.Model;
+import ssp.scheduleplanner.model.tag.Tag;
 
 public class FindCommandSystemTest extends SchedulePlannerSystemTest {
 
     @Test
     public void find() {
-        /* Case: find multiple persons in address book, command with leading spaces and trailing spaces
-         * -> 2 persons found
+        /* Case: find multiple tasks in schedule planner, command with leading spaces and trailing spaces
+         * -> 2 tasks found
          */
         String command = "   " + FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER + "   ";
         Model expectedModel = getModel();
@@ -34,8 +34,8 @@ public class FindCommandSystemTest extends SchedulePlannerSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: repeat previous find command where task list is displaying the persons we are finding
-         * -> 2 persons found
+        /* Case: repeat previous find command where task list is displaying the tasks we are finding
+         * -> 2 tasks found
          */
         command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
         assertCommandSuccess(command, expectedModel);
@@ -47,24 +47,24 @@ public class FindCommandSystemTest extends SchedulePlannerSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find multiple persons in address book, 2 keywords -> 2 persons found */
+        /* Case: find multiple tasks in schedule planner, 2 keywords -> 2 tasks found */
         command = FindCommand.COMMAND_WORD + " Benson Daniel";
         ModelHelper.setFilteredList(expectedModel, BENSON, DANIEL);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find multiple persons in address book, 2 keywords in reversed order -> 2 persons found */
+        /* Case: find multiple tasks in schedule planner, 2 keywords in reversed order -> 2 tasks found */
         command = FindCommand.COMMAND_WORD + " Daniel Benson";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find multiple persons in address book, 2 keywords with 1 repeat -> 2 persons found */
+        /* Case: find multiple tasks in schedule planner, 2 keywords with 1 repeat -> 2 tasks found */
         command = FindCommand.COMMAND_WORD + " Daniel Benson Daniel";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find multiple persons in address book, 2 matching keywords and 1 non-matching keyword
-         * -> 2 persons found
+        /* Case: find multiple tasks in schedule planner, 2 matching keywords and 1 non-matching keyword
+         * -> 2 tasks found
          */
         command = FindCommand.COMMAND_WORD + " Daniel Benson NonMatchingKeyWord";
         assertCommandSuccess(command, expectedModel);
@@ -80,7 +80,7 @@ public class FindCommandSystemTest extends SchedulePlannerSystemTest {
         expectedResultMessage = RedoCommand.MESSAGE_FAILURE;
         assertCommandFailure(command, expectedResultMessage);
 
-        /* Case: find same persons in address book after deleting 1 of them -> 1 task found */
+        /* Case: find same tasks in schedule planner after deleting 1 of them -> 1 task found */
         executeCommand(DeleteCommand.COMMAND_WORD + " 1");
         assertFalse(getModel().getSchedulePlanner().getTaskList().contains(BENSON));
         command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
@@ -89,44 +89,44 @@ public class FindCommandSystemTest extends SchedulePlannerSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find task in address book, keyword is same as name but of different case -> 1 task found */
+        /* Case: find task in schedule planner, keyword is same as name but of different case -> 1 task found */
         command = FindCommand.COMMAND_WORD + " MeIeR";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find task in address book, keyword is substring of name -> 0 persons found */
+        /* Case: find task in schedule planner, keyword is substring of name -> 0 tasks found */
         command = FindCommand.COMMAND_WORD + " Mei";
         ModelHelper.setFilteredList(expectedModel);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find task in address book, name is substring of keyword -> 0 persons found */
+        /* Case: find task in schedule planner, name is substring of keyword -> 0 tasks found */
         command = FindCommand.COMMAND_WORD + " Meiers";
         ModelHelper.setFilteredList(expectedModel);
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find task not in address book -> 0 persons found */
+        /* Case: find task not in schedule planner -> 0 tasks found */
         command = FindCommand.COMMAND_WORD + " Mark";
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find date of task in address book -> 0 persons found */
+        /* Case: find date of task in schedule planner -> 0 tasks found */
         command = FindCommand.COMMAND_WORD + " " + DANIEL.getDate().value;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find address of task in address book -> 0 persons found */
+        /* Case: find address of task in schedule planner -> 0 tasks found */
         command = FindCommand.COMMAND_WORD + " " + DANIEL.getVenue().value;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find email of task in address book -> 0 persons found */
+        /* Case: find email of task in schedule planner -> 0 tasks found */
         command = FindCommand.COMMAND_WORD + " " + DANIEL.getPriority().value;
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardUnchanged();
 
-        /* Case: find tags of task in address book -> 0 persons found */
+        /* Case: find tags of task in schedule planner -> 0 tasks found */
         List<Tag> tags = new ArrayList<>(DANIEL.getTags());
         command = FindCommand.COMMAND_WORD + " " + tags.get(0).tagName;
         assertCommandSuccess(command, expectedModel);
@@ -141,7 +141,7 @@ public class FindCommandSystemTest extends SchedulePlannerSystemTest {
         assertCommandSuccess(command, expectedModel);
         assertSelectedCardDeselected();
 
-        /* Case: find task in empty address book -> 0 persons found */
+        /* Case: find task in empty schedule planner -> 0 tasks found */
         deleteAllTasks();
         command = FindCommand.COMMAND_WORD + " " + KEYWORD_MATCHING_MEIER;
         expectedModel = getModel();
