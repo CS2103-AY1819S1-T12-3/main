@@ -199,7 +199,7 @@ This will generate all resources required by the application and tests.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Run the <code>MainApp</code> and try a few commands</p>
+<p>Run <code>MainApp</code> and try a few commands</p>
 </li>
 <li>
 <p><a href="#Testing">Run the tests</a> to ensure they all pass.</p>
@@ -395,12 +395,13 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
 </li>
 <li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+<p>Exposes its functionality using a ` (<em>Component Name</em>)Manager` class.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+<p>For example, <code>Logic</code>(see the class diagram given below) defines it&#8217;s API in <code>Logic.java</code> interface
+and exposes its functionality using <code>LogicManager.java</code> class.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -410,7 +411,8 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </div>
 <h4 id="events-driven-nature-of-the-design" class="discrete">Events-Driven nature of the design</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command
+<code>delete 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -425,13 +427,15 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the <code>Model</code> simply raises a <code>SchedulePlannerChangedEvent</code> when the schedule planner data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
+<code>Model</code> simply raises a <code>SchedulePlannerChangedEvent</code> when the schedule planner data is changed, instead of
+asking <code>Storage</code> to save updates to the hard disk.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The diagram below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
+<p>The diagram below shows how <code>EventsCenter</code> reacts to the event, after which the updates are saved
+to the hard disk, and the status bar of the <code>UI</code> is updated to reflect 'Last Updated' time.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -446,7 +450,8 @@ Note how the <code>Model</code> simply raises a <code>SchedulePlannerChangedEven
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the event is propagated through the <code>EventsCenter</code> to the <code>Storage</code> and <code>UI</code> without <code>Model</code> having to be coupled to either of them. This is an example of how this Event Driven approach helps us reduce direct coupling between components.
+The event is propagated through <code>EventsCenter</code> to <code>Storage</code> and <code>UI</code>, without <code>Model</code> having to be coupled to either of
+them. This is an example of how Event Driven approach helps us reduce direct coupling between components.
 </td>
 </tr>
 </table>
@@ -467,21 +472,25 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-3/main/src/main/java//ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>TaskListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of <code>MainWindow</code>, which is made up of <code>CommandBox</code>, <code>ResultDisplay</code>, <code>TaskListPanel</code>,
+<code>StatusBarFooter</code>, <code>BrowserPanel</code> etc.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S1-T12-3/main/src/main/java/ssp/scheduleplanner/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S1-T12-3/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>All these, including <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component,</p>
+<p><code>UI</code> uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S1-T12-3/main/src/main/java/ssp/scheduleplanner/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S1-T12-3/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+</div>
+<div class="paragraph">
+<p><code>UI</code> component,</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Executes user commands using the <code>Logic</code> component.</p>
+<p>Executes user commands using <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Binds itself to some data in the <code>Model</code> so that the UI can auto-update when data in the <code>Model</code> change.</p>
+<p>Binds itself to some data in <code>Model</code> so that the UI can auto-update when data in <code>Model</code> changes.</p>
 </li>
 <li>
 <p>Responds to events raised from various parts of the App and updates the UI accordingly.</p>
@@ -504,27 +513,27 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>ShedulePlannerParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses <code>ShedulePlannerParser</code> to parse user command.</p>
 </li>
 <li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+<p>This creates a <code>Command</code> object which is executed by <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a task) and/or raise events.</p>
+<p>The command execution can affect <code>Model</code> (e.g. adding a task) and/or raise events.</p>
 </li>
 <li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+<p>The result is encapsulated as a <code>CommandResult</code> object which is passed back to <code>Ui</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within <code>Logic</code> for the <code>execute("delete 1")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
 </div>
-<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 7. Sequence diagram for <code>delete 1</code> Command within Logic Component</div>
 </div>
 </div>
 <div class="sect2">
@@ -533,24 +542,25 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
 </div>
-<div class="title">Figure 8. Structure of the Model Component</div>
+<div class="title">Figure 8. Structure of Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-3/main/src/main/java/ssp/scheduleplanner/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>Model</code>,</p>
+<p>The <code>Model</code> component&#8230;&#8203;</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+<p>stores a <code>UserPref</code> object that represents user&#8217;s preferences.</p>
 </li>
 <li>
 <p>stores the Schedule Planner data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Task&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable, observable <code>ObservableList&lt;Task&gt;</code>  e.g. UI can be bound to this list, such that it
+automatically updates when data in the list changes.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -584,7 +594,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Schedule Plan
 <p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T12-3/main/src/main/java/ssp/scheduleplanner/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>Storage</code> component,</p>
+<p>The <code>Storage</code> component&#8230;&#8203;</p>
 </div>
 <div class="ulist">
 <ul>
@@ -609,7 +619,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Schedule Plan
 <h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
+<p>This section elaborates on how certain features are implemented.</p>
 </div>
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1. Undo/Redo feature</a></h3>
@@ -623,24 +633,25 @@ Additionally, it implements the following operations:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedSchedulePlanner#commit()</code>&#8201;&#8212;&#8201;Saves the current schedule planner state in its history.</p>
+<p><code>VersionedSchedulePlanner#commit()</code>&#8201;&#8212;&#8201;Saves the current schedule planner state in 'history'.</p>
 </li>
 <li>
-<p><code>VersionedSchedulePlanner#undo()</code>&#8201;&#8212;&#8201;Restores the previous schedule planner state from its history.</p>
+<p><code>VersionedSchedulePlanner#undo()</code>&#8201;&#8212;&#8201;Restores the previous schedule planner state from 'history'.</p>
 </li>
 <li>
-<p><code>VersionedSchedulePlanner#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone schedule planner state from its history.</p>
+<p><code>VersionedSchedulePlanner#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone schedule planner state from 'history'.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitSchedulePlanner()</code>, <code>Model#undoSchedulePlanner()</code> and <code>Model#redoSchedulePlanner()</code> respectively.</p>
+<p>These operations are exposed in <code>Model</code> interface as <code>Model#commitSchedulePlanner()</code>, <code>Model#undoSchedulePlanner()</code> and <code>Model#redoSchedulePlanner()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedSchedulePlanner</code> will be initialized with the initial schedule planner state, and the <code>currentStatePointer</code> pointing to that single schedule planner state.</p>
+<p>Step 1. The user launches the application for the first time. <code>VersionedSchedulePlanner</code> will be initialized with the
+ initial schedule planner state, with <code>currentStatePointer</code> pointing to that single schedule planner state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -648,7 +659,9 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th task in the schedule planner. The <code>delete</code> command calls <code>Model#commitSchedulePlanner()</code>, causing the modified state of the schedule planner after the <code>delete 5</code> command executes to be saved in the <code>schedulePlannerStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted schedule planner state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command. The <code>delete</code> command calls <code>Model#commitSchedulePlanner()</code>, as a result
+ the modified state of the schedule planner is saved in <code>schedulePlannerStateList</code> after the <code>delete 5</code> command
+ executes, the <code>currentStatePointer</code> shifts to the newly inserted schedule planner state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -656,7 +669,8 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new task. The <code>add</code> command also calls <code>Model#commitSchedulePlanner()</code>, causing another modified schedule planner state to be saved into the <code>schedulePlannerStateList</code>.</p>
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new task. The <code>add</code> command calls <code>Model#commitSchedulePlanner()
+`, and the modified schedule planner state is saved into `schedulePlannerStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -670,13 +684,16 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitSchedulePlanner()</code>, so the schedule planner state will not be saved into the <code>schedulePlannerStateList</code>.
+If a command execution fails, it will not call <code>Model#commitSchedulePlanner()</code>, so the schedule planner state will not
+ be saved into <code>schedulePlannerStateList</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the task was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoSchedulePlanner()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous schedule planner state, and restores the schedule planner to that state.</p>
+<p>Step 4. The user now decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call
+<code>Model#undoSchedulePlanner()</code>, which shifts the <code>currentStatePointer</code> to the previous index, pointing to the
+previous schedule planner state, and restoring the schedule planner to its previous state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -690,7 +707,9 @@ If a command fails its execution, it will not call <code>Model#commitSchedulePla
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial schedule planner state, then there are no previous schedule planner states to restore. The <code>undo</code> command uses <code>Model#canUndoSchedulePlanner()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>currentStatePointer</code> is at index 0(i.e the initial schedule planner state), then there are no previous
+schedule planner states to restore to. The <code>undo</code> command uses <code>Model#canUndoSchedulePlanner()</code> to check this case.
+If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -704,7 +723,9 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial s
 </div>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoSchedulePlanner()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the schedule planner to that state.</p>
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoSchedulePlanner()</code>, which shifts the
+<code>currentStatePointer</code> to the next index, pointing to the next state, and restores the schedule planner to
+that state.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -713,13 +734,15 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial s
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>schedulePlannerStateList.size() - 1</code>, pointing to the latest schedule planner state, then there are no undone schedule planner states to restore. The <code>redo</code> command uses <code>Model#canRedoSchedulePlanner()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>currentStatePointer</code> is at index <code>schedulePlannerStateList.size() - 1</code> (i.e pointing to the latest schedule
+planner state), then there are no latest schedule planner states to restore. The <code>redo</code> command uses <code>Model#canRedoSchedulePlanner()</code> to check this case. If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the schedule planner, such as <code>list</code>, will usually not call <code>Model#commitSchedulePlanner()</code>, <code>Model#undoSchedulePlanner()</code> or <code>Model#redoSchedulePlanner()</code>. Thus, the <code>schedulePlannerStateList</code> remains unchanged.</p>
+<p>Step 5. The user then executes the command <code>list</code>. Commands that do not modify the schedule planner, such as <code>list</code>,
+will usually not call <code>Model#commitSchedulePlanner()</code>, <code>Model#undoSchedulePlanner()</code> or <code>Model#redoSchedulePlanner()</code>. Thus, the <code>schedulePlannerStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -727,7 +750,9 @@ If the <code>currentStatePointer</code> is at index <code>schedulePlannerStateLi
 </div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitSchedulePlanner()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>schedulePlannerStateList</code>, all schedule planner states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitSchedulePlanner()</code>. If the <code>currentStatePointer</code> is not
+pointing to the latest state in the <code>schedulePlannerStateList</code>, all schedule planner states after the
+<code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -750,7 +775,7 @@ If the <code>currentStatePointer</code> is at index <code>schedulePlannerStateLi
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire schedule planner</p>
 <div class="ulist">
 <ul>
 <li>
@@ -790,7 +815,8 @@ If the <code>currentStatePointer</code> is at index <code>schedulePlannerStateLi
 <p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both
+<code>HistoryManager</code> and <code>VersionedSchedulePlanner</code>.</p>
 </li>
 </ul>
 </div>
@@ -822,12 +848,13 @@ If the <code>currentStatePointer</code> is at index <code>schedulePlannerStateLi
 <div class="sect2">
 <h3 id="logging"><a class="link" href="#logging">4.3. Logging</a></h3>
 <div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+<p>We are using <code>java.util.logging</code> package for logging. <code>LogsCenter</code> class is used to manage logging levels and1
+destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1087,7 +1114,8 @@ The SE-EDU team does not provide support for modified template files.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The most reliable way to run tests is the 3rd one. The first two methods might fail some GUI tests due to platform/resolution-specific idiosyncrasies.
+The most reliable method is Method 3. The first two methods might fail some GUI tests due to
+platform/resolution-specific idiosyncrasies.
 </td>
 </tr>
 </table>
@@ -2791,4 +2819,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 09:41:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 14:30:09 UTC</div></div></div></body></html>
