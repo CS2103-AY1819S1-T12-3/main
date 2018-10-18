@@ -140,10 +140,16 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command"><a class="link" href="#undoing-previous-command">Undoing previous command</a></h3>
 <div class="paragraph">
-<p>Restores the schedule planner to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Restores the schedule planner to the state before the previous <em>undoable</em> command was executed.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">undo</code></p>
+</div>
+</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -171,65 +177,324 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </tr>
 </table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="redoing-the-previous-undo-command"><a class="link" href="#redoing-the-previous-undo-command">Redoing the Previous Undo Command</a></h3>
+<div class="paragraph">
+<p>Reverses the most recent <code>undo</code> command.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code>redo</code></p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
-</li>
-</ul>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">delete1</code><br>
+<code class="blue">clear</code><br>
+<code class="blue">undo</code> (reverses the <code>clear</code> command)<br>
+<code class="blue">undo</code> (reverses the <code>delete 1</code> command)<br>
+<code class="blue">redo</code> (reapplies the <code>delete 1</code> command)<br>
+<code class="blue">redo</code> (reapplies the <code>clear</code> command)<br></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="clearing-schedule-planner"><a class="link" href="#clearing-schedule-planner">Clearing Schedule Planner</a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Clears all entries from the schedule planner.<br></p>
 </div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
-<p>Examples:</p>
+<p><code class="blue">clear</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
-</li>
-</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-app"><a class="link" href="#exiting-the-app">Exiting the App</a></h3>
+<div class="paragraph">
+<p>Exits the application.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code>exit</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">Saving the Data</a></h3>
+<div class="paragraph">
+<p>Data in the Student Schedule Planner is saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p><em>{explain how the user can enable/disable data encryption}</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Viewing Help</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">help</code><br></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Adding task</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">add [n/NAME] [p/PRIORITYLEVEL] [t/TAG] [d/DEADLINE] [v/VENUE]</code><br></p>
+</div>
+<div class="paragraph">
+<p>Example:<br>
+<code class="blue">add n/exam p/3 t/CS3241 d/101018 v/mpsh1</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Listing All Tasks</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">list task</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Delete task</strong> : <code>delete task INDEX</code><br>
+e.g. <code>delete task 3</code></p>
+</li>
+<li>
+<p><strong>Editing a Task</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">edit INDEX [n/NAME] [p/PRIORITYLEVEL] [t/TAGS]&#8230;&#8203; [d/DEADLINE]</code><br></p>
+</div>
+<div class="paragraph">
+<p>Example:<br>
+<code class="blue">edit 3 p/1 d/121019</code><br></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Finding Tasks by Name</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">find KEYWORD</code><br></p>
+</div>
+<div class="paragraph">
+<p>Example:<br>
+<code class="blue">find tutorial</code><br></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Filter Tasks by Tag</strong> : (Coming in v1.3)</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">filter KEYWORD</code><br></p>
+</div>
+<div class="paragraph">
+<p>Example:
+<code class="blue">filter tutorial</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Viewing Tasks Due Today</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listday</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Viewing Tasks Due This Termweek</strong>* :
+=</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listweek</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Listing Overdue Tasks</strong> : (Coming in v1.3)</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">list overdue</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Listing All tags</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">list tag</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Listing Used Commands</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">history</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Undoing previous command</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">undo</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Redoing the Previous Undo Command</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code>redo</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Clearing Schedule Planner</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">clear</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Exiting the App</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code>exit</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="possible-questions"><a class="link" href="#possible-questions">Possible Questions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.</p>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code-2"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code-2">Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -483,4 +748,4 @@ pointing to the latest state in the <code>schedulePlannerStateList</code>, all s
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 15:28:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 10:27:59 UTC</div></div></div></body></html>
