@@ -22,15 +22,16 @@
 <li><a href="#deleting-a-task">3.7. Deleting a Task</a></li>
 <li><a href="#viewing-tasks-due-today">3.8. Viewing Tasks Due Today</a></li>
 <li><a href="#viewing-tasks-due-this-termweek">3.9. Viewing Tasks Due This Termweek</a></li>
-<li><a href="#listing-overdue-tasks-coming-in-v1-3">3.10. Listing Overdue Tasks (Coming in v1.3)</a></li>
-<li><a href="#listing-all-tags">3.11. Listing All tags</a></li>
-<li><a href="#listing-used-commands">3.12. Listing Used Commands</a></li>
-<li><a href="#undoing-previous-command">3.13. Undoing Previous Command</a></li>
-<li><a href="#redoing-the-previous-undo-command">3.14. Redoing the Previous Undo Command</a></li>
-<li><a href="#clearing-schedule-planner">3.15. Clearing Schedule Planner</a></li>
-<li><a href="#exiting-the-app">3.16. Exiting the App</a></li>
-<li><a href="#saving-the-data">3.17. Saving the Data</a></li>
-<li><a href="#encrypting-data-files-coming-in-v2-0">3.18. Encrypting Data Files (Coming in v2.0)</a></li>
+<li><a href="#generating-academic-calendar-weeks">3.10. Generating academic calendar weeks</a></li>
+<li><a href="#listing-overdue-tasks-coming-in-v1-3">3.11. Listing Overdue Tasks (Coming in v1.3)</a></li>
+<li><a href="#listing-all-tags">3.12. Listing All tags</a></li>
+<li><a href="#listing-used-commands">3.13. Listing Used Commands</a></li>
+<li><a href="#undoing-previous-command">3.14. Undoing Previous Command</a></li>
+<li><a href="#redoing-the-previous-undo-command">3.15. Redoing the Previous Undo Command</a></li>
+<li><a href="#clearing-schedule-planner">3.16. Clearing Schedule Planner</a></li>
+<li><a href="#exiting-the-app">3.17. Exiting the App</a></li>
+<li><a href="#saving-the-data">3.18. Saving the Data</a></li>
+<li><a href="#encrypting-data-files-coming-in-v2-0">3.19. Encrypting Data Files (Coming in v2.0)</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">4. Command Summary</a></li>
@@ -419,7 +420,67 @@ Use the <code>list task</code> command to find out the index of the task to be m
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-overdue-tasks-coming-in-v1-3"><a class="link" href="#listing-overdue-tasks-coming-in-v1-3">3.10. Listing Overdue Tasks (Coming in v1.3)</a></h3>
+<h3 id="generating-academic-calendar-weeks"><a class="link" href="#generating-academic-calendar-weeks">3.10. Generating academic calendar weeks</a></h3>
+<div class="paragraph">
+<p>Generate the entire academic calendar calendar with description based on the first academic day and store in storage.</p>
+</div>
+<div class="paragraph">
+<p>Currently, the generated academic calendar is adapted from the academic calender of National university of Singapore
+(NUS).</p>
+</div>
+<div class="paragraph">
+<p>Whenever user launch the application within the academic calendar&#8217;s dates, the application title
+will append that particular week&#8217;s description.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">firstday ddmmyy</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>input: <code class="blue">firstday 130818</code><br>
+output: When user launch the application from E.g 221018 to 281018 (Week 10 for NUS academic year 18/19
+semester 1), the application title will append "week 10".</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code class="blue">ddmmyy</code> refers to the date format of day, month and year.</p>
+</div>
+<div class="paragraph">
+<p>Before:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/FirstDayCommand_UG_Before.png" alt="FirstDayCommand UG Before" width="600">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>After:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/FirstDayCommand_UG_After.png" alt="FirstDayCommand UG After" width="400">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-overdue-tasks-coming-in-v1-3"><a class="link" href="#listing-overdue-tasks-coming-in-v1-3">3.11. Listing Overdue Tasks (Coming in v1.3)</a></h3>
 <div class="paragraph">
 <p>Lists all the overdue tasks.<br></p>
 </div>
@@ -432,7 +493,7 @@ Use the <code>list task</code> command to find out the index of the task to be m
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-tags"><a class="link" href="#listing-all-tags">3.11. Listing All tags</a></h3>
+<h3 id="listing-all-tags"><a class="link" href="#listing-all-tags">3.12. Listing All tags</a></h3>
 <div class="paragraph">
 <p>Shows a list of all existing tags.<br></p>
 </div>
@@ -448,7 +509,7 @@ Use the <code>list task</code> command to find out the index of the task to be m
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-used-commands"><a class="link" href="#listing-used-commands">3.12. Listing Used Commands</a></h3>
+<h3 id="listing-used-commands"><a class="link" href="#listing-used-commands">3.13. Listing Used Commands</a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br></p>
 </div>
@@ -475,7 +536,7 @@ Use the <code>list task</code> command to find out the index of the task to be m
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command"><a class="link" href="#undoing-previous-command">3.13. Undoing Previous Command</a></h3>
+<h3 id="undoing-previous-command"><a class="link" href="#undoing-previous-command">3.14. Undoing Previous Command</a></h3>
 <div class="paragraph">
 <p>Restores the schedule planner to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
@@ -514,7 +575,7 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previous-undo-command"><a class="link" href="#redoing-the-previous-undo-command">3.14. Redoing the Previous Undo Command</a></h3>
+<h3 id="redoing-the-previous-undo-command"><a class="link" href="#redoing-the-previous-undo-command">3.15. Redoing the Previous Undo Command</a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br></p>
 </div>
@@ -531,7 +592,7 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">delete1</code><br>
+<p><code class="blue">delete 1</code><br>
 <code class="blue">clear</code><br>
 <code class="blue">undo</code> (reverses the <code class="blue">clear</code> command)<br>
 <code class="blue">undo</code> (reverses the <code class="blue">delete 1</code> command)<br>
@@ -542,7 +603,7 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-schedule-planner"><a class="link" href="#clearing-schedule-planner">3.15. Clearing Schedule Planner</a></h3>
+<h3 id="clearing-schedule-planner"><a class="link" href="#clearing-schedule-planner">3.16. Clearing Schedule Planner</a></h3>
 <div class="paragraph">
 <p>Clears all entries from the schedule planner.<br></p>
 </div>
@@ -555,7 +616,7 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-app"><a class="link" href="#exiting-the-app">3.16. Exiting the App</a></h3>
+<h3 id="exiting-the-app"><a class="link" href="#exiting-the-app">3.17. Exiting the App</a></h3>
 <div class="paragraph">
 <p>Exits the application.<br></p>
 </div>
@@ -568,14 +629,14 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the Data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the Data</a></h3>
 <div class="paragraph">
 <p>Data in the Student Schedule Planner is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-coming-in-v2-0"><a class="link" href="#encrypting-data-files-coming-in-v2-0">3.18. Encrypting Data Files (Coming in v2.0)</a></h3>
+<h3 id="encrypting-data-files-coming-in-v2-0"><a class="link" href="#encrypting-data-files-coming-in-v2-0">3.19. Encrypting Data Files (Coming in v2.0)</a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -688,6 +749,24 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
+<p><strong>Deleting Task</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">delete task INDEX</code><br></p>
+</div>
+<div class="paragraph">
+<p>Example:<br>
+<code class="blue">delete task 1</code><br></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
 <p><strong>Viewing Tasks Due Today</strong> :</p>
 </li>
 </ul>
@@ -710,6 +789,24 @@ There is no need to save manually.</p>
 <div class="content">
 <div class="paragraph">
 <p><code class="blue">listweek</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Generating academic calendar weeks</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">firstday ddmmyy</code></p>
+</div>
+<div class="paragraph">
+<p>Example:<br>
+<code class="blue">firstday 130818</code><br></p>
 </div>
 </div>
 </div>
@@ -821,4 +918,4 @@ There is no need to save manually.</p>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 09:37:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 15:41:43 UTC</div></div></div></body></html>
