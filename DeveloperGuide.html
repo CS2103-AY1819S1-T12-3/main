@@ -955,7 +955,7 @@ from the current date till the closest Sunday.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>Model#updateFilteredTaskList()</code> takes in a predicate parameter and updates the model
+<p><code>Model#updateFilteredTaskList()</code>&#8201;&#8212;&#8201;Takes in a predicate parameter and updates the model
 according to the predicate.</p>
 </li>
 </ul>
@@ -982,8 +982,9 @@ Given below is an example usage scenario and how <code>listweek</code> mechanism
 <p>Step 1. The user entered the command <code>listweek</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. <code>ListWeekCommand#appendDateList(datelist, numDaysTillSunday(dateName))</code> will generate the <code>dateList</code> in
-<code>ddmmyy</code> format after retrieving the result from <code>numDaysTillSunday()</code> method.</p>
+<p>Step 2. <code>ListWeekCommand#appendDateList(datelist, numDaysTillSunday(dateName))</code> will generate the <code>dateList</code>, which
+is a <code>list</code> of dates in <code>ddmmyy</code> format after retrieving the result from <code>numDaysTillSunday()</code> method.
+<code>numDaysTillSunday()</code> method itself will compute the number of days from current date till Sunday based on <code>dateName</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 3. <code>model.updateFilteredTaskList()</code> will update the task list with <code>DateWeekSamePredicate</code>
@@ -999,6 +1000,7 @@ as the parameter. <code>DateWeekSamePredicate</code> itself would take <code>dat
 <div class="content">
 <img src="images/ListWeekCommand_DG_SequenceDiagram.png" alt="ListWeekCommand DG SequenceDiagram" width="800">
 </div>
+<div class="title">Figure 10. Sequence Diagram of ListWeek Command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1021,7 +1023,8 @@ as the parameter. <code>DateWeekSamePredicate</code> itself would take <code>dat
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Allow the commands to receive argument for which date(s) to filter.</p>
+<p><strong>Alternative 2:</strong> Allow the commands to receive argument for which date(s) to filter.
+E.g listday 130818 to view all tasks for 13 August 2018.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -1041,12 +1044,13 @@ as the parameter. <code>DateWeekSamePredicate</code> itself would take <code>dat
 <div class="sect2">
 <h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">4.6. Generate academic calendar weeks</a></h3>
 <div class="paragraph">
-<p>In order to enable users to better monitor their tasks in the schedule planner, we added <code>firstday</code> command.</p>
+<p>In order to enable users to better monitor their tasks in the schedule planner by knowing what is the current
+academic week, we added <code>firstday</code> command.</p>
 </div>
 <div class="paragraph">
 <p>The <code>firstday</code> command will generate the weeks according to the NUS academic calendar, and will append the week
-number to the application title  whenever the user launches the application to allow user to know the current
-academic week.</p>
+number to the application title if the user launches the application within the academic calendar dates.
+This allows the user to know the current academic week.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
@@ -1060,24 +1064,31 @@ academic week.</p>
 <code>firstDayOfSem</code> and <code>lastDayOfSem</code> and return true or false.</p>
 </li>
 <li>
-<p><code>FirstDayCommand#retrieveWeekDescription(rangeOfWeek)</code>&#8201;&#8212;&#8201;Return the description of a particular week</p>
+<p><code>FirstDayCommand#retrieveWeekDescription(rangeOfWeek)</code>&#8201;&#8212;&#8201;It return the description of a particular week</p>
 </li>
 <li>
-<p><code>FirstDayCommand#saveRangeOfWeeks(rangeOfWeek)</code>&#8201;&#8212;&#8201;Save the academic calendar weeks data into <code>rangeOfWeek.xml</code></p>
+<p><code>FirstDayCommand#saveRangeOfWeeks(rangeOfWeek)</code>&#8201;&#8212;&#8201;It save the academic calendar weeks data into <code>rangeofweek.xml</code></p>
 </li>
 <li>
-<p><code>FirstDayCommand#retrieveRangeOfWeeks(storeRangeOfWeeks)</code>&#8201;&#8212;&#8201;Retrieved the saved academic calendar weeks data from
-<code>rangeOfWeek.xml</code></p>
+<p><code>FirstDayCommand#retrieveRangeOfWeeks(storeRangeOfWeeks)</code>&#8201;&#8212;&#8201;It retrieves the saved academic calendar weeks data from
+<code>rangeofweek.xml</code></p>
 </li>
 <li>
-<p><code>FirstDayCommand#computeRangeOfWeek(firstDay)</code>&#8201;&#8212;&#8201;Generate the academic calendar weeks data based on the <code>firstDay</code>
+<p><code>FirstDayCommand#computeRangeOfWeek(firstDay)</code>&#8201;&#8212;&#8201;It generate the academic calendar weeks data based on the <code>firstDay</code>
 parameter.</p>
 </li>
 <li>
-<p><code>FirstDayCommand#addDescription</code>&#8201;&#8212;&#8201;Append description for each academic calendar weeks.</p>
+<p><code>FirstDayCommand#addDescription</code>&#8201;&#8212;&#8201;It appends description for each academic calendar weeks.</p>
 </li>
 <li>
-<p><code>FirstDayCommand#isMonday(inputDate)</code>&#8201;&#8212;&#8201;Check if inputDate is Monday and return true or false.</p>
+<p><code>FirstDayCommand#isMonday(inputDate)</code>&#8201;&#8212;&#8201;It checks if inputDate is Monday and return true or false.</p>
+</li>
+<li>
+<p><code>FirstDayCommand#computeAppTitle()</code>&#8201;&#8212;&#8201;It computes the corresponding application title after checking if current
+system date is within academic calendar dates.</p>
+</li>
+<li>
+<p><code>FirstDayCommand#createDefaultFileIfNotExist()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if it does not exist.</p>
 </li>
 </ul>
 </div>
@@ -1092,8 +1103,9 @@ parameter.</p>
 remaining argument into <code>trimmedArgs</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. Methods <code>onlyOneSetArgument</code>, <code>Date.isValidDate</code> and <code>isMonday</code> are to be used to check if <code>trimmedArgs</code> is
-valid.</p>
+<p>Step 3. Methods <code>onlyOneSetArgument(trimmedArgs)</code>, <code>Date.isValidDate(trimmedArgs)</code> and <code>isMonday(trimmedArgs)</code> are used
+ in sequence to check if
+<code>trimmedArgs</code> is valid.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1147,14 +1159,22 @@ weeks, the <code>UI</code> would display the corresponding week description to t
 </div>
 </div>
 <div class="paragraph">
-<p>Step 9. When user launch the application, <code>MainApp</code> will check if <code>rangeOfWeek.xml</code> exists. Should it be the first
-time user launch the application or if user deleted the file, it will create a default file that would not affect the
- user experiences.</p>
+<p>Step 9. When user launch the application,<code>MainApp</code> will create a <code>FirstDayCommand</code> object named <code>fdc</code> to utilise the
+method <code>FirstDayCommand#createDefaultFileIfNotExist</code>. The purpose is to check if <code>rangeOfWeek.xml</code> exists. Should it be the
+first time user launch the application or if user deleted the file, it will create a default file that would not
+affect the user experiences.</p>
 </div>
 <div class="paragraph">
-<p>If the file exist, <code>FirstDayCommand#retrieveRangeOfWeeks</code> will be called to retrieve the academic
- calendar weeks data from <code>rangeOfWeek.xml</code>. <code>FirstDayCommand#isWithinDateRange</code> would then be called to check if
- current system date lies within the academic calendar weeks and update the application title correspondly if necessary.</p>
+<p>Step 10. <code>MainApp</code> will create a <code>Config</code> object named as <code>updateConfig</code> and then calls the method <code>updateConfig.setAppTitle(fdc.computeAppTitle())</code>. <code>fdc.computeAppTitle()</code> would generate the corresponding application title by
+checking the current system date and the saved academic calendar weeks data. It would then return the result into
+<code>updateConfig.setAppTitle()</code> to update the application title.</p>
+</div>
+<div class="paragraph">
+<p><code>MainApp</code> then calls <code>ConfigUtil#saveConfig(updateConfig, configFilePathUsed)</code> to save the updated configuration into
+ the path where <code>config.json</code> is.</p>
+</div>
+<div class="paragraph">
+<p>Step 11. <code>MainApp</code> would then retrieve the application title from <code>config.json</code> and display on the <code>UI</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1181,11 +1201,13 @@ not exist.
 <div class="content">
 <img src="images/FirstDayCommand_DG_SequenceDiagram.png" alt="FirstDayCommand DG SequenceDiagram" width="800">
 </div>
+<div class="title">Figure 11. Sequence diagram of FirstDay Command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LaunchMainApp_DG_SequenceDiagram.png" alt="LaunchMainApp DG SequenceDiagram" width="800">
 </div>
+<div class="title">Figure 12. Sequence diagram of launching MainApp</div>
 </div>
 </div>
 <div class="sect3">
@@ -1386,7 +1408,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 10. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3298,4 +3320,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 04:39:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 10:34:53 UTC</div></div></div></body></html>
