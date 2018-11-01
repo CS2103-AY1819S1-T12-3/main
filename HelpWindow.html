@@ -25,7 +25,7 @@
 <li><a href="#viewing-archived-tasks">3.10. Viewing Archived Tasks</a></li>
 <li><a href="#viewing-tasks-due-today">3.11. Viewing Tasks Due Today</a></li>
 <li><a href="#viewing-tasks-due-this-term-week">3.12. Viewing Tasks Due This Term Week</a></li>
-<li><a href="#generating-academic-calendar-weeks">3.13. Generating academic calendar weeks</a></li>
+<li><a href="#generating-academic-calendar-weeks">3.13. Generating Academic Calendar Weeks</a></li>
 <li><a href="#listing-overdue-tasks">3.14. Listing Overdue Tasks</a></li>
 <li><a href="#listing-used-commands">3.15. Listing Used Commands</a></li>
 <li><a href="#undoing-previous-command">3.16. Undoing Previous Command</a></li>
@@ -112,10 +112,12 @@ e.g. typing <code class="blue">help</code> and pressing <kbd>Enter</kbd> will op
 <p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code class="blue">add n/NAME</code>, <code class="blue">NAME</code> is a parameter which can be used as <code class="blue">add n/do CS2100 tutorial</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code class="blue">n/NAME [c/CATEGORY]</code> can be used as <code class="blue">n/do CS2100 tutorial c/CS2100</code> or as <code class="blue">n/do CS2100 tutorial</code>.</p>
+<p>Items in square brackets are optional e.g <code class="blue">n/NAME [t/TAG]</code> can be used as <code class="blue">n/do CS2100 tutorial
+t/CS2100</code> or as <code class="blue">n/do CS2100 tutorial</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code class="blue">[c/CATEGORY]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code class="blue">c/tutorial</code>, <code class="blue">c/tutorial c/CS2100</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code class="blue">[t/TAG]&#8230;&#8203;</code> can be used
+as <code>&#160;</code> (i.e. 0 times), <code class="blue">t/tutorial</code>, <code class="blue">t/tutorial t/CS2100</code> etc.</p>
 </li>
 <li>
 <p>Parameters can be in any order e.g. if the command specifies <code class="blue">n/NAME d/DEADLINE</code>, <code class="blue">d/DEADLINE n/NAME</code> is also acceptable.</p>
@@ -508,9 +510,9 @@ Use the <code>list</code> command to find out the index of the task to be archiv
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-academic-calendar-weeks"><a class="link" href="#generating-academic-calendar-weeks">3.13. Generating academic calendar weeks</a></h3>
+<h3 id="generating-academic-calendar-weeks"><a class="link" href="#generating-academic-calendar-weeks">3.13. Generating Academic Calendar Weeks</a></h3>
 <div class="paragraph">
-<p>Generates the entire academic calendar calendar with description based on the first academic day and stores it in storage.</p>
+<p>Generates the entire academic calendar weeks with description, based on the first academic day and stores it in storage.</p>
 </div>
 <div class="paragraph">
 <p>Currently, the generated academic calendar is based on the academic calender of National University of Singapore
@@ -535,12 +537,28 @@ will append that particular week&#8217;s description.<br></p>
 <div class="paragraph">
 <p>input: <code class="blue">firstday 130818</code><br>
 output: When user launch the application from E.g 221018 to 281018 (Week 10 for NUS academic year 18/19
-semester 1), the application title will append "week 10".</p>
+semester 1), the application title will append "Week 10".</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>The <code class="blue">ddmmyy</code> refers to the date format of day, month and year.</p>
+<p>The <code class="blue">ddmmyy</code> refers to the date format of day, month and year. It must complies the following three rules in
+order:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code class="blue">ddmmyy</code> must only be one set of value such as <code>130818</code>. Value such as <code>130818 200818</code> or <code>130818 20</code>
+will be
+rejected as they are considered as more than one set of date.</p>
+</li>
+<li>
+<p>The <code class="blue">ddmmyy</code> must be a valid date within 21st century.</p>
+</li>
+<li>
+<p>The <code class="blue">ddmmyy</code> must be a Monday.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>Before:</p>
@@ -905,7 +923,7 @@ Example:<br>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Generating academic calendar weeks</strong> :</p>
+<p><strong>Generating Academic Calendar Weeks</strong> :</p>
 </li>
 </ul>
 </div>
@@ -1014,4 +1032,4 @@ Example:<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:21:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:45:01 UTC</div></div></div></body></html>
