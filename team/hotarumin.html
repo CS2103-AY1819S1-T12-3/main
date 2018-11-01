@@ -140,6 +140,76 @@
 </tbody>
 </table>
 <div class="sect2">
+<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">List Overdue Tasks</a></h3>
+<div class="paragraph">
+<p>The <code>listoverdue</code> command allows the user to view the list of all overdue tasks. A task is considered overdue if its
+deadline has passed. In other words, the system&#8217;s current date is after the deadline.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Model contains a UniqueTaskList called tasks.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the list overdue mechanism behaves at each step:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListOverdueSequenceDiagram.png" alt="ListOverdueSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 1. Sequence Diagram of ListOverdueCommand</div>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes the command <code>listoverdue</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. <code>model.updateFilteredTaskList()</code> will update the task list with <code>OverduePredicate</code> as the parameter
+<code>OverduePredicate</code> itself takes the current system date in the yyMMdd format.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The updated task list would be reflected on the UI to be displayed to the user.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h3>
+<div class="sect3">
+<h4 id="aspect-how-the-overdue-tasks-are-stored"><a class="link" href="#aspect-how-the-overdue-tasks-are-stored">Aspect: How the overdue tasks are stored</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> The overdue tasks are not stored in a separate UniqueTaskList. Instead, the
+UniqueTaskList tasks is filtered with OverduePredicate each time the <code>listoverdue</code> command is called.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Does not require a new UniqueTaskList.</p>
+</li>
+<li>
+<p>Cons: If the number of tasks is huge, filtering will take a long time. However, this is not a problem since
+the number of tasks is small at any given point of time.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> The overdue tasks are stored in a new UniqueTaskList.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Retrieving is overdue tasks is faster.</p>
+</li>
+<li>
+<p>Cons: A new UniqueTaskList has to be implemented.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="list-archived-tasks"><a class="link" href="#list-archived-tasks">List Archived Tasks</a></h3>
 <div class="paragraph">
 <p>The <code>listarchived</code> command allows the user to view the list of all archived tasks. Whenever the user completes a task,
@@ -148,7 +218,7 @@ all completed tasks. If the user wishes to view all of his/her completed tasks, 
 all of the archived tasks.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains two UniqueTaskLists - tasks and archivedTasks - each containing the tasks and archived tasks respectively.</p>
 </div>
@@ -174,7 +244,7 @@ all of the archived tasks.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-archived-tasks-are-stored"><a class="link" href="#aspect-how-archived-tasks-are-stored">Aspect: How archived tasks are stored</a></h5>
 <div class="ulist">
@@ -240,4 +310,4 @@ Users can choose to upload their own images or use images uploaded by other user
 </div>
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:09:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:21:15 UTC</div></div></div></body></html>

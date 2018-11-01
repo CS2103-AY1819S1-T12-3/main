@@ -33,7 +33,6 @@
 <li><a href="#clearing-schedule-planner">3.18. Clearing Schedule Planner</a></li>
 <li><a href="#exiting-the-app">3.19. Exiting the App</a></li>
 <li><a href="#saving-the-data">3.20. Saving the Data</a></li>
-<li><a href="#encrypting-data-files-coming-in-v2-0">3.21. Encrypting Data Files (Coming in v2.0)</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">4. Command Summary</a></li>
@@ -45,7 +44,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Student Schedule Planner (SSP) is a desktop application <strong>aimed at helping students manage their schedules effectively</strong>. SSP is <strong>optimised for those who prefer to work with a Command Line Interface</strong> (CLI) while retaining the benefits of a Graphical User Interface (GUI). If you can type fast, SSP can get your schedule management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Student Schedule Planner (SSP) is a desktop application <strong>aimed at helping students manage their schedules effectively</strong>. SSP is optimised for users who prefer to type rather than click. In fact, if you type efficiently, this application will be much faster than regular to-do applications. Move on to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started.</p>
 </div>
 </div>
 </div>
@@ -55,7 +54,7 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Install Java <code>9</code> if you do not have, download it from <a href="{https://www.oracle.com/technetwork/java/javase/downloads/index.html}">here</a>.<br></p>
+<p>Install Java <code>9</code> if you do not have it. It is available <a href="{https://www.oracle.com/technetwork/java/javase/downloads/index.html}">here</a>.<br></p>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -77,14 +76,19 @@ The application may not run correctly on Java <code>10</code> or Java <code>11</
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+</li>
+</ol>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui" width="790">
 </div>
+<div class="title">Figure 1. The menu that you should see once you open the application.</div>
 </div>
-</li>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+<p>Type a command in the command box and press <kbd>Enter</kbd> to execute it.<br>
 e.g. typing <code class="blue">help</code> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
@@ -160,7 +164,7 @@ tag <code class="blue">CS3241</code> and deadline of 10th October 2018, venue at
 </div>
 </div>
 <div class="paragraph">
-<p>The priority level must be a number between 1 to 3, where 1 denotes highest priority.</p>
+<p>The priority level must be a number between 1 to 3, where 3 denotes highest priority.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -169,19 +173,7 @@ tag <code class="blue">CS3241</code> and deadline of 10th October 2018, venue at
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Ensure that you have included the name, priority level and deadline for tasks.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Tags are optional, you do not need to add them.
+A task strictly requires a name, priority level and deadline. Tags are optional.
 </td>
 </tr>
 </table>
@@ -205,16 +197,28 @@ Tags are optional, you do not need to add them.
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Input: <code class="blue">add r/3 n/exam p/3 t/CS3241 d/101018 v/mpsh1</code></p>
+<p>Input: <code class="blue">add r/3 n/Lecture p/3 t/CS3241 d/101018 v/mpsh1</code></p>
 </div>
 <div class="paragraph">
-<p>Outcome: Adds 3 tasks named <code class="blue">exam</code> with priority level <code class="blue">3</code>,
-tag <code class="blue">CS3241</code>, venue at mpsh1, and deadline of 10th October 2018, 17th October 2018, and 24th October 2018.</p>
+<p>Outcome: Adds 3 tasks named <code class="blue">Lecture</code> with priority level <code class="blue">3</code>,
+tag <code class="blue">CS3241</code>, venue at <code class="blue">mpsh1</code>, and deadline of 10th October 2018, 17th October 2018, and 24th October 2018.</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>The number of repeats must be larger or equals to 2. If it is 1, it is the same as adding a normal task.</p>
+<p>The number of repeats should be an integer that is greater or equals to 1. Setting the repeat as 1 has the same effect as using the <code>add</code> command.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use this command to schedule tasks that you carry out regularly.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -282,7 +286,7 @@ The existing tags of the task will be removed when tag is edited. If input is
 </td>
 <td class="content">
 To remove all tags of a existing task, you can just type <code class="blue">c/</code>.
-If input is <code class="blue">task 3 c/</code>, all the tags of task 3 will be removed.
+If input is <code class="blue">task 3 c/</code>, all the tags of the task with <code>INDEX</code> 3 will be removed.
 </td>
 </tr>
 </table>
@@ -295,8 +299,7 @@ If input is <code class="blue">task 3 c/</code>, all the tags of task 3 will be 
 </td>
 <td class="content">
 Use the <code class="blue">list task</code>, <code class="blue">listday</code> or <code class="blue">listweek</code> to find out the index of the task to be modified.
-For example, you can use <code class="blue">listday</code> to list out tasks due today, and userefer to the tasks according to index used
-in current list.
+For example, you can use <code class="blue">listday</code> to list out the tasks due today, and choose the index of the task that you want to edit.
 </td>
 </tr>
 </table>
@@ -364,12 +367,12 @@ You can include multiple keywords when using <code class="blue">find</code>. <co
 <div class="content">
 <div class="paragraph">
 <p>input: <code class="blue">filter tutorial</code><br>
-output: All tasks that has tag matching with <code class="blue">tutorial</code> are listed out.</p>
+output: All tasks that has the tag <code class="blue">tutorial</code> are listed out.</p>
 </div>
 </div>
 </div>
 <div class="paragraph">
-<p>The search is case insensitive. e.g <code class="blue">apples</code> will match <code class="blue">Apples</code>.</p>
+<p>The search is case insensitive. e.g <code class="blue">apples</code> matches <code class="blue">Apples</code>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -468,7 +471,7 @@ Use the <code>list</code> command to find out the index of the task to be archiv
 <div class="sect2">
 <h3 id="viewing-archived-tasks"><a class="link" href="#viewing-archived-tasks">3.10. Viewing Archived Tasks</a></h3>
 <div class="paragraph">
-<p>Views archived tasks.<br></p>
+<p>Shows a list of archived tasks.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -481,7 +484,7 @@ Use the <code>list</code> command to find out the index of the task to be archiv
 <div class="sect2">
 <h3 id="viewing-tasks-due-today"><a class="link" href="#viewing-tasks-due-today">3.11. Viewing Tasks Due Today</a></h3>
 <div class="paragraph">
-<p>Views tasks that are due today.<br></p>
+<p>Shows a list of tasks that are due today.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -494,7 +497,7 @@ Use the <code>list</code> command to find out the index of the task to be archiv
 <div class="sect2">
 <h3 id="viewing-tasks-due-this-term-week"><a class="link" href="#viewing-tasks-due-this-term-week">3.12. Viewing Tasks Due This Term Week</a></h3>
 <div class="paragraph">
-<p>Views tasks that are due from current date till the closest Sunday.<br></p>
+<p>Shows a list of tasks that are due from current date till the closest Sunday.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -510,8 +513,8 @@ Use the <code>list</code> command to find out the index of the task to be archiv
 <p>Generates the entire academic calendar calendar with description based on the first academic day and stores it in storage.</p>
 </div>
 <div class="paragraph">
-<p>Currently, the generated academic calendar is adapted from the academic calender of National University of Singapore
-(NUS).</p>
+<p>Currently, the generated academic calendar is based on the academic calender of National University of Singapore
+(NUS). It may not be compatible with academic calendars from other institutions.</p>
 </div>
 <div class="paragraph">
 <p>Whenever you launch the application within the academic calendar&#8217;s dates, the application title
@@ -567,7 +570,7 @@ semester 1), the application title will append "week 10".</p>
 <div class="sect2">
 <h3 id="listing-overdue-tasks"><a class="link" href="#listing-overdue-tasks">3.14. Listing Overdue Tasks</a></h3>
 <div class="paragraph">
-<p>Lists all the overdue tasks.<br></p>
+<p>Shows a list all the overdue tasks.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -580,7 +583,7 @@ semester 1), the application title will append "week 10".</p>
 <div class="sect2">
 <h3 id="listing-used-commands"><a class="link" href="#listing-used-commands">3.15. Listing Used Commands</a></h3>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br></p>
+<p>Shows a list of all the commands that you have entered in reverse chronological order.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -702,12 +705,6 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 <div class="paragraph">
 <p>Data in the Student Schedule Planner is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-coming-in-v2-0"><a class="link" href="#encrypting-data-files-coming-in-v2-0">3.21. Encrypting Data Files (Coming in v2.0)</a></h3>
-<div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
 </div>
 </div>
@@ -1017,4 +1014,4 @@ Example:<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:09:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:21:15 UTC</div></div></div></body></html>
