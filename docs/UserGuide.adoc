@@ -102,19 +102,23 @@ The name, priority level and deadline fields are compulsory and required for eve
 
 Adds copies of the same task to a specified day in the week, for a given number of weeks. +
 ====
-[blue]`repeat r/[REPEATS] n/[NAME] p/[PRIORITYLEVEL] t/[TAG] d/[DEADLINE] v/[VENUE]` +
+[blue]`repeat r/[REPEATS] i/[INTERVAL] n/[NAME] p/[PRIORITYLEVEL] t/[TAG] d/[DEADLINE] v/[VENUE]` +
 ====
 Example: +
 ====
-Input: [blue]`add r/3 n/Lecture p/3 t/CS3241 d/101018 v/mpsh1`
+Input: [blue]`repeat r/3 i/7 n/Lecture p/3 t/CS3241 d/101018 v/mpsh1`
 
 Outcome: Adds 3 tasks named [blue]`Lecture` with priority level [blue]`3`,
 tag [blue]`CS3241`, venue at [blue]`mpsh1`, and deadline of 10th October 2018, 17th October 2018, and 24th October 2018.
+(The task is set three times at a interval of 7 days.)
 ====
 The number of repeats should be an integer that is greater or equals to 1. Setting the repeat as 1 has the same effect as using the `add` command.
 
 [TIP]
 Use this command to schedule tasks that you carry out regularly.
+
+[WARNING]
+All the fields except tag are optional.
 
 === Listing All Tasks
 
