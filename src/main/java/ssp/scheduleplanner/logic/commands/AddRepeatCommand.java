@@ -63,19 +63,27 @@ public class AddRepeatCommand extends Command {
 
         int interval = Integer.parseInt(repeatInterval.value);
         DateFormat schedulerFormat = new SimpleDateFormat("ddMMyy");
-        for (int i = 0; i < Integer.parseInt(repeat.value); i++) {
-            Calendar baseDate = toAdd.getDate().calendar;
-            baseDate.add(Calendar.DAY_OF_YEAR, interval * i);
-            String newDate = schedulerFormat.format(baseDate.getTime());
-            Date date = new Date(newDate);
-            Task newTask = new Task(toAdd.getName(), date,
+        Calendar baseDate = toAdd.getDate().calendar;
+        String newDate = schedulerFormat.format(baseDate.getTime());
+        Date date = new Date(newDate);
+
+        Task newTask = new Task(toAdd.getName(), date,
+                toAdd.getPriority(), toAdd.getVenue(), toAdd.getTags());
+
+        if (!model.hasTask(newTask)) {
+            model.addTask(newTask);
+        }
+
+        for (int i = 0; i < Integer.parseInt(repeat.value) - 1; i++) {
+            baseDate.add(Calendar.DAY_OF_YEAR, interval);
+            newDate = schedulerFormat.format(baseDate.getTime());
+            date = new Date(newDate);
+            newTask = new Task(toAdd.getName(), date,
                     toAdd.getPriority(), toAdd.getVenue(), toAdd.getTags());
 
-            if (model.hasTask(newTask)) {
-                throw new CommandException(MESSAGE_DUPLICATE_TASK);
+            if (!model.hasTask(newTask)) {
+                model.addTask(newTask);
             }
-
-            model.addTask(newTask);
         }
         model.commitSchedulePlanner();
         EventsCenter.getInstance().post(new ChangeViewEvent(ChangeViewEvent.View.NORMAL));
