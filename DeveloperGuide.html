@@ -1058,9 +1058,21 @@ E.g listday 130818 to view all tasks for 13 August 2018.</p>
 academic week, we added <code>firstday</code> command.</p>
 </div>
 <div class="paragraph">
-<p>The <code>firstday</code> command will generate the weeks according to the NUS academic calendar, and will append the week
-number to the application title if the user launches the application within the academic calendar dates.
+<p>The <code>firstday</code> command will generate the weeks referencing to NUS academic calendar, and will append the week
+description to the application title if the user launches the application within the academic calendar dates.
 This allows the user to know the current academic week.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The number of weeks referencing NUS academic calendar is fixated at 17 weeks.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
@@ -1099,6 +1111,17 @@ system date is within academic calendar dates.</p>
 </li>
 <li>
 <p><code>FirstDayCommand#createDefaultFileIfNotExist()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if it does not exist.</p>
+</li>
+<li>
+<p><code>FirstDayCommand#createDefaultFileIfSizeDiff()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if the number of
+entries differ from the expected academic number of weeks.</p>
+</li>
+<li>
+<p><code>FirstDayCommand#createDefaultFileIfNull()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if any data is null.</p>
+</li>
+<li>
+<p><code>FirstDayCommand#createDefaultFileIfInvalidDate()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if date data in
+modified to be an invalid date format.</p>
 </li>
 </ul>
 </div>
@@ -1170,9 +1193,12 @@ weeks, the <code>UI</code> would display the corresponding week description to t
 </div>
 <div class="paragraph">
 <p>Step 9. When user launch the application,<code>MainApp</code> will create a <code>FirstDayCommand</code> object named <code>fdc</code> to utilise the
-method <code>FirstDayCommand#createDefaultFileIfNotExist</code>. The purpose is to check if <code>rangeOfWeek.xml</code> exists. Should it be the
-first time user launch the application or if user deleted the file, it will create a default file that would not
-affect the user experiences.</p>
+method <code>FirstDayCommand#createDefaultFileIfNotExist</code>, <code>FirstDayCommand#createDefaultFileIfDiffSize</code>,
+<code>FirstDayCommand#createDefaultFileIfNull</code> and <code>FirstDayCommand#createDefaultFileIfInvalidDate</code>.</p>
+</div>
+<div class="paragraph">
+<p>If it is the first time the user launch the application or if user deleted the <code>rangeofweek.xml</code> or modified the file
+content until some content are invalid, the application will create a default <code>rangeofweek.xml</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 10. <code>MainApp</code> will create a <code>Config</code> object named as <code>updateConfig</code> and then calls the method <code>updateConfig.setAppTitle(fdc.computeAppTitle())</code>. <code>fdc.computeAppTitle()</code> would generate the corresponding application title by
@@ -3484,4 +3510,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 07:27:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-03 02:08:44 UTC</div></div></div></body></html>
