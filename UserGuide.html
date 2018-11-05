@@ -26,12 +26,15 @@
 <li><a href="#viewing-tasks-due-this-month">3.11. Viewing Tasks Due This Month</a></li>
 <li><a href="#generating-weeks-in-the-academic-calendar">3.12. Generating Weeks in the Academic Calendar</a></li>
 <li><a href="#listing-overdue-tasks">3.13. Listing Overdue Tasks</a></li>
-<li><a href="#listing-used-commands">3.14. Listing Used Commands</a></li>
-<li><a href="#undoing-previous-command">3.15. Undoing Previous Command</a></li>
-<li><a href="#redoing-the-previous-undo-command">3.16. Redoing the Previous Undo Command</a></li>
-<li><a href="#clearing-schedule-planner">3.17. Clearing Schedule Planner</a></li>
-<li><a href="#exiting-the-app">3.18. Exiting the App</a></li>
-<li><a href="#saving-the-data">3.19. Saving the Data</a></li>
+<li><a href="#displaying-used-tags">3.14. Displaying Used Tags</a></li>
+<li><a href="#displaying-today-s-progress">3.15. Displaying Today&#8217;s Progress</a></li>
+<li><a href="#displaying-this-week-s-progress">3.16. Displaying This Week&#8217;s Progress</a></li>
+<li><a href="#listing-used-commands">3.17. Listing Used Commands</a></li>
+<li><a href="#undoing-previous-command">3.18. Undoing Previous Command</a></li>
+<li><a href="#redoing-the-previous-undo-command">3.19. Redoing the Previous Undo Command</a></li>
+<li><a href="#clearing-schedule-planner">3.20. Clearing Schedule Planner</a></li>
+<li><a href="#exiting-the-app">3.21. Exiting the App</a></li>
+<li><a href="#saving-the-data">3.22. Saving the Data</a></li>
 </ul>
 </li>
 <li><a href="#command-summary">4. Command Summary</a></li>
@@ -447,12 +450,12 @@ will return all tasks with tag matching with at least one of the provided tags i
 <div class="sect2">
 <h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">3.7. Deleting a Task</a></h3>
 <div class="paragraph">
-<p>Deletes the specified task from the schedule planner.<br></p>
+<p>Deletes the specified task from the schedule planner forever.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">delete task INDEX</code></p>
+<p><code class="blue">delete INDEX</code></p>
 </div>
 </div>
 </div>
@@ -462,7 +465,7 @@ will return all tasks with tag matching with at least one of the provided tags i
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>input: <code class="blue">delete task 3</code><br>
+<p>input: <code class="blue">delete 3</code><br>
 output: Task with index 3 delete from schedule planner.</p>
 </div>
 </div>
@@ -488,7 +491,7 @@ Use the <code>list</code> command to find out the index of the task to be delete
 === Archiving a Task</p>
 </div>
 <div class="paragraph">
-<p>Archives the specified task from the schedule planner. This is different from deleting a task as you may view the archived tasks later.<br></p>
+<p>Archives the specified task from the schedule planner. This is different from deleting a task as it is equivalent marking the task as completed. You may also view the archived tasks later.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -719,7 +722,46 @@ rejected as they are considered as more than one set of date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-used-commands"><a class="link" href="#listing-used-commands">3.14. Listing Used Commands</a></h3>
+<h3 id="displaying-used-tags"><a class="link" href="#displaying-used-tags">3.14. Displaying Used Tags</a></h3>
+<div class="paragraph">
+<p>Shows all tags that have been used in the sidebar.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">tags</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="displaying-today-s-progress"><a class="link" href="#displaying-today-s-progress">3.15. Displaying Today&#8217;s Progress</a></h3>
+<div class="paragraph">
+<p>Shows the percentage of tasks that have been archived for the day in the command result box. It also lists the uncompleted tasks for today. The progress bar is also displayed at the bottom left of the window.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">progresstoday</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="displaying-this-week-s-progress"><a class="link" href="#displaying-this-week-s-progress">3.16. Displaying This Week&#8217;s Progress</a></h3>
+<div class="paragraph">
+<p>Shows the percentage of tasks that have been archived from today to the nearest Sunday in the command result box. It also lists the uncompleted tasks from today until the nearest Sunday. The progress bar is also displayed at the bottom right of the window.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">progressweek</code></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-used-commands"><a class="link" href="#listing-used-commands">3.17. Listing Used Commands</a></h3>
 <div class="paragraph">
 <p>Shows a list of all the commands that you have entered in reverse chronological order.<br></p>
 </div>
@@ -746,7 +788,7 @@ rejected as they are considered as more than one set of date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command"><a class="link" href="#undoing-previous-command">3.15. Undoing Previous Command</a></h3>
+<h3 id="undoing-previous-command"><a class="link" href="#undoing-previous-command">3.18. Undoing Previous Command</a></h3>
 <div class="paragraph">
 <p>Restores the schedule planner to the state before the previous <em>undoable</em> command was executed.<br></p>
 </div>
@@ -785,7 +827,7 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previous-undo-command"><a class="link" href="#redoing-the-previous-undo-command">3.16. Redoing the Previous Undo Command</a></h3>
+<h3 id="redoing-the-previous-undo-command"><a class="link" href="#redoing-the-previous-undo-command">3.19. Redoing the Previous Undo Command</a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br></p>
 </div>
@@ -813,7 +855,7 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-schedule-planner"><a class="link" href="#clearing-schedule-planner">3.17. Clearing Schedule Planner</a></h3>
+<h3 id="clearing-schedule-planner"><a class="link" href="#clearing-schedule-planner">3.20. Clearing Schedule Planner</a></h3>
 <div class="paragraph">
 <p>Clears all entries from the schedule planner.<br></p>
 </div>
@@ -826,7 +868,7 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-app"><a class="link" href="#exiting-the-app">3.18. Exiting the App</a></h3>
+<h3 id="exiting-the-app"><a class="link" href="#exiting-the-app">3.21. Exiting the App</a></h3>
 <div class="paragraph">
 <p>Exits the application.<br></p>
 </div>
@@ -839,7 +881,7 @@ Use the <code>history</code> command to decide if you want to undo the previous 
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.19. Saving the Data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the Data</a></h3>
 <div class="paragraph">
 <p>Data in the Student Schedule Planner is saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -936,7 +978,7 @@ Example:<br>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>[blue]`find [NAME]<br></p>
+<p><code class="blue">find [NAME]</code><br></p>
 </div>
 <div class="paragraph">
 <p>Example:<br>
@@ -1075,6 +1117,48 @@ Example:<br>
 <div class="ulist">
 <ul>
 <li>
+<p><strong>Listing Used Tags</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">tags</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Displaying Today&#8217;s Progress</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">progresstoday</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Displaying This Week&#8217;s Progress</strong> :</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">progressweek</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
 <p><strong>Listing Used Commands</strong> :</p>
 </li>
 </ul>
@@ -1152,4 +1236,4 @@ Example:<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 08:07:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 08:17:20 UTC</div></div></div></body></html>
