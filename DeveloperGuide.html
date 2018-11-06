@@ -1120,8 +1120,8 @@ entries differ from the expected academic number of weeks.</p>
 <p><code>FirstDayCommand#createDefaultFileIfNull()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if any data is null.</p>
 </li>
 <li>
-<p><code>FirstDayCommand#createDefaultFileIfInvalidDate()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if date data in
-modified to be an invalid date format.</p>
+<p><code>FirstDayCommand#createDefaultFileIfInvalidDateOrRange()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if date data in
+modified to be an invalid date or date range format.</p>
 </li>
 </ul>
 </div>
@@ -1168,7 +1168,7 @@ calendar weeks. The academic calendar weeks will be stored in a <code>2D String 
 <p>Step 7. <code>FirstDayCommand#saveRangeOfWeeks(rangeOfWeek)</code> will be activated. It will create a
 <code>XmlSerializableRangeOfWeek</code> object with <code>rangeOfWeek</code> as its parameter to allow the <code>rangeOfWeek</code> data to be
 converted into <code>Xml</code> format to be easily saved. Next, this method would call <code>XmlFileStorage#saveWeekDataToFile</code> to
-save the <code>XmlSerializableRangeOfWeek</code> object data into <code>Xml</code> format in <code>rangeOfWeek.xml</code></p>
+save the <code>XmlSerializableRangeOfWeek</code> object data into <code>Xml</code> format in <code>rangeofweek.xml</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1177,7 +1177,7 @@ save the <code>XmlSerializableRangeOfWeek</code> object data into <code>Xml</cod
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>CommandException</code> will be thrown if <code>rangeOfWeek.xml</code> does not exist.
+<code>CommandException</code> will be thrown if <code>rangeofweek.xml</code> does not exist.
 </td>
 </tr>
 </table>
@@ -1194,14 +1194,12 @@ weeks, the <code>UI</code> would display the corresponding week description to t
 <div class="paragraph">
 <p>Step 9. When user launch the application,<code>MainApp</code> will create a <code>FirstDayCommand</code> object named <code>fdc</code> to utilise the
 method <code>FirstDayCommand#createDefaultFileIfNotExist</code>, <code>FirstDayCommand#createDefaultFileIfDiffSize</code>,
-<code>FirstDayCommand#createDefaultFileIfNull</code> and <code>FirstDayCommand#createDefaultFileIfInvalidDate</code>.</p>
+<code>FirstDayCommand#createDefaultFileIfNull</code> and <code>FirstDayCommand#createDefaultFileIfInvalidDateOrRange</code>.</p>
 </div>
 <div class="paragraph">
 <p>If it is the first time the user launch the application or if user deleted the <code>rangeofweek.xml</code> or modified the file
-content until some content are invalid, the application will create a default <code>rangeofweek.xml</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 10. <code>MainApp</code> will create a <code>Config</code> object named as <code>updateConfig</code> and then calls the method <code>updateConfig.setAppTitle(fdc.computeAppTitle())</code>. <code>fdc.computeAppTitle()</code> would generate the corresponding application title by
+content until some content are invalid, the application will create a default <code>rangeofweek.xml</code>.
+Step 10. <code>MainApp</code> will create a <code>Config</code> object named as <code>updateConfig</code> and then calls the method <code>updateConfig.setAppTitle(fdc.computeAppTitle())</code>. <code>fdc.computeAppTitle()</code> would generate the corresponding application title by
 checking the current system date and the saved academic calendar weeks data. It would then return the result into
 <code>updateConfig.setAppTitle()</code> to update the application title.</p>
 </div>
@@ -1224,30 +1222,24 @@ checking the current system date and the saved academic calendar weeks data. It 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>CommandException</code> will be thrown if data from <code>rangeOfWeek.xml</code> could not be converted or if <code>rangeOfWeek.xml</code> does
+<code>CommandException</code> will be thrown if data from <code>rangeofweek.xml</code> could not be converted or if <code>rangeofweek.xml</code> does
 not exist.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><br></p>
-</div>
-<div class="paragraph">
 <p>The following sequence diagram illustrates how the mechanism works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FirstDayCommand_DG_SequenceDiagram.png" alt="FirstDayCommand DG SequenceDiagram" width="800">
+<img src="images/FirstDayCommand_DG_SequenceDiagram.png" alt="FirstDayCommand DG SequenceDiagram" width="700">
 </div>
 <div class="title">Figure 12. Sequence diagram of FirstDay Command</div>
 </div>
-<div class="paragraph">
-<p><br></p>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/LaunchMainApp_DG_SequenceDiagram.png" alt="LaunchMainApp DG SequenceDiagram" width="800">
+<img src="images/LaunchMainApp_DG_SequenceDiagram.png" alt="LaunchMainApp DG SequenceDiagram" width="700">
 </div>
 <div class="title">Figure 13. Sequence diagram of launching MainApp</div>
 </div>
@@ -3576,4 +3568,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 10:40:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 05:41:12 UTC</div></div></div></body></html>

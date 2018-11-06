@@ -1,46 +1,57 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Ang Chen Shin - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Student Schedule Planner</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ang Chen Shin - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-student-schedule-planner"><a class="link" href="#project-student-schedule-planner">PROJECT: Student Schedule Planner</a></h2>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Student Schedule Planner</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Ang Chen Shin - Project Portfolio</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>PROJECT: Student Schedule Planner</p>
+</div>
 <hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="overview"><a class="link" href="#overview">1. Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Student Schedule Planner (SSP) is a desktop application aimed to help students to manage their tasks effectively. The
-user interacts with SSP using a Command-Line Interface (CLI), and it has a Graphical User Interface (GUI)
-created with JavaFX.</p>
+<p>This portfolio showcases the software engineering skills I acquired during my time of study in National University of
+ Singapore.</p>
+</div>
+<div class="paragraph">
+<p>Student Schedule Planner (SSP) is a desktop application created by my team T12-3 for the CS2103T module. SSP
+aimed to help university students to manage their tasks effectively. It is morphed from an existing product called
+AddressBook, with constraints such as the primary mode of user input must be via command-line interface.</p>
+</div>
+<div class="paragraph">
+<p>My contributions to the project included adding <code>firstday</code>, <code>listday</code> and <code>listweek</code> commands to aid the
+users in better management of their tasks.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of Contributions</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>command to generate academic calendar weeks</strong></p>
+<p><strong>Major enhancement</strong>: Added <code>firstday</code> <strong>command to generate academic calendar weeks</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: This feature allow user to use a command to generate the entire academic calendar weeks based on the
+<p>What it does: This feature allows generation of the entire academic calendar weeks based on the
 first day of the academic semester. Whenever the user launches the application within the academic semester, that
 particular week&#8217;s description will be appended to the application title so the user know which academic week that
 particular week is.</p>
 </li>
 <li>
-<p>Justification: This feature allows user to monitor their tasks easier as they may know that they have certain task
-due on a particular week and could use this to gauge the number of weeks they have left for the task.</p>
+<p>Justification: This feature allows user to monitor their tasks easier as they may know that they have certain tasks
+due on a particular week and could use this to plan their remaining time properly.</p>
 </li>
 <li>
-<p>Highlights: This implementation was challenging as it required creating a new model and storage for saving and
+<p>Highlights: This implementation was challenging as it required creating a new <code>model</code> and <code>storage</code> for saving and
 retrieving the academic week data.</p>
 </li>
 <li>
-<p>Credits: <a href="https://stackoverflow.com/questions/1816673/how-do-i-check-if-a-file-exists-in-java" class="bare">https://stackoverflow.com/questions/1816673/how-do-i-check-if-a-file-exists-in-java</a></p>
+<p>Credits: <a href="https://stackoverflow.com/questions/1816673/how-do-i-check-if-a-file-exists-in-java">#1</a>,
+<a href="https://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests">#2</a></p>
 </li>
 </ul>
 </div>
@@ -50,16 +61,17 @@ retrieving the academic week data.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>added a "list day" command to display the tasks from current date.</p>
+<p>Added <code>listday</code> command to display the tasks from current date.</p>
 </li>
 <li>
-<p>added a "list week" command to display the tasks from current date till the closest Sunday.</p>
+<p>Added <code>listweek</code> command to display the tasks from current date until the closest Sunday.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=crimsonang">Project
+Code Dashboard</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -80,12 +92,16 @@ retrieving the academic week data.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated Target User Profile of the Developer Guide (Pull requests
-<a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/1">#1</a>)</p>
+<p>Morphed existing diagrams of the Developer Guide:
+<a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/81">#81</a></p>
 </li>
 <li>
-<p>Added User Stories of the Developer Guide (Pull requests
-<a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/1">#1</a>)</p>
+<p>Updated <code>Target User Profile</code> of the Developer Guide:
+<a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/1">#1</a></p>
+</li>
+<li>
+<p>Added <code>User Stories</code> of the Developer Guide:
+<a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/1">#1</a></p>
 </li>
 </ul>
 </div>
@@ -95,14 +111,12 @@ retrieving the academic week data.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Contributed to forum discussions: <a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/132">#132</a>,
+<a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/146">#146</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (example:  <a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/132">1</a>)</p>
-</li>
-<li>
-<p>Some parts of the listweek feature I added was adopted by a classmate
-(Pull Request <a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/125">125</a>)</p>
+<p>Some parts of the <code>listweek</code> feature I added was adopted by a classmate:
+<a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/125">#125</a></p>
 </li>
 </ul>
 </div>
@@ -122,13 +136,10 @@ retrieving the academic week data.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -141,7 +152,7 @@ retrieving the academic week data.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="viewing-tasks-due-today"><a class="link" href="#viewing-tasks-due-today">Viewing Tasks Due Today</a></h3>
+<h3 id="viewing-tasks-due-today"><a class="link" href="#viewing-tasks-due-today">3.1. Viewing Tasks Due Today</a></h3>
 <div class="paragraph">
 <p>Shows a list of tasks that are due today.<br></p>
 </div>
@@ -154,7 +165,7 @@ retrieving the academic week data.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-tasks-due-this-week"><a class="link" href="#viewing-tasks-due-this-week">Viewing Tasks Due This Week</a></h3>
+<h3 id="viewing-tasks-due-this-week"><a class="link" href="#viewing-tasks-due-this-week">3.2. Viewing Tasks Due This Week</a></h3>
 <div class="paragraph">
 <p>Shows a list of tasks that are due from current date till the closest Sunday.<br></p>
 </div>
@@ -166,43 +177,18 @@ retrieving the academic week data.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>The following diagram illustrates that when you used the <code>listweek</code> command on <code>021118</code>, you will only see tasks
+until <code>041118</code> which is the closest Sunday.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>input: <code class="blue">listweek</code> on the date 021118<br>
-output: Shows a list of tasks from 021118 to closest Sunday which is 041118.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Before:</p>
-</div>
-<div class="exampleblock">
-<div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="../images/ListWeekCommand_UG_Before.png" alt="ListWeekCommand UG Before" width="300">
+<img src="../images/ListWeekCommand_UG_Before_After.png" alt="ListWeekCommand UG Before After" width="700">
 </div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>After:</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="imageblock">
-<div class="content">
-<img src="../images/ListWeekCommand_UG_After.png" alt="ListWeekCommand UG After" width="400">
-</div>
-</div>
-</div>
+<div class="title">Figure 1. Illustration of how listweek Command Functions</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-weeks-in-the-academic-calendar"><a class="link" href="#generating-weeks-in-the-academic-calendar">Generating Weeks in the Academic Calendar</a></h3>
+<h3 id="generating-weeks-in-the-academic-calendar"><a class="link" href="#generating-weeks-in-the-academic-calendar">3.3. Generating Weeks in the Academic Calendar</a></h3>
 <div class="paragraph">
 <p>Generates the entire academic calendar with description, based on the first academic day and stores it in storage.</p>
 </div>
@@ -211,38 +197,38 @@ output: Shows a list of tasks from 021118 to closest Sunday which is 041118.</p>
 (NUS). It may not be compatible with academic calendars from other institutions.</p>
 </div>
 <div class="paragraph">
-<p>Whenever the application is launched within the academic calendar&#8217;s dates, the application title
-will append that particular week&#8217;s description to the title of the app.<br></p>
+<p>Whenever the application is launched within the academic calendar&#8217;s dates, the application title will append that
+particular week&#8217;s description to the title of the app.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">firstday [DDMMYY]</code></p>
+<p><code class="blue">firstday DDMMYY</code></p>
 </div>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There would not be any visible changes upon using the command. The reflection would only occur after relaunching the
+application.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>input: <code class="blue">firstday 130818</code><br>
-output: When the user launches the application from E.g 221018 to 281018 (Week 10 for NUS academic year 18/19
-semester 1), the application title will append "Week 10" to the title of the app.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>The <code class="blue">[DDMMYY]</code> refers to the date format of day, month and year. It must complies the following three rules in
+<p>The <code class="blue">DDMMYY</code> refers to the date format of day, month and year. It must complies the following three rules in
 order:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The <code class="blue">DDMMYY]</code> must only be one set of value such as <code>130818</code>. Value such as <code>130818 200818</code> or <code>130818 20</code>
-will be
-rejected as they are considered as more than one set of date.</p>
+<p>The <code class="blue">DDMMYY</code> must only be one set of value such as <code>130818</code>. Value such as <code>130818 200818</code> or <code>130818 20</code>
+will be rejected as they are considered as more than one set of date.</p>
 </li>
 <li>
 <p>The <code class="blue">DDMMYY</code> must be a valid date within 21st century.</p>
@@ -253,34 +239,20 @@ rejected as they are considered as more than one set of date.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Before:</p>
+<p>The following diagram illustrates when you used the <code>firstday</code> command from E.g 221018 to 281018 (Week 10 for
+NUS academic year 18/19 semester 1) and launch the application within Week 10.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
 <div class="imageblock">
 <div class="content">
-<img src="../images/FirstDayCommand_UG_Bef.png" alt="FirstDayCommand UG Bef" width="600">
+<img src="../images/FirstDayCommand_UG_Before_After.png" alt="FirstDayCommand UG Before After" width="700">
 </div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>After:</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="imageblock">
-<div class="content">
-<img src="../images/FirstDayCommand_UG_Aft.png" alt="FirstDayCommand UG Aft" width="400">
-</div>
-</div>
-</div>
+<div class="title">Figure 2. Illustration of how firstday Command Functions</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -293,7 +265,7 @@ rejected as they are considered as more than one set of date.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="view-day-week"><a class="link" href="#view-day-week">View Day/Week</a></h3>
+<h3 id="view-day-week"><a class="link" href="#view-day-week">4.1. View Day/Week</a></h3>
 <div class="paragraph">
 <p>In order to enable users to better manage their tasks in the schedule planner, we added two more variations of
  the <code>list</code> command.</p>
@@ -303,7 +275,7 @@ rejected as they are considered as more than one set of date.</p>
 from the current date till the closest Sunday.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>listday</code>/<code>listweek</code> mechanism utilises the same implementation used by the
 <code>list</code> command:</p>
@@ -356,17 +328,11 @@ as the parameter. <code>DateWeekSamePredicate</code> itself would take <code>dat
 <div class="content">
 <img src="../images/ListWeekCommand_DG_SequenceDiagram.png" alt="ListWeekCommand DG SequenceDiagram" width="800">
 </div>
-<div class="title">Figure 1. Sequence Diagram of ListWeek Command</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/ListMonthCommandSequenceDiagram.png" alt="ListMonthCommandSequenceDiagram">
-</div>
-<div class="title">Figure 2. Sequence Diagram of ListMonth Command</div>
+<div class="title">Figure 3. Sequence Diagram of ListWeek Command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-does-listday-and-listweek-function"><a class="link" href="#aspect-how-does-listday-and-listweek-function">Aspect: How does listday and listweek function</a></h5>
 <div class="ulist">
@@ -404,7 +370,7 @@ E.g listday 130818 to view all tasks for 13 August 2018.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">Generate Academic Calendar Weeks</a></h3>
+<h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">4.2. Generate Academic Calendar Weeks</a></h3>
 <div class="paragraph">
 <p>In order to enable users to better monitor their tasks in the schedule planner by knowing what is the current
 academic week, we added <code>firstday</code> command.</p>
@@ -427,7 +393,7 @@ The number of weeks referencing NUS academic calendar is fixated at 17 weeks.
 </table>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>firstday</code> mechanism is faciliated by <code>FirstDayCommand</code> and implements the following operations:</p>
 </div>
@@ -472,8 +438,8 @@ entries differ from the expected academic number of weeks.</p>
 <p><code>FirstDayCommand#createDefaultFileIfNull()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if any data is null.</p>
 </li>
 <li>
-<p><code>FirstDayCommand#createDefaultFileIfInvalidDate()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if date data in
-modified to be an invalid date format.</p>
+<p><code>FirstDayCommand#createDefaultFileIfInvalidDateOrRange()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if date data in
+modified to be an invalid date or date range format.</p>
 </li>
 </ul>
 </div>
@@ -520,7 +486,7 @@ calendar weeks. The academic calendar weeks will be stored in a <code>2D String 
 <p>Step 7. <code>FirstDayCommand#saveRangeOfWeeks(rangeOfWeek)</code> will be activated. It will create a
 <code>XmlSerializableRangeOfWeek</code> object with <code>rangeOfWeek</code> as its parameter to allow the <code>rangeOfWeek</code> data to be
 converted into <code>Xml</code> format to be easily saved. Next, this method would call <code>XmlFileStorage#saveWeekDataToFile</code> to
-save the <code>XmlSerializableRangeOfWeek</code> object data into <code>Xml</code> format in <code>rangeOfWeek.xml</code></p>
+save the <code>XmlSerializableRangeOfWeek</code> object data into <code>Xml</code> format in <code>rangeofweek.xml</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -529,7 +495,7 @@ save the <code>XmlSerializableRangeOfWeek</code> object data into <code>Xml</cod
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>CommandException</code> will be thrown if <code>rangeOfWeek.xml</code> does not exist.
+<code>CommandException</code> will be thrown if <code>rangeofweek.xml</code> does not exist.
 </td>
 </tr>
 </table>
@@ -546,11 +512,20 @@ weeks, the <code>UI</code> would display the corresponding week description to t
 <div class="paragraph">
 <p>Step 9. When user launch the application,<code>MainApp</code> will create a <code>FirstDayCommand</code> object named <code>fdc</code> to utilise the
 method <code>FirstDayCommand#createDefaultFileIfNotExist</code>, <code>FirstDayCommand#createDefaultFileIfDiffSize</code>,
-<code>FirstDayCommand#createDefaultFileIfNull</code> and <code>FirstDayCommand#createDefaultFileIfInvalidDate</code>.</p>
+<code>FirstDayCommand#createDefaultFileIfNull</code> and <code>FirstDayCommand#createDefaultFileIfInvalidDateOrRange</code>.</p>
 </div>
 <div class="paragraph">
 <p>If it is the first time the user launch the application or if user deleted the <code>rangeofweek.xml</code> or modified the file
 content until some content are invalid, the application will create a default <code>rangeofweek.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>With the extra layer of data verification and rectification, the user do not need to worry when they accidentally
+messed up the storage file.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FirstDayCommand_DG_MainAppLaunchSnippet.png" alt="FirstDayCommand DG MainAppLaunchSnippet" width="275">
+</div>
 </div>
 <div class="paragraph">
 <p>Step 10. <code>MainApp</code> will create a <code>Config</code> object named as <code>updateConfig</code> and then calls the method <code>updateConfig.setAppTitle(fdc.computeAppTitle())</code>. <code>fdc.computeAppTitle()</code> would generate the corresponding application title by
@@ -576,36 +551,30 @@ checking the current system date and the saved academic calendar weeks data. It 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>CommandException</code> will be thrown if data from <code>rangeOfWeek.xml</code> could not be converted or if <code>rangeOfWeek.xml</code> does
+<code>CommandException</code> will be thrown if data from <code>rangeofweek.xml</code> could not be converted or if <code>rangeofweek.xml</code> does
 not exist.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><br></p>
-</div>
-<div class="paragraph">
 <p>The following sequence diagram illustrates how the mechanism works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FirstDayCommand_DG_SequenceDiagram.png" alt="FirstDayCommand DG SequenceDiagram" width="800">
+<img src="../images/FirstDayCommand_DG_SequenceDiagram.png" alt="FirstDayCommand DG SequenceDiagram" width="700">
 </div>
-<div class="title">Figure 3. Sequence diagram of FirstDay Command</div>
-</div>
-<div class="paragraph">
-<p><br></p>
+<div class="title">Figure 4. Sequence diagram of FirstDay Command</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/LaunchMainApp_DG_SequenceDiagram.png" alt="LaunchMainApp DG SequenceDiagram" width="800">
+<img src="../images/LaunchMainApp_DG_SequenceDiagram.png" alt="LaunchMainApp DG SequenceDiagram" width="700">
 </div>
-<div class="title">Figure 4. Sequence diagram of launching MainApp</div>
+<div class="title">Figure 5. Sequence diagram of launching MainApp</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-firstday-functions"><a class="link" href="#aspect-how-firstday-functions">Aspect: How firstday functions</a></h5>
 <div class="ulist">
@@ -676,13 +645,4 @@ description for each weeks.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-05 10:40:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-06 05:41:12 UTC</div></div></div></body></html>
