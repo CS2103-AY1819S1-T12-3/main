@@ -425,6 +425,10 @@ system date is within academic calendar dates.</p>
 <p><code>FirstDayCommand#createDefaultFileIfNotExist()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if it does not exist.</p>
 </li>
 <li>
+<p><code>FirstDayCommand#createDefaultFileIfUnableConvert()</code>&#8201;&#8212;&#8201;It creates the default 'rangeofweek.xml' if data is unable
+to convert to be used.</p>
+</li>
+<li>
 <p><code>FirstDayCommand#createDefaultFileIfSizeDiff()</code>&#8201;&#8212;&#8201;It creates the default <code>rangeofweek.xml</code> if the number of
 entries differ from the expected academic number of weeks.</p>
 </li>
@@ -505,7 +509,8 @@ weeks, the <code>UI</code> would display the corresponding week description to t
 </div>
 <div class="paragraph">
 <p>Step 9. When user launch the application,<code>MainApp</code> will create a <code>FirstDayCommand</code> object named <code>fdc</code> to utilise the
-method <code>FirstDayCommand#createDefaultFileIfNotExist</code>, <code>FirstDayCommand#createDefaultFileIfDiffSize</code>,
+method <code>FirstDayCommand#createDefaultFileIfNotExist</code>,
+<code>FirstDayCommand#createDefaultFileIfUnableConvert</code>, <code>FirstDayCommand#createDefaultFileIfDiffSize</code>,
 <code>FirstDayCommand#createDefaultFileIfNull</code> and <code>FirstDayCommand#createDefaultFileIfInvalidDateOrRange</code>.</p>
 </div>
 <div class="paragraph">
@@ -518,7 +523,7 @@ messed up the storage file.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FirstDayCommand_DG_MainAppLaunchSnippet.png" alt="FirstDayCommand DG MainAppLaunchSnippet" width="275">
+<img src="../images/FirstDayCommand_DG_MainAppLaunchSnippet.png" alt="FirstDayCommand DG MainAppLaunchSnippet" width="300">
 </div>
 </div>
 <div class="paragraph">
@@ -535,7 +540,7 @@ checking the current system date and the saved academic calendar weeks data. It 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FirstDayCommand_UG_Aft.png" alt="FirstDayCommand UG Aft" width="400">
+<img src="../images/FirstDayCommand_UG_Aft.png" alt="FirstDayCommand UG Aft" width="300">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -556,13 +561,13 @@ not exist.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FirstDayCommand_DG_SequenceDiagram.png" alt="FirstDayCommand DG SequenceDiagram" width="700">
+<img src="../images/FirstDayCommand_DG_SequenceDiagram.png" alt="FirstDayCommand DG SequenceDiagram" width="650">
 </div>
 <div class="title">Figure 4. Sequence diagram of FirstDay Command</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/LaunchMainApp_DG_SequenceDiagram.png" alt="LaunchMainApp DG SequenceDiagram" width="700">
+<img src="../images/LaunchMainApp_DG_SequenceDiagram.png" alt="LaunchMainApp DG SequenceDiagram" width="650">
 </div>
 <div class="title">Figure 5. Sequence diagram of launching MainApp</div>
 </div>
@@ -639,4 +644,4 @@ description for each weeks.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 13:25:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 14:28:03 UTC</div></div></div></body></html>
