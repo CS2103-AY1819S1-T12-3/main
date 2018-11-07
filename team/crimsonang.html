@@ -22,7 +22,7 @@ AddressBook, with constraints such as the primary mode of user input must be via
 </div>
 <div class="paragraph">
 <p>My contributions to the project included adding <code>firstday</code>, <code>listday</code> and <code>listweek</code> commands to aid the
-users in better management of their tasks.</p>
+users in better monitoring of their tasks.</p>
 </div>
 </div>
 </div>
@@ -32,18 +32,18 @@ users in better management of their tasks.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Added <code>firstday</code> <strong>command to generate academic calendar weeks</strong></p>
+<p><strong>Major enhancement</strong>: Added <strong>task monitoring system</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: This feature allows generation of the entire academic calendar weeks based on the
-first day of the academic semester. Whenever the user launches the application within the academic semester, that
-particular week&#8217;s description will be appended to the application title so the user know which academic week that
-particular week is.</p>
+<p>What it does: This feature allows user to know what is the current academic week whenever they launch the
+application within the academic semester. It also allow users to know what tasks they have that are due on the current
+date or from the current date until the closest Sunday.</p>
 </li>
 <li>
 <p>Justification: This feature allows user to monitor their tasks easier as they may know that they have certain tasks
-due on a particular week and could use this to plan their remaining time properly.</p>
+due on a particular week and could use this to plan their remaining time properly. Users could also easily know what
+ tasks they have on the current week.</p>
 </li>
 <li>
 <p>Highlights: This implementation was challenging as it required creating a new <code>model</code> and <code>storage</code> for saving and
@@ -51,20 +51,10 @@ retrieving the academic week data.</p>
 </li>
 <li>
 <p>Credits: <a href="https://stackoverflow.com/questions/1816673/how-do-i-check-if-a-file-exists-in-java">#1</a>,
-<a href="https://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests">#2</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Added <code>listday</code> command to display the tasks from current date.</p>
-</li>
-<li>
-<p>Added <code>listweek</code> command to display the tasks from current date until the closest Sunday.</p>
+<a href="https://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests">#2</a>,
+<a href="https://stackoverflow.com/questions/5175728/how-to-get-the-current-date-time-in-java">#3</a>,
+<a href="https://stackoverflow.com/questions/428918/how-can-i-increment-a-date-by-one-day-in-java">#4</a>,
+<a href="https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html">#5</a></p>
 </li>
 </ul>
 </div>
@@ -115,8 +105,12 @@ Code Dashboard</a></p>
 <a href="https://github.com/nus-cs2103-AY1819S1/forum/issues/146">#146</a></p>
 </li>
 <li>
-<p>Some parts of the <code>listweek</code> feature I added was adopted by a classmate:
+<p>Some parts of the <code>listweek</code> command I added was adopted by a classmate:
 <a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/125">#125</a></p>
+</li>
+<li>
+<p>Some parts of the <code>listday</code> command test cases I added was adopted by a classmate:
+<a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/201">#201</a></p>
 </li>
 </ul>
 </div>
@@ -645,4 +639,4 @@ description for each weeks.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 06:17:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 13:08:08 UTC</div></div></div></body></html>
