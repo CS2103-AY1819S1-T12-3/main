@@ -28,7 +28,7 @@
 <li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#current-implementation">4. Current Implementation</a>
+<li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-commands">4.1. Undo/Redo commands</a></li>
 <li><a href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></li>
@@ -40,7 +40,7 @@
 <li><a href="#list-overdue-tasks">4.8. List Overdue Tasks</a></li>
 <li><a href="#list-archived-tasks">4.9. List Archived Tasks</a></li>
 <li><a href="#display-tags-in-sidebar">4.10. Display Tags in Sidebar</a></li>
-<li><a href="#display-progress-bar">4.11. Display Progress Bar</a></li>
+<li><a href="#display-progress-bars">4.11. Display Progress Bars</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -654,7 +654,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Schedule Plan
 </div>
 </div>
 <div class="sect1">
-<h2 id="current-implementation"><a class="link" href="#current-implementation">4. Current Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section elaborates on how certain features are implemented.</p>
@@ -666,7 +666,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Schedule Plan
 later state when 'redo' is called.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.1.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedSchedulePlanner</code>.
 It extends <code>SchedulePlanner</code> with an undo/redo history, stored internally as an <code>SchedulePlannerStateList</code> and <code>currentStatePointer</code>.
@@ -948,7 +948,7 @@ destinations.</p>
 from the current date till the closest Sunday.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>listday</code>/<code>listweek</code> mechanism utilises the same implementation used by
 <code>list</code> command:</p>
@@ -1093,7 +1093,7 @@ The number of weeks referencing NUS academic calendar is fixated at 17 weeks.
 </table>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>firstday</code> mechanism is facilitated by <code>FirstDayCommand</code> and implements the following operations:</p>
 </div>
@@ -1364,7 +1364,7 @@ search for multiple tags at once, and the schedule planner returns a list of tas
 specified by the user.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The filter mechanism utilises "FilterCommandParser" to parse the user command into separate tags e.g <code>filter tag1
  tag2</code> will search for tasks with either tags <code>tag1</code>, <code>tag2</code>, or both.</p>
@@ -1429,7 +1429,7 @@ B, or both.</p>
 deadline has passed. In other words, the system&#8217;s current date is after the deadline.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains a UniqueTaskList called tasks.</p>
 </div>
@@ -1501,7 +1501,7 @@ all completed tasks. If the user wishes to view all of his/her completed tasks, 
 all of the archived tasks.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains two UniqueTaskLists - tasks and archivedTasks - each containing the tasks and archived tasks respectively.</p>
 </div>
@@ -1570,20 +1570,88 @@ all of the archived tasks.</p>
 <h3 id="display-tags-in-sidebar"><a class="link" href="#display-tags-in-sidebar">4.10. Display Tags in Sidebar</a></h3>
 <div class="paragraph">
 <p>Whenever the user tags a task with a new tag, the tag will be added to the sidebar panel. The user will be able to view
-all of the tags he/she has used to categorize tasks.</p>
+all of the tags he/she has used to categorize tasks. Entering the command tags c/CATEGORY will expand the tab for the specified category to show all tags listed under that category.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">Current Implementation</a></h4>
-
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.10.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Every time any category or tag is changed in the Student Schedule Planner, it raises a SchedulePlannerChangedEvent. The UI will then handle that event and update the side bar panel with the new version of categories and tags.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the schedule planner behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes command <code>addtag c/Modules t/CS2100</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The <code>addtag</code> command updates the model with the new tag and raises a new SchedulePlannerChangedEvent.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. SidebarPanel responds to the SchedulePlannerChangedEvent with SidebarPanel#handleSchedulePlannerChangedEvent().</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The Accordion containing all the categories and tags is cleared.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The Accordion is filled with the new list of updated categories and tags.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes command <code>tags c/Modules</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. The ShowTagsCommand raises a new ShowTagsRequestEvent("Modules").</p>
+</div>
+<div class="paragraph">
+<p>Step 8. SidebarPanel responds to the ShowTagsRequestEvent with SidebarPanel#handleShowTagsRequestEvent().</p>
+</div>
+<div class="paragraph">
+<p>Step 9. The TitledPane with the matching name "Modules" is expanded to display all the tags listed under the Modules category.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.10.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-update-the-tags-on-ui"><a class="link" href="#aspect-how-to-update-the-tags-on-ui">Aspect: How to update the tags on UI</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Clear all the TitledPanes and add new TitledPanes accordingly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No matter which category or tag is changed, or what type of change (ie. delete, add, or edit), this change can be handled by the same method each time.</p>
+</li>
+<li>
+<p>Cons: It is redundant to clear everything and replace them with new TitledPanes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Handle different kinds of changes to the category or tag lists.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is a lot faster to only change the TitledPane that is affected.</p>
+</li>
+<li>
+<p>Cons: There are too many cases for how the lists can be changed. (ie. a different change is needed for each of these cases: category is deleted/edited/created/cleared, or a tag is deleted/added)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-progress-bar"><a class="link" href="#display-progress-bar">4.11. Display Progress Bar</a></h3>
+<h3 id="display-progress-bars"><a class="link" href="#display-progress-bars">4.11. Display Progress Bars</a></h3>
 <div class="paragraph">
-<p>The <code>progresstoday</code> and <code>progressweek</code> commands display the percentage of tasks archived for the current day and week respectively. The progress bars at the bottom also reflect the percentages automatically without the need for any commands to be entered.</p>
+<p>The progress bars for today&#8217;s progress and this week&#8217;s progress at the bottom reflect the percentages automatically when the schedule planner is changed in any way.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Whenever the user makes a change in the schedule planner, for example add, delete, or archive a task, it raises a new SchedulePlannerChangedEvent.
 UI part ProgressBarPanel will handle this event and update the values for both today and this week&#8217;s progress bars.</p>
@@ -1592,7 +1660,7 @@ UI part ProgressBarPanel will handle this event and update the values for both t
 <p>Given below is an example usage scenario and how the progress bar mechanism behaves at each step:</p>
 </div>
 <div class="paragraph">
-<p>Step 1. User adds a new Task for today.</p>
+<p>Step 1. User archives a Task due today.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. A new SchedulePlannerChangedEvent is raised.</p>
@@ -1621,15 +1689,43 @@ UI part ProgressBarPanel will handle this event and update the values for both t
 <div class="paragraph">
 <p>The following sequence diagram shows how the progress bar mechanism works:</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ProgressBarSequenceDiagram.png" alt="ProgressBarSequenceDiagram" width="400">
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.11.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.11.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect"><a class="link" href="#aspect">Aspect:</a></h5>
+<h5 id="aspect-how-the-percentages-are-calculated"><a class="link" href="#aspect-how-the-percentages-are-calculated">Aspect: How the percentages are calculated</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong></p>
+<p><strong>Alternative 1 (current choice):</strong> Calculate the percentage of progress by finding the size of filtered task list and filtered archived list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement.</p>
+</li>
+<li>
+<p>Cons: It may be slow if the task list and archived task list are very long.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keep track of number of uncompleted and completed tasks in new Objects called Day and Week.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is much faster to calculate the percentage compared to filtering each task list by a predicate then calculating its size.</p>
+</li>
+<li>
+<p>Cons: The Day and Week objects must be updated for a majority of the commands the app supports. If I had more time, I would have been able to implement this fully.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -2874,4 +2970,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 06:55:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 11:07:29 UTC</div></div></div></body></html>

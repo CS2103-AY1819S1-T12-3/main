@@ -229,7 +229,7 @@ please refer to <a href="#adding-a-category">Section 3.16, &#8220;Adding a Categ
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">repeat r/[REPEATS] n/[NAME] p/[PRIORITYLEVEL] t/[TAG] d/[DEADLINE] v/[VENUE]</code><br></p>
+<p><code class="blue">repeat r/REPEATS i/INTERVAL n/NAME p/PRIORITYLEVEL t/[TAG] d/DEADLINE v/VENUE</code><br></p>
 </div>
 </div>
 </div>
@@ -239,7 +239,7 @@ please refer to <a href="#adding-a-category">Section 3.16, &#8220;Adding a Categ
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Input: <code class="blue">add r/3 n/Lecture p/3 t/CS3241 d/101018 v/mpsh1</code></p>
+<p>Input: <code class="blue">add r/3 i/7 n/Lecture p/3 t/CS3241 d/101018 v/mpsh1</code></p>
 </div>
 <div class="paragraph">
 <p>Outcome: Adds 3 tasks named <code class="blue">Lecture</code> with priority level <code class="blue">3</code>,
@@ -297,7 +297,7 @@ will have the deadline set to the 21st  century instead. For example, a task cre
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">edit INDEX n/NAME p/PRIORITYLEVEL t/[TAGS]&#8230;&#8203; d/DEADLINE v/VENUE</code></p>
+<p><code class="blue">edit INDEX n/[NAME] p/[PRIORITYLEVEL] t/[TAGS]&#8230;&#8203; d/[DEADLINE] v/[VENUE]</code></p>
 </div>
 </div>
 </div>
@@ -595,7 +595,7 @@ output: Shows a list of tasks from 021118 to end of the month which is 301118.</
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">find [NAME]</code></p>
+<p><code class="blue">find NAME</code></p>
 </div>
 </div>
 </div>
@@ -639,7 +639,7 @@ You can include multiple keywords when using <code class="blue">find</code>. <co
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">filter [TAG] [TAG2] &#8230;&#8203;</code></p>
+<p><code class="blue">filter TAG [TAG2] &#8230;&#8203;</code></p>
 </div>
 </div>
 </div>
@@ -763,7 +763,7 @@ Our application allows user to organize tags by saving tags into relevant catego
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">addcat c/[CATEGORY]</code></p>
+<p><code class="blue">addcat c/CATEGORY</code></p>
 </div>
 </div>
 </div>
@@ -811,7 +811,7 @@ categories must have different names.
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">addtag c/[CATEGORY] t/[TAG]</code></p>
+<p><code class="blue">addtag c/CATEGORY t/TAG</code></p>
 </div>
 </div>
 </div>
@@ -857,7 +857,7 @@ these tags will be automatically added to default category <code class="blue">Ot
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">clearcat c/[CATEGORY]</code></p>
+<p><code class="blue">clearcat c/CATEGORY</code></p>
 </div>
 </div>
 </div>
@@ -893,7 +893,7 @@ category <code class="blue">Modules</code>, the tag <code class="blue">CS2105</c
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">removecat c/[CATEGORY]</code></p>
+<p><code class="blue">removecat c/CATEGORY</code></p>
 </div>
 </div>
 </div>
@@ -935,7 +935,7 @@ For more detailed guide about clearing categories, please refer to <a href="#cle
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">editcat c/[ORIGINAL CATEGORY NAME] c/[NEW CATEGORY NAME]</code></p>
+<p><code class="blue">editcat c/ORIGINAL CATEGORY NAME c/NEW CATEGORY NAME</code></p>
 </div>
 </div>
 </div>
@@ -983,12 +983,27 @@ does not overlap with other existing categories in your schedule planner.
 <div class="sect2">
 <h3 id="displaying-used-tags"><a class="link" href="#displaying-used-tags">3.21. Displaying Used Tags</a></h3>
 <div class="paragraph">
-<p>Shows all tags that have been used in the sidebar.<br></p>
+<p>Shows all tags categorised under the specified category. It expands the tab in the sidebar.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">tags</code></p>
+<p><code class="blue">tags c/CATEGORY</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">tags c/Modules</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Before-after-showtags.png" alt="Before after showtags" width=""400">
+</div>
 </div>
 </div>
 </div>
@@ -996,7 +1011,7 @@ does not overlap with other existing categories in your schedule planner.
 <div class="sect2">
 <h3 id="displaying-today-s-progress"><a class="link" href="#displaying-today-s-progress">3.22. Displaying Today&#8217;s Progress</a></h3>
 <div class="paragraph">
-<p>Shows the percentage of tasks that have been archived for the day in the command result box. It also lists the uncompleted tasks for today. The progress bar is also displayed at the bottom left of the window.<br></p>
+<p>Shows the percentage of tasks that have been archived for the day in the command result box and lists the uncompleted tasks for today. The progress bar is also displayed at the bottom left of the window.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -1005,16 +1020,56 @@ does not overlap with other existing categories in your schedule planner.
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listday</code><br>
+<code class="blue">archive 1</code><br>
+<code class="blue">progresstoday</code><br></p>
+</div>
+<div class="paragraph">
+<p>The diagram below contains the screenshots of what you will see after each of the commands entered above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/before-after-progresstoday.png" alt="before after progresstoday" width="400">
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="displaying-this-week-s-progress"><a class="link" href="#displaying-this-week-s-progress">3.23. Displaying This Week&#8217;s Progress</a></h3>
 <div class="paragraph">
-<p>Shows the percentage of tasks that have been archived from today to the nearest Sunday in the command result box. It also lists the uncompleted tasks from today until the nearest Sunday. The progress bar is also displayed at the bottom right of the window.<br></p>
+<p>Shows the percentage of tasks that have been archived from today to the nearest Sunday in the command result box and lists the uncompleted tasks from today until the nearest Sunday. The progress bar is also displayed at the bottom right of the window.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><code class="blue">progressweek</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listday</code><br>
+<code class="blue">archive 1</code><br>
+<code class="blue">progressweek</code><br></p>
+</div>
+<div class="paragraph">
+<p>The diagram below contains the screenshots of what you will see after each of the commands entered above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/before-after-progressweek.png" alt="before after progressweek" width="400">
+</div>
 </div>
 </div>
 </div>
@@ -1191,7 +1246,7 @@ Example:<br>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">repeat r/[REPEATS] n/[NAME] p/[PRIORITYLEVEL] t/[TAG] d/[DEADLINE] v/[VENUE]</code><br></p>
+<p><code class="blue">repeat r/REPEATS i/INTERVAL n/NAME p/PRIORITYLEVEL t/[TAG] d/DEADLINE v/VENUE</code><br></p>
 </div>
 </div>
 </div>
@@ -1237,7 +1292,7 @@ Example:<br>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">find [NAME]</code><br></p>
+<p><code class="blue">find NAME</code><br></p>
 </div>
 <div class="paragraph">
 <p>Example:<br>
@@ -1255,7 +1310,7 @@ Example:<br>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">filter [TAG] &#8230;&#8203;</code><br></p>
+<p><code class="blue">filter TAG &#8230;&#8203;</code><br></p>
 </div>
 <div class="paragraph">
 <p>Example:<br>
@@ -1273,7 +1328,7 @@ Example:<br>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">delete [INDEX]</code><br></p>
+<p><code class="blue">delete INDEX</code><br></p>
 </div>
 <div class="paragraph">
 <p>Example:<br>
@@ -1291,7 +1346,7 @@ Example:<br>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">archive [INDEX]</code><br></p>
+<p><code class="blue">archive INDEX</code><br></p>
 </div>
 <div class="paragraph">
 <p>Example:<br>
@@ -1383,7 +1438,7 @@ Example:<br>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">tags</code></p>
+<p><code class="blue">tags c/CATEGORY</code></p>
 </div>
 </div>
 </div>
@@ -1495,4 +1550,4 @@ Example:<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 06:55:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 11:07:29 UTC</div></div></div></body></html>

@@ -15,13 +15,13 @@
 <p>This project portfolio showcases a collection of software engineering projects I have worked on during my time studying in NUS.</p>
 </div>
 <div class="paragraph">
-<p>Student Schedule Planner is a desktop schedule planner application created by my team T12-3 for the CS2103T module.
+<p>The first project in this portfolio is Student Schedule Planner, a desktop schedule planner application created by my team T12-3 for the CS2103T module.
 This application is targeted at university students for keeping track of their tasks.
 We were tasked to morph it from an existing product called AddressBook, which had around 10,000 lines of existing code.
 We also had to work under multiple constraints such as the primary mode of user input must be through command line.</p>
 </div>
 <div class="paragraph">
-<p>My key contributions in this project were mainly improving the UI part - what is shown to the users.</p>
+<p>My key contributions in this project were mainly improvements to the UI. The display is updated accordingly whenever a user makes changes to the schedule planner.</p>
 </div>
 </div>
 </div>
@@ -31,20 +31,17 @@ We also had to work under multiple constraints such as the primary mode of user 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>progress bar</strong></p>
+<p><strong>Major enhancement</strong>: Major redesign of GUI</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: It shows users the percentage of completed tasks for the current day.</p>
+<p>What it does: The app displays progress bars, categories, and tags.</p>
 </li>
 <li>
-<p>Justification: This feature improves user experience because the user will be able to tell how much work he/she has completed for that day.</p>
+<p>Justification: This feature improves user experience because the user will be able to tell how much work he/she has completed and what categories and tags he/she has used.</p>
 </li>
 <li>
-<p>Highlights: The implementation was challenging as it required changes to the UI.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: The implementation was challenging as it required learning how to code for JavaFX.</p>
 </li>
 </ul>
 </div>
@@ -54,10 +51,10 @@ We also had to work under multiple constraints such as the primary mode of user 
 <div class="ulist">
 <ul>
 <li>
-<p>added a list archived command that displays all of the archived tasks</p>
+<p>Added <code>listarchived</code> command that displays all of the archived tasks</p>
 </li>
 <li>
-<p>added a side bar panel that displays tags that the user has used</p>
+<p>Added <code>progresstoday</code> and <code>progressweek</code> commands to display the exact percentage of user&#8217;s progress.</p>
 </li>
 </ul>
 </div>
@@ -70,15 +67,14 @@ We also had to work under multiple constraints such as the primary mode of user 
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:
-<strong>*</strong></p>
-</li>
-<li>
 <p>Enhancements to existing features:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+<p>Updated the GUI color scheme (Pull request <a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/89">#89</a>)</p>
+</li>
+<li>
+<p>Added Date class and method that checks if the entered date is valid (Pull request <a href="https://github.com/CS2103-AY1819S1-T12-3/main/pull/47">#47</a>)</p>
 </li>
 <li>
 <p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
@@ -91,7 +87,7 @@ We also had to work under multiple constraints such as the primary mode of user 
 <div class="ulist">
 <ul>
 <li>
-<p>Updated User Guide and Developer Guide:</p>
+<p>Updated User Guide and Developer Guide</p>
 </li>
 </ul>
 </div>
@@ -103,22 +99,13 @@ We also had to work under multiple constraints such as the primary mode of user 
 <li>
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
 </li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-</li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -131,7 +118,7 @@ We also had to work under multiple constraints such as the primary mode of user 
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation that is easy for end-users to understand.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation in terms that are not too technical so that end-users without technical knowledge can understand.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -181,12 +168,27 @@ Below is the screenshot of task list that will appear on screen after step 1.</p
 <div class="sect2">
 <h3 id="displaying-used-tags"><a class="link" href="#displaying-used-tags">3.2. Displaying Used Tags</a></h3>
 <div class="paragraph">
-<p>Shows all tags that have been used in the sidebar.<br></p>
+<p>Shows all tags categorised under the specified category. It expands the tab in the sidebar.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">tags</code></p>
+<p><code class="blue">tags c/CATEGORY</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">tags c/Modules</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Before-after-showtags.png" alt="Before after showtags" width=""400">
+</div>
 </div>
 </div>
 </div>
@@ -194,7 +196,7 @@ Below is the screenshot of task list that will appear on screen after step 1.</p
 <div class="sect2">
 <h3 id="displaying-today-s-progress"><a class="link" href="#displaying-today-s-progress">3.3. Displaying Today&#8217;s Progress</a></h3>
 <div class="paragraph">
-<p>Shows the percentage of tasks that have been archived for the day in the command result box. It also lists the uncompleted tasks for today. The progress bar is also displayed at the bottom left of the window.<br></p>
+<p>Shows the percentage of tasks that have been archived for the day in the command result box and lists the uncompleted tasks for today. The progress bar is also displayed at the bottom left of the window.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -203,16 +205,56 @@ Below is the screenshot of task list that will appear on screen after step 1.</p
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listday</code><br>
+<code class="blue">archive 1</code><br>
+<code class="blue">progresstoday</code><br></p>
+</div>
+<div class="paragraph">
+<p>The diagram below contains the screenshots of what you will see after each of the commands entered above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/before-after-progresstoday.png" alt="before after progresstoday" width="400">
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="displaying-this-week-s-progress"><a class="link" href="#displaying-this-week-s-progress">3.4. Displaying This Week&#8217;s Progress</a></h3>
 <div class="paragraph">
-<p>Shows the percentage of tasks that have been archived from today to the nearest Sunday in the command result box. It also lists the uncompleted tasks from today until the nearest Sunday. The progress bar is also displayed at the bottom right of the window.<br></p>
+<p>Shows the percentage of tasks that have been archived from today to the nearest Sunday in the command result box and lists the uncompleted tasks from today until the nearest Sunday. The progress bar is also displayed at the bottom right of the window.<br></p>
 </div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
 <p><code class="blue">progressweek</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listday</code><br>
+<code class="blue">archive 1</code><br>
+<code class="blue">progressweek</code><br></p>
+</div>
+<div class="paragraph">
+<p>The diagram below contains the screenshots of what you will see after each of the commands entered above.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/before-after-progressweek.png" alt="before after progressweek" width="400">
+</div>
 </div>
 </div>
 </div>
@@ -228,7 +270,7 @@ Below is the screenshot of task list that will appear on screen after step 1.</p
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project. It also shows my ability to explain how my implementations work so that future coders that work with my code will be able to improve my code easily.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -310,31 +352,167 @@ all of the archived tasks.</p>
 <h3 id="display-tags-in-sidebar"><a class="link" href="#display-tags-in-sidebar">4.2. Display Tags in Sidebar</a></h3>
 <div class="paragraph">
 <p>Whenever the user tags a task with a new tag, the tag will be added to the sidebar panel. The user will be able to view
-all of the tags he/she has used to categorize tasks.</p>
+all of the tags he/she has used to categorize tasks. Entering the command tags c/CATEGORY will expand the tab for the specified category to show all tags listed under that category.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
-<hr>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>PROJECT: Zen Coloring</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">5. Overview</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Zen Coloring was a web application I co-created with Lin Xu for Orbital 2018. The web application allows users to color black and white images using a built in drawing tool.
-Users can choose to upload their own images or use images uploaded by other users.</p>
+<p>Every time any category or tag is changed in the Student Schedule Planner, it raises a SchedulePlannerChangedEvent. The UI will then handle that event and update the side bar panel with the new version of categories and tags.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://zen-coloring.herokuapp.com/">Link to website</a></p>
+<p>Given below is an example usage scenario and how the schedule planner behaves at each step:</p>
 </div>
 <div class="paragraph">
-<p><a href="https://github.com/hotarumin/zen/">Github link</a></p>
+<p>Step 1. The user executes command <code>addtag c/Modules t/CS2100</code>.</p>
 </div>
-<hr>
+<div class="paragraph">
+<p>Step 2. The <code>addtag</code> command updates the model with the new tag and raises a new SchedulePlannerChangedEvent.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 06:55:32 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p>Step 3. SidebarPanel responds to the SchedulePlannerChangedEvent with SidebarPanel#handleSchedulePlannerChangedEvent().</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The Accordion containing all the categories and tags is cleared.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The Accordion is filled with the new list of updated categories and tags.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes command <code>tags c/Modules</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. The ShowTagsCommand raises a new ShowTagsRequestEvent("Modules").</p>
+</div>
+<div class="paragraph">
+<p>Step 8. SidebarPanel responds to the ShowTagsRequestEvent with SidebarPanel#handleShowTagsRequestEvent().</p>
+</div>
+<div class="paragraph">
+<p>Step 9. The TitledPane with the matching name "Modules" is expanded to display all the tags listed under the Modules category.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-update-the-tags-on-ui"><a class="link" href="#aspect-how-to-update-the-tags-on-ui">Aspect: How to update the tags on UI</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Clear all the TitledPanes and add new TitledPanes accordingly.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No matter which category or tag is changed, or what type of change (ie. delete, add, or edit), this change can be handled by the same method each time.</p>
+</li>
+<li>
+<p>Cons: It is redundant to clear everything and replace them with new TitledPanes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Handle different kinds of changes to the category or tag lists.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is a lot faster to only change the TitledPane that is affected.</p>
+</li>
+<li>
+<p>Cons: There are too many cases for how the lists can be changed. (ie. a different change is needed for each of these cases: category is deleted/edited/created/cleared, or a tag is deleted/added)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-progress-bars"><a class="link" href="#display-progress-bars">4.3. Display Progress Bars</a></h3>
+<div class="paragraph">
+<p>The progress bars for today&#8217;s progress and this week&#8217;s progress at the bottom reflect the percentages automatically when the schedule planner is changed in any way.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Whenever the user makes a change in the schedule planner, for example add, delete, or archive a task, it raises a new SchedulePlannerChangedEvent.
+UI part ProgressBarPanel will handle this event and update the values for both today and this week&#8217;s progress bars.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the progress bar mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. User archives a Task due today.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. A new SchedulePlannerChangedEvent is raised.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. ProgressBarPanel handles the event with ProgressBarPanel#handleSchedulePlannerChangedEvent().</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The taskList is retrieved by SchedulePlannerChangedEvent#data.getTaskList(). The archivedTaskList is retrieved by SchedulePlannerChangedEvent#data.getArchivedTaskList().</p>
+</div>
+<div class="paragraph">
+<p>Step 5. ProgressBarPanel#updateProgressBars(taskList, archivedTaskList) is called.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. After filtering through each lists with the DateSamePredicate, their sizes are calculated.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. The number of completed tasks for today is the size of the filtered archived list, while the total number of tasks for today is the size of both the filtered archived list and the filtered task list.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. The fraction is calculated from completed / total. Then the progress bar for today is set to that fraction.</p>
+</div>
+<div class="paragraph">
+<p>Step 9. The same is done for this week&#8217;s progress bar but the lists are filtered with DateWeekSamePredicate.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the progress bar mechanism works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ProgressBarSequenceDiagram.png" alt="ProgressBarSequenceDiagram" width="400">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-the-percentages-are-calculated"><a class="link" href="#aspect-how-the-percentages-are-calculated">Aspect: How the percentages are calculated</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Calculate the percentage of progress by finding the size of filtered task list and filtered archived list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement.</p>
+</li>
+<li>
+<p>Cons: It may be slow if the task list and archived task list are very long.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Keep track of number of uncompleted and completed tasks in new Objects called Day and Week.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is much faster to calculate the percentage compared to filtering each task list by a predicate then calculating its size.</p>
+</li>
+<li>
+<p>Cons: The Day and Week objects must be updated for a majority of the commands the app supports. If I had more time, I would have been able to implement this fully.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 11:07:29 UTC</div></div></div></body></html>
