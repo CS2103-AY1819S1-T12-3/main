@@ -33,13 +33,14 @@
 <li><a href="#undo-redo-commands">4.1. Undo/Redo commands</a></li>
 <li><a href="#log-messages">4.2. Log Messages</a></li>
 <li><a href="#Implementation-Configuration">4.3. Configuration</a></li>
-<li><a href="#view-tasks-due-today-this-week">4.4. View Tasks due Today/this Week</a></li>
-<li><a href="#generate-academic-calendar-weeks">4.5. Generate Academic Calendar Weeks</a></li>
-<li><a href="#filter-tags">4.6. Filter Tags</a></li>
-<li><a href="#list-overdue-tasks">4.7. List Overdue Tasks</a></li>
-<li><a href="#list-archived-tasks">4.8. List Archived Tasks</a></li>
-<li><a href="#display-tags-in-sidebar">4.9. Display Tags in Sidebar</a></li>
-<li><a href="#display-progress-bars">4.10. Display Progress Bars</a></li>
+<li><a href="#view-tasks-due-today-this-week">4.4. View tasks due today/this week</a></li>
+<li><a href="#list-tasks-by-month">4.5. List tasks by Month</a></li>
+<li><a href="#generate-academic-calendar-weeks">4.6. Generate Academic Calendar Weeks</a></li>
+<li><a href="#filter-by-tags-code-filter-code-and-code-filterstrict-code">4.7. Filter by Tags (<code>filter</code> and <code>filterstrict</code>)</a></li>
+<li><a href="#list-overdue-tasks">4.8. List Overdue Tasks</a></li>
+<li><a href="#list-archived-tasks">4.9. List Archived Tasks</a></li>
+<li><a href="#display-tags-in-sidebar">4.10. Display Tags in Sidebar</a></li>
+<li><a href="#display-progress-bars">4.11. Display Progress Bars</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -101,23 +102,23 @@ developers and maintainers of the application.</p>
 <p>This introduction briefly covers the main flow of the Developer Guide:</p>
 </div>
 <div class="paragraph">
-<p><strong>2. Setting up</strong> : Walkthrough on the prequisites steps to setup the Developer Environment</p>
+<p><strong>1. Setting up</strong> : Walkthrough on the prequisites steps to setup the Developer Environment</p>
 </div>
 <div class="paragraph">
-<p><strong>3. Design</strong> : Overview on the structure of the project code, and how each component interacts with each other.</p>
+<p><strong>2. Design</strong> : Overview on the structure of the project code, and how each component interacts with each other.</p>
 </div>
 <div class="paragraph">
-<p><strong>4. Implementation</strong> : In-depth explanation on the implementation of the various features in the Schedule Planner, as
+<p><strong>3. Implementation</strong> : In-depth explanation on the implementation of the various features in the Schedule Planner, as
 well as the considerations behind the implementations</p>
 </div>
 <div class="paragraph">
-<p><strong>5. Documentation</strong> : General guide on the documentation process of the project</p>
+<p><strong>4. Documentation</strong> : General guide on the documentation process of the project</p>
 </div>
 <div class="paragraph">
-<p><strong>6. Testing</strong> : Documentation for the coverage tests of the application and how to set up your testing environment.</p>
+<p><strong>5. Testing</strong> : Documentation for the coverage tests of the application and how to set up your testing environment.</p>
 </div>
 <div class="paragraph">
-<p><strong>7. DevOps</strong> : General processes used during development phase, and documentation on how to set it up.</p>
+<p><strong>6. DevOps</strong> : General processes used during development phase, and documentation on how to set it up.</p>
 </div>
 </div>
 </div>
@@ -933,20 +934,19 @@ destinations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-tasks-due-today-this-week"><a class="link" href="#view-tasks-due-today-this-week">4.4. View Tasks due Today/this Week</a></h3>
+<h3 id="view-tasks-due-today-this-week"><a class="link" href="#view-tasks-due-today-this-week">4.4. View tasks due today/this week</a></h3>
 <div class="paragraph">
-<p>In order to enable users to better monitor their tasks in the schedule planner, Two more variations of
+<p>In order to enable users to better monitor their tasks in the schedule planner, Two variations of
  <code>list</code> command were added.</p>
 </div>
 <div class="paragraph">
-<p><code>listday</code> command supports viewing tasks due on the current date whereas <code>listweek</code> command supports viewing tasks
+<p><code>listday</code> command supports viewing tasks due on the current date, whereas <code>listweek</code> command supports viewing tasks
 from the current date till the closest Sunday.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p><code>listday</code>/<code>listweek</code> mechanism utilises the same implementation used by
-<code>list</code> command:</p>
+<p><code>listday</code>/<code>listweek</code> utilises the same implementation used by <code>list</code> command:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -978,7 +978,8 @@ Sunday) using <code>dateName</code>. <code>dateName</code> is the name of the cu
 </li>
 <li>
 <p>appendDateList(dateList, numDaysTillSunday(dateName))&#8201;&#8212;&#8201;It generates sequential <code>DDMMYY</code> values
-based on the result of <code>numDaysTillSunday(dateName)</code> and insert into <code>dateList</code> . <code>dateList</code> is a <code>List&lt;String&gt;</code> object.</p>
+based on the result of <code>numDaysTillSunday(dateName)</code> and inserts them into <code>dateList</code> . <code>dateList</code> is a <code>List&lt;String&gt;</code>
+object.</p>
 </li>
 <li>
 <p><code>DateWeekSamePredicate</code>&#8201;&#8212;&#8201;It takes in a <code>dateList</code> parameter. <code>dateList</code> is a <code>List&lt;String&gt;</code> object that contains
@@ -1018,12 +1019,6 @@ as the parameter. <code>DateWeekSamePredicate</code> itself would take <code>dat
 <img src="images/ListWeekCommand_DG_SequenceDiagram.png" alt="ListWeekCommand DG SequenceDiagram" width="800">
 </div>
 <div class="title">Figure 10. Sequence Diagram of ListWeek Command</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ListMonthCommandSequenceDiagram.png" alt="ListMonthCommandSequenceDiagram">
-</div>
-<div class="title">Figure 11. Sequence Diagram of ListMonth Command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1065,7 +1060,124 @@ E.g listday 130818 to view all tasks for 13 August 2018.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">4.5. Generate Academic Calendar Weeks</a></h3>
+<h3 id="list-tasks-by-month"><a class="link" href="#list-tasks-by-month">4.5. List tasks by Month</a></h3>
+<div class="paragraph">
+<p>The <code>listmonth</code> command is another variation of the <code>list</code> command, which supports viewing tasks due from the current
+date till the end of the month.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p><code>listmonth</code> utilises the same implementation used by the <code>list</code> command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#updateFilteredTaskList()</code>&#8201;&#8212;&#8201;Takes in a predicate parameter and updates the model
+according to the predicate.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>listmonth</code> utilises the same implementation used by the <code>listweek</code> command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DateWeekSamePredicate</code>&#8201;&#8212;&#8201;It takes in a <code>dateList</code> parameter. <code>dateList</code> is a <code>List&lt;String&gt;</code> object that contains
+a list of dates from current date to the end of the month in <code>DDMMYY</code> format.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>listmonth</code> further implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>numDaysTillEndOfMonth(currentDay)&#8201;&#8212;&#8201;It computes the number of days from current date until the end of the month
+using <code>currentDay</code>.  <code>currentDay</code> is the current date in <code>LocalDate</code> format.</p>
+</li>
+<li>
+<p>appendDateList(dateList, numDaysTillEndOfMonth(currentDay))&#8201;&#8212;&#8201;It generates sequential <code>DDMMYY</code> values
+based on the result of <code>numDaysTillEndOfMonth(currentDay)</code> and adds them into 'dateList` . <code>dateList</code> is a
+<code>List&lt;String&gt;</code> object.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how <code>listmonth</code> mechanism behaves at each steps:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>listmonth</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The command word <code>listmonth</code> invokes <code>LogicManger</code>, which invokes <code>SchedulePlannerParser</code> to return a
+<code>ListMonthCommand</code> object. <code>LogicManager</code> then invokes <code>ListMonthCommand#execute()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>ListMonthCommand#appendDateList(datelist, numDaysTillEndOfMonth(currentDay))</code> will be invoked. It
+generates sequential dates in <code>DDMMYY</code> format which are added into <code>dateList</code>. <code>numDaysTillEndOfMonth()</code> computes the
+number of days from the current date till the end of the month based on <code>currentDay</code>, the current date in <code>LocalDate</code>
+format.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>model.updateFilteredTaskList()</code> updates the task list with <code>DateWeekSamePredicate</code>
+as the predicate. <code>DateWeekSamePredicate</code> takes <code>dateList</code> in Step 3 as its parameter.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The updated task list would be reflected on <code>UI</code> to be displayed to the user.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the mechanism works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListMonthSequenceDiagram.png" alt="ListMonthSequenceDiagram">
+</div>
+<div class="title">Figure 11. Sequence Diagram of ListMonth Command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-does-listmonth-function"><a class="link" href="#aspect-how-does-listmonth-function">Aspect: How does listmonth function</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Fixed date interval based on commands</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement and use.</p>
+</li>
+<li>
+<p>Cons: It restricts view to tasks from current date till a fixed date in the future (last day of month)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Allow <code>list</code> commands to receive arguments for start/end dates
+E.g list 130818 200918 to view all tasks between the two dates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It allows viewing for different ranges.</p>
+</li>
+<li>
+<p>Cons: It would be inconvenient to enter two date(s) each time the command is used.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">4.6. Generate Academic Calendar Weeks</a></h3>
 <div class="paragraph">
 <p>In order to enable users to better monitor their tasks in the schedule planner by knowing what is the current
 academic week, <code>firstday</code> command was added.</p>
@@ -1088,7 +1200,7 @@ Only 17 weeks are referenced from NUS academic calendar. More details at glossar
 </table>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>firstday</code> mechanism is facilitated by <code>FirstDayCommand</code> and implements the following operations:</p>
 </div>
@@ -1281,7 +1393,7 @@ not exist.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-firstday-command-functions"><a class="link" href="#aspect-how-firstday-command-functions">Aspect: How firstday command functions</a></h5>
 <div class="ulist">
@@ -1352,17 +1464,25 @@ description for each weeks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-tags"><a class="link" href="#filter-tags">4.6. Filter Tags</a></h3>
+<h3 id="filter-by-tags-code-filter-code-and-code-filterstrict-code"><a class="link" href="#filter-by-tags-code-filter-code-and-code-filterstrict-code">4.7. Filter by Tags (<code>filter</code> and <code>filterstrict</code>)</a></h3>
 <div class="paragraph">
-<p>The <code>filter</code> command allows the user to filter tasks in the schedule planner according to their tags. The user may
-search for multiple tags at once, and the schedule planner returns a list of tasks containing any of the tags
+<p>The <code>filter</code> &amp; <code>filterstrict</code> commands allow the user to filter tasks in the schedule planner according to their tags.
+The user may search for multiple tags at once, and the schedule planner returns a list of tasks containing the tags
 specified by the user.</p>
 </div>
-<div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The filter mechanism utilises "FilterCommandParser" to parse the user command into separate tags e.g <code>filter tag1
- tag2</code> will search for tasks with either tags <code>tag1</code>, <code>tag2</code>, or both.</p>
+<p>In the case of <code>filter</code>, multiple tags increases the range of
+search, while <code>filterstrict</code> increases the specificity of search.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Since <code>filter</code> and <code>filterstrict</code> are implemented in similar fasion, we will simply refer to <code>filter</code>.</p>
+</div>
+<div class="paragraph">
+<p>The filter mechanism utilises <code>FilterCommandParser</code> to parse the user command into separate tags by invoking the method
+<code>FilterCommandParser.parse(args)</code>, where <code>args</code> are the tags to be filtered.  e.g <code>tag1 tag2</code> will be parsed into
+<code>tag1</code> and <code>tag2</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the filter mechanism behaves at each step:</p>
@@ -1371,16 +1491,38 @@ specified by the user.</p>
 <p>Step 1. The user executes the command <code>filter tutorial CS2100</code></p>
 </div>
 <div class="paragraph">
-<p>Step 2. The 'filter' command parses the argument <code>tutorial CS2100</code> into separate words <code>tutorial</code> and <code>CS2100</code> which
-are stored in a list in <code>TagsContainsKeywordsPredicate</code>.</p>
+<p>Step 2. The 'filter' command invokes <code>FilterCommandParser</code>, which parses the argument <code>tutorial CS2100</code> into separate
+words <code>tutorial</code> and <code>CS2100</code>, and are stored in an array in the predicate <code>TagsContainsKeywordsPredicate</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. <code>FilterCommand</code> is then created, which contains <code>TagsContainsKeywordsPredicate</code>, a predicate which searches
-for the tags 'tutorial' and 'CS2100'. <code>FilterCommand.execute()</code> returns a list of tasks containing any of the tags input by the user.</p>
+<p>Step 3. <code>FilterCommandParser</code> then returns a <code>FilterCommand</code> , which contains <code>TagsContainsKeywordsPredicate</code>, a
+predicate which tests for the tags 'tutorial' and 'CS2100'. <code>FilterCommand.execute()</code> calls <code>model
+.updateFilteredTaskList(TagsContainsKeywordsPredicate)</code>, which returns an updated list of tasks containing any of the
+ tags input by the user.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>filter</code> filters tags inclusively, while <code>filterstrict</code> filters tags exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes what happens when a user executes a new filter command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterSequenceDiagram.png" alt="FilterSequenceDiagram" width="650">
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-filter-executes"><a class="link" href="#aspect-how-filter-executes">Aspect: How filter executes</a></h5>
 <div class="ulist">
@@ -1418,13 +1560,13 @@ B, or both.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">4.7. List Overdue Tasks</a></h3>
+<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">4.8. List Overdue Tasks</a></h3>
 <div class="paragraph">
 <p>The <code>listoverdue</code> command allows the user to view the list of all overdue tasks. A task is considered overdue if its
 deadline has passed. In other words, the system&#8217;s current date is after the deadline.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains a UniqueTaskList called tasks.</p>
 </div>
@@ -1449,7 +1591,7 @@ deadline has passed. In other words, the system&#8217;s current date is after th
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-overdue-tasks-are-stored"><a class="link" href="#aspect-how-the-overdue-tasks-are-stored">Aspect: How the overdue tasks are stored</a></h5>
 <div class="ulist">
@@ -1488,7 +1630,7 @@ the number of tasks is small at any given point of time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-archived-tasks"><a class="link" href="#list-archived-tasks">4.8. List Archived Tasks</a></h3>
+<h3 id="list-archived-tasks"><a class="link" href="#list-archived-tasks">4.9. List Archived Tasks</a></h3>
 <div class="paragraph">
 <p>The <code>listarchived</code> command allows the user to view the list of all archived tasks. Whenever the user completes a task,
 he/she will archive it. When archived, the task will be moved from the task list into a separate archive list that stores
@@ -1496,7 +1638,7 @@ all completed tasks. If the user wishes to view all of his/her completed tasks, 
 all of the archived tasks.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains two UniqueTaskLists - tasks and archivedTasks - each containing the tasks and archived tasks respectively.</p>
 </div>
@@ -1528,7 +1670,7 @@ all of the archived tasks.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-change-what-is-displayed"><a class="link" href="#aspect-how-to-change-what-is-displayed">Aspect: How to change what is displayed</a></h5>
 <div class="ulist">
@@ -1562,13 +1704,13 @@ all of the archived tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-tags-in-sidebar"><a class="link" href="#display-tags-in-sidebar">4.9. Display Tags in Sidebar</a></h3>
+<h3 id="display-tags-in-sidebar"><a class="link" href="#display-tags-in-sidebar">4.10. Display Tags in Sidebar</a></h3>
 <div class="paragraph">
 <p>Whenever the user tags a task with a new tag, the tag will be added to the sidebar panel. The user will be able to view
 all of the tags he/she has used to categorize tasks. Entering the command tags c/CATEGORY will expand the tab for the specified category to show all tags listed under that category.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Every time any category or tag is changed in the Student Schedule Planner, it raises a SchedulePlannerChangedEvent. The UI will then handle that event and update the side bar panel with the new version of categories and tags.</p>
 </div>
@@ -1604,7 +1746,7 @@ all of the tags he/she has used to categorize tasks. Entering the command tags c
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-update-the-tags-on-ui"><a class="link" href="#aspect-how-to-update-the-tags-on-ui">Aspect: How to update the tags on UI</a></h5>
 <div class="ulist">
@@ -1641,12 +1783,12 @@ all of the tags he/she has used to categorize tasks. Entering the command tags c
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-progress-bars"><a class="link" href="#display-progress-bars">4.10. Display Progress Bars</a></h3>
+<h3 id="display-progress-bars"><a class="link" href="#display-progress-bars">4.11. Display Progress Bars</a></h3>
 <div class="paragraph">
 <p>The progress bars for today&#8217;s progress and this week&#8217;s progress at the bottom reflect the percentages automatically when the schedule planner is changed in any way.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Whenever the user makes a change in the schedule planner, for example add, delete, or archive a task, it raises a new SchedulePlannerChangedEvent.
 UI part ProgressBarPanel will handle this event and update the values for both today and this week&#8217;s progress bars.</p>
@@ -1691,7 +1833,7 @@ UI part ProgressBarPanel will handle this event and update the values for both t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.11.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-percentages-are-calculated"><a class="link" href="#aspect-how-the-percentages-are-calculated">Aspect: How the percentages are calculated</a></h5>
 <div class="ulist">
@@ -2225,13 +2367,19 @@ b. Requiring developers to download those libraries manually (this creates extra
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">view tasks for future (more than 7 days)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">record events that I can&#8217;t miss in future</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view tasks for the rest of the month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">view my schedule for the month</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">search my tasks by keywords</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search my tasks by name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find specific tasks easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">search my tasks by tags</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">find specific tasks easily</p></td>
 </tr>
 <tr>
@@ -2257,6 +2405,12 @@ b. Requiring developers to download those libraries manually (this creates extra
 <td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">clear the screen</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">have my screen interface cleaned of commands and result</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">student</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort tasks by tags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tag my tasks</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2598,7 +2752,7 @@ E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-filter-tasks-according-to-tags" class="discrete">Use case: Filter Tasks according to Tags</h3>
+<h3 id="use-case-filter-tasks-according-to-tags-inclusive" class="discrete">Use case: Filter Tasks according to Tags (Inclusive)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2608,7 +2762,7 @@ E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p>
 <p>User requests to filter tasks by its tags from Student Schedule Planner.</p>
 </li>
 <li>
-<p>Student Schedule Planner filters the tasks by the given parameters.</p>
+<p>Student Schedule Planner filters the tasks with tags entered by user.</p>
 </li>
 <li>
 <p>Student Schedule Planner displays the filtered tasks.</p>
@@ -2644,20 +2798,20 @@ E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-list-tasks-due-today" class="discrete">Use case: List tasks due today</h3>
+<h3 id="use-case-filter-tasks-according-to-tags-exclusive" class="discrete">Use case: Filter Tasks according to Tags (Exclusive)</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view tasks due the current date from the Student Schedule Planner.</p>
+<p>User requests to strictly filter tasks by its tags from Student Schedule Planner.</p>
 </li>
 <li>
-<p>Student Schedule Planner filter the tasks by the current date.</p>
+<p>Student Schedule Planner strictly filters the tasks with tags entered by user.</p>
 </li>
 <li>
-<p>Student Schedule Planner display the list of tasks due on the current date.</p>
+<p>Student Schedule Planner displays the strictly filtered tasks.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2670,7 +2824,7 @@ E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The list tasks due today command did not follow the correct format.</p>
+<p>1a. The filterstrict task command did not follow the correct format.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -2683,7 +2837,53 @@ E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p>
 </div>
 </li>
 <li>
-<p>3a. The filtered task list is empty and thus display empty list.</p>
+<p>3a. The strictly filtered task list is empty and thus displays an empty list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-list-tasks-due-today" class="discrete">Use case: List tasks due today</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view tasks due on current date from the Student Schedule Planner.</p>
+</li>
+<li>
+<p>Student Schedule Planner filters tasks by current date.</p>
+</li>
+<li>
+<p>Student Schedule Planner displays list of tasks due on current date.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The <code>listday</code> command did not follow the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Student Schedule Planner shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. The filtered task list is empty and thus displays an empty list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2697,13 +2897,13 @@ E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view tasks due from the current date until Sunday from the Student Schedule Planner.</p>
+<p>User requests to view tasks due from the current date to Sunday from the Student Schedule Planner.</p>
 </li>
 <li>
-<p>Student Schedule Planner filter the tasks from the range of current date until Sunday.</p>
+<p>Student Schedule Planner filters tasks from current date to Sunday.</p>
 </li>
 <li>
-<p>Student Schedule Planner display the list of tasks due from current date until Sunday.</p>
+<p>Student Schedule Planner displays list of tasks due from current date to Sunday.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2716,7 +2916,7 @@ E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The list tasks due until this Sunday command did not follow the correct format.</p>
+<p>1a. The <code>listweek</code> command did not follow the correct format.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -2729,7 +2929,53 @@ E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation</p>
 </div>
 </li>
 <li>
-<p>3a. The filtered task list is empty and thus display empty list.</p>
+<p>3a. The filtered task list is empty and thus displays an empty list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-list-tasks-due-until-the-end-of-the-month" class="discrete">Use case: List tasks due until the end of the month</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view tasks due from the current date until the end of month from the Student Schedule Planner.</p>
+</li>
+<li>
+<p>Student Schedule Planner filters tasks from the range of current date until end of month</p>
+</li>
+<li>
+<p>Student Schedule Planner display list of tasks due from current date until end of month.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The <code>listmonth</code> command did not follow the correct format.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Student Schedule Planner shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3a. The filtered task list is empty and thus displays an empty list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3053,4 +3299,4 @@ reflected in the panel on the bottom right of <code>UI</code>.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 04:45:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 04:58:43 UTC</div></div></div></body></html>
