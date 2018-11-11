@@ -1,13 +1,15 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>[insert name] - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Park Sang Jun - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Student Schedule Planner</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>[insert name] - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-student-schedule-planner"><a class="link" href="#project-student-schedule-planner">PROJECT: Student Schedule Planner</a></h2>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Student Schedule Planner</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T12-3/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Park Sang Jun - Project Portfolio</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>PROJECT: Student Schedule Planner</p>
+</div>
 <hr>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Student Schedule Planner is a desktop schedule planner application used by students for schedule planning. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
@@ -17,20 +19,17 @@
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><strong>[TO BE EDITED]</strong></p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: added <strong>the ability to add recurring tasks</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: allows the user to add a recurring task by specifying the number of repeats and interval between each repeat.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: This feature gives convenience to users as users with to-do tasks that happen repeatedly (eg. weekly) will not have to manually add the same tasks over and over again.</p>
 </li>
 <li>
 <p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
@@ -42,7 +41,7 @@
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: added a list overdue command that allows the user to view his/her overdue tasks.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -52,34 +51,11 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Updated User Guide and Developer Guide</p>
 </li>
 </ul>
 </div>
@@ -91,15 +67,6 @@
 <li>
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
 </li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
 </ul>
 </div>
 </li>
@@ -108,10 +75,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Integrated Github plugin (Travis CI) to the team repo</p>
 </li>
 </ul>
 </div>
@@ -120,14 +84,11 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">2. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -139,10 +100,120 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="adding-a-recurring-task"><a class="link" href="#adding-a-recurring-task">2.1. Adding a Recurring Task</a></h3>
+<div class="paragraph">
+<p>Adds copies of the same task to a specified day in the week, for a given number of weeks.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">repeat r/REPEATS i/INTERVAL n/NAME p/PRIORITYLEVEL t/[TAG] d/DEADLINE v/VENUE</code><br></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Input: <code class="blue">repeat r/4 i/7 n/CS2103T Tutorial p/3 t/Tutorial d/111018 v/COM1-0210</code></p>
+</div>
+<div class="paragraph">
+<p>Outcome: Adds 3 tasks named <code class="blue">CS2103T Tutorial</code> with priority level <code class="blue">3</code>,
+tag <code class="blue">Tutorial</code>, venue at <code class="blue">COM1-0210</code>, and deadlines on the 11th October 2018, 18th October 2018, 25th October 2018, and 1st November 2018.</p>
+</div>
+<div class="paragraph">
+<p>The diagram below contains screenshots of the task list before and after the above command was entered:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/beforeafteraddrepeat.png" alt="beforeafteraddrepeat" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The number of repeats should be an integer that is greater or equals to 1. Setting the repeat as 1 has the same effect as using the <code>add</code> command.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Use this command to schedule tasks that you carry out regularly.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The maximum number of repetitions is 15.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Due to how the Date class was implemented, there is an unintended behavior. Any task whose deadline goes beyond the year 2099
+will have the deadline set to the 21st  century instead. For example, a task created by the AddRepeatCommand that has the deadline
+1st January 2101 will instead have the deadline incorrectly set to 1st January 2001.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-overdue-tasks"><a class="link" href="#viewing-overdue-tasks">2.2. Viewing Overdue Tasks</a></h3>
+<div class="paragraph">
+<p>Shows a list all the overdue tasks.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listoverdue</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>input: <code class="blue">listoverdue</code> on the date 11 Nov '18 (111118)</p>
+</div>
+<div class="paragraph">
+<p>output: Shows a list of tasks due on 10 Nov '18 (101118) and before.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram contains screenshots of the task list before and after the command above was entered:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/beforeafterlistoverdue.png" alt="beforeafterlistoverdue" width="800">
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">3. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -155,217 +226,83 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-commands"><a class="link" href="#undo-redo-commands">Undo/Redo commands</a></h3>
+<h3 id="add-recurring-tasks"><a class="link" href="#add-recurring-tasks">3.1. Add Recurring Tasks</a></h3>
 <div class="paragraph">
-<p>The Undo/Redo feature allows the user to revert the schedule planner to an earlier state when 'undo' is called, or a
-later state when 'redo' is called.</p>
+<p>The Add Repeat feature allows the user to add recurring tasks of a specified number of repeats and a specified interval between each repeat.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedSchedulePlanner</code>.
-It extends <code>SchedulePlanner</code> with an undo/redo history, stored internally as an <code>SchedulePlannerStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedSchedulePlanner.commit()</code>&#8201;&#8212;&#8201;Saves the current schedule planner state in 'history'.</p>
-</li>
-<li>
-<p><code>VersionedSchedulePlanner.undo()</code>&#8201;&#8212;&#8201;Restores the previous schedule planner state from 'history'.</p>
-</li>
-<li>
-<p><code>VersionedSchedulePlanner.redo()</code>&#8201;&#8212;&#8201;Restores a previously undone schedule planner state from 'history'.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in <code>Model</code> interface as <code>Model#commitSchedulePlanner()</code>, <code>Model#undoSchedulePlanner()</code> and <code>Model#redoSchedulePlanner()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step:</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. <code>VersionedSchedulePlanner</code> will be initialized with the
- initial schedule planner state, with <code>currentStatePointer</code> pointing to that single schedule planner state.</p>
+<p>The following sequence diagram shows how the add repeat operation works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+<img src="../images/AddRepeatSequenceDiagram.png" alt="AddRepeatSequenceDiagram" width="800">
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">3.2. List Overdue Tasks</a></h3>
+<div class="paragraph">
+<p>The <code>listoverdue</code> command allows the user to view the list of all overdue tasks. A task is considered overdue if its
+deadline has passed. In other words, the system&#8217;s current date is after the deadline.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Model contains a UniqueTaskList called tasks.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command. The <code>delete</code> command calls <code>Model#commitSchedulePlanner()</code>, as a result
- the modified state of the schedule planner is saved in <code>schedulePlannerStateList</code> after the <code>delete 5</code> command
- executes, the <code>currentStatePointer</code> shifts to the newly inserted schedule planner state.</p>
+<p>Given below is an example usage scenario and how the list overdue mechanism behaves at each step:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
+<img src="../images/ListOverdueSequenceDiagram.png" alt="ListOverdueSequenceDiagram" width="800">
 </div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/CS2100 Lect &#8230;&#8203;</code> to add a new task. The <code>add</code> command calls
-<code>Model#commitSchedulePlanner()
-`, and the modified schedule planner state is saved into `schedulePlannerStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command execution fails, it will not call <code>Model#commitSchedulePlanner()</code>, so the schedule planner state will not
- be saved into <code>schedulePlannerStateList</code>.
-</td>
-</tr>
-</table>
+<div class="title">Figure 1. Sequence Diagram of ListOverdueCommand</div>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call
-<code>Model#undoSchedulePlanner()</code>, which shifts the <code>currentStatePointer</code> to the previous index, pointing to the
-previous schedule planner state, and restoring the schedule planner to its previous state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0(i.e the initial schedule planner state), then there are no previous states to restore to. The <code>undo</code> command uses <code>Model#canUndoSchedulePlanner()</code> to check this case.
-If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
+<p>Step 1. The user executes the command <code>listoverdue</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
+<p>Step 2. <code>model.updateFilteredTaskList()</code> will update the task list with <code>OverduePredicate</code> as the parameter
+<code>OverduePredicate</code> itself takes the current system date in the yyMMdd format.</p>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoSchedulePlanner()</code>, which shifts the
-<code>currentStatePointer</code> to the next index, pointing to the next state, and restores the schedule planner to
-that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If <code>currentStatePointer</code> is at index <code>schedulePlannerStateList.size() - 1</code> (i.e pointing to the latest state), then there are no latest states to restore. The <code>redo</code> command uses <code>Model#canRedoSchedulePlanner()</code> to check this case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then executes the command <code>list</code>. Commands that do not modify the schedule planner, such as <code>list</code>,
-will usually not call <code>Model#commitSchedulePlanner()</code>, <code>Model#undoSchedulePlanner()</code> or <code>Model#redoSchedulePlanner()</code>. Thus, the <code>schedulePlannerStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitSchedulePlanner()</code>. If the <code>currentStatePointer</code> is not
-pointing to the latest state in the <code>schedulePlannerStateList</code>, all states after the
-<code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
+<p>Step 3. The updated task list would be reflected on the UI to be displayed to the user.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-how-the-overdue-tasks-are-stored"><a class="link" href="#aspect-how-the-overdue-tasks-are-stored">Aspect: How the overdue tasks are stored</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> The entire schedule planner is saved.</p>
+<p><strong>Alternative 1 (current choice):</strong> The overdue tasks are not stored in a separate UniqueTaskList. Instead, the
+UniqueTaskList tasks is filtered with OverduePredicate each time the <code>listoverdue</code> command is called.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: It is easy to implement.</p>
+<p>Pros: Does not require a new UniqueTaskList.</p>
 </li>
 <li>
-<p>Cons: It may have performance issues in terms of memory usage.</p>
+<p>Cons: If the number of tasks is huge, filtering will take a long time. However, this is not a problem since
+the number of tasks is small at any given point of time.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Each individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> The overdue tasks are stored in a new UniqueTaskList.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: It will use less memory (e.g. for <code>delete</code>, just save the task being deleted).</p>
+<p>Pros: Retrieving is overdue tasks is faster.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command is correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> A list is used to store the history of schedule planner states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: It is easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both
-<code>HistoryManager</code> and <code>VersionedSchedulePlanner</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> <code>HistoryManager</code> is used for undo/redo.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: It requires dealing with commands that have already been undone: We must remember to skip these commands. It violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: A new UniqueTaskList has to be implemented.</p>
 </li>
 </ul>
 </div>
@@ -378,11 +315,8 @@ pointing to the latest state in the <code>schedulePlannerStateList</code>, all s
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="project"><a class="link" href="#project">4. PROJECT:</a></h2>
 <div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:34:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 17:08:40 UTC</div></div></div></body></html>
