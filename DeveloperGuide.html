@@ -1326,8 +1326,8 @@ methods <code>fdc#createDefaultFileIfNotExist</code>, <code>fdc#createDefaultFil
 <code>fdc#createDefaultFileIfNull</code> and <code>fdc#createDefaultFileIfInvalidDateOrRange</code>.</p>
 </div>
 <div class="paragraph">
-<p>If it is the first time the user launch the application or if user deleted <code>rangeofweek.xml</code> or modified the file
-content until some content are invalid, the application will create a default <code>rangeofweek.xml</code>.</p>
+<p>If it is the first time the user launches the application or if user deleted <code>rangeofweek.xml</code> or invalidated data in
+<code>rangeofweek.xml</code>, the application will record the log message and create a default <code>rangeofweek.xml</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following code snippet shows that with the extra layer of data verification and rectification, the user do not need
@@ -3270,7 +3270,7 @@ Expected: No academic calendar data is generated. Error details shown in status 
 <li>
 <p>Test case: <code>firstday 130818</code><br>
 Expected: Academic calendar data is generated and saved. Details shown in status message to inform user. After
-relaunch the application, the application title will be appended with current week&#8217;s description.</p>
+relaunching the application, the application title will be appended with current week&#8217;s description.</p>
 </li>
 </ol>
 </div>
@@ -3299,4 +3299,4 @@ reflected in the panel on the bottom right of <code>UI</code>.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 06:51:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 07:01:26 UTC</div></div></div></body></html>
