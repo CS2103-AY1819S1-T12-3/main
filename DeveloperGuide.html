@@ -31,16 +31,15 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-commands">4.1. Undo/Redo commands</a></li>
-<li><a href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></li>
-<li><a href="#log-messages">4.3. Log Messages</a></li>
-<li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
-<li><a href="#view-tasks-due-today-this-week">4.5. View tasks due today/this week</a></li>
-<li><a href="#generate-academic-calendar-weeks">4.6. Generate Academic Calendar Weeks</a></li>
-<li><a href="#filter-tags">4.7. Filter Tags</a></li>
-<li><a href="#list-overdue-tasks">4.8. List Overdue Tasks</a></li>
-<li><a href="#list-archived-tasks">4.9. List Archived Tasks</a></li>
-<li><a href="#display-tags-in-sidebar">4.10. Display Tags in Sidebar</a></li>
-<li><a href="#display-progress-bars">4.11. Display Progress Bars</a></li>
+<li><a href="#log-messages">4.2. Log Messages</a></li>
+<li><a href="#Implementation-Configuration">4.3. Configuration</a></li>
+<li><a href="#view-tasks-due-today-this-week">4.4. View Tasks due Today/this Week</a></li>
+<li><a href="#generate-academic-calendar-weeks">4.5. Generate Academic Calendar Weeks</a></li>
+<li><a href="#filter-tags">4.6. Filter Tags</a></li>
+<li><a href="#list-overdue-tasks">4.7. List Overdue Tasks</a></li>
+<li><a href="#list-archived-tasks">4.8. List Archived Tasks</a></li>
+<li><a href="#display-tags-in-sidebar">4.9. Display Tags in Sidebar</a></li>
+<li><a href="#display-progress-bars">4.10. Display Progress Bars</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -883,13 +882,7 @@ pointing to the latest state in the <code>schedulePlannerStateList</code>, all s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="log-messages"><a class="link" href="#log-messages">4.3. Log Messages</a></h3>
+<h3 id="log-messages"><a class="link" href="#log-messages">4.2. Log Messages</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. <code>LogsCenter</code> class is used to manage logging levels and
 destinations.</p>
@@ -900,7 +893,7 @@ destinations.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.3, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -934,13 +927,13 @@ destinations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.3. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="view-tasks-due-today-this-week"><a class="link" href="#view-tasks-due-today-this-week">4.5. View tasks due today/this week</a></h3>
+<h3 id="view-tasks-due-today-this-week"><a class="link" href="#view-tasks-due-today-this-week">4.4. View Tasks due Today/this Week</a></h3>
 <div class="paragraph">
 <p>In order to enable users to better monitor their tasks in the schedule planner, Two more variations of
  <code>list</code> command were added.</p>
@@ -950,7 +943,7 @@ destinations.</p>
 from the current date till the closest Sunday.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.4.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>listday</code>/<code>listweek</code> mechanism utilises the same implementation used by
 <code>list</code> command:</p>
@@ -1034,7 +1027,7 @@ as the parameter. <code>DateWeekSamePredicate</code> itself would take <code>dat
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-does-listday-and-listweek-function"><a class="link" href="#aspect-how-does-listday-and-listweek-function">Aspect: How does listday and listweek function</a></h5>
 <div class="ulist">
@@ -1072,7 +1065,7 @@ E.g listday 130818 to view all tasks for 13 August 2018.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">4.6. Generate Academic Calendar Weeks</a></h3>
+<h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">4.5. Generate Academic Calendar Weeks</a></h3>
 <div class="paragraph">
 <p>In order to enable users to better monitor their tasks in the schedule planner by knowing what is the current
 academic week, <code>firstday</code> command was added.</p>
@@ -1095,7 +1088,7 @@ Only 17 weeks are referenced from NUS academic calendar. More details at glossar
 </table>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>firstday</code> mechanism is facilitated by <code>FirstDayCommand</code> and implements the following operations:</p>
 </div>
@@ -1288,7 +1281,7 @@ not exist.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-firstday-command-functions"><a class="link" href="#aspect-how-firstday-command-functions">Aspect: How firstday command functions</a></h5>
 <div class="ulist">
@@ -1359,14 +1352,14 @@ description for each weeks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-tags"><a class="link" href="#filter-tags">4.7. Filter Tags</a></h3>
+<h3 id="filter-tags"><a class="link" href="#filter-tags">4.6. Filter Tags</a></h3>
 <div class="paragraph">
 <p>The <code>filter</code> command allows the user to filter tasks in the schedule planner according to their tags. The user may
 search for multiple tags at once, and the schedule planner returns a list of tasks containing any of the tags
 specified by the user.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The filter mechanism utilises "FilterCommandParser" to parse the user command into separate tags e.g <code>filter tag1
  tag2</code> will search for tasks with either tags <code>tag1</code>, <code>tag2</code>, or both.</p>
@@ -1387,7 +1380,7 @@ for the tags 'tutorial' and 'CS2100'. <code>FilterCommand.execute()</code> retur
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-filter-executes"><a class="link" href="#aspect-how-filter-executes">Aspect: How filter executes</a></h5>
 <div class="ulist">
@@ -1425,13 +1418,13 @@ B, or both.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">4.8. List Overdue Tasks</a></h3>
+<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">4.7. List Overdue Tasks</a></h3>
 <div class="paragraph">
 <p>The <code>listoverdue</code> command allows the user to view the list of all overdue tasks. A task is considered overdue if its
 deadline has passed. In other words, the system&#8217;s current date is after the deadline.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains a UniqueTaskList called tasks.</p>
 </div>
@@ -1456,7 +1449,7 @@ deadline has passed. In other words, the system&#8217;s current date is after th
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-overdue-tasks-are-stored"><a class="link" href="#aspect-how-the-overdue-tasks-are-stored">Aspect: How the overdue tasks are stored</a></h5>
 <div class="ulist">
@@ -1495,7 +1488,7 @@ the number of tasks is small at any given point of time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-archived-tasks"><a class="link" href="#list-archived-tasks">4.9. List Archived Tasks</a></h3>
+<h3 id="list-archived-tasks"><a class="link" href="#list-archived-tasks">4.8. List Archived Tasks</a></h3>
 <div class="paragraph">
 <p>The <code>listarchived</code> command allows the user to view the list of all archived tasks. Whenever the user completes a task,
 he/she will archive it. When archived, the task will be moved from the task list into a separate archive list that stores
@@ -1503,7 +1496,7 @@ all completed tasks. If the user wishes to view all of his/her completed tasks, 
 all of the archived tasks.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains two UniqueTaskLists - tasks and archivedTasks - each containing the tasks and archived tasks respectively.</p>
 </div>
@@ -1535,7 +1528,7 @@ all of the archived tasks.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-change-what-is-displayed"><a class="link" href="#aspect-how-to-change-what-is-displayed">Aspect: How to change what is displayed</a></h5>
 <div class="ulist">
@@ -1569,13 +1562,13 @@ all of the archived tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-tags-in-sidebar"><a class="link" href="#display-tags-in-sidebar">4.10. Display Tags in Sidebar</a></h3>
+<h3 id="display-tags-in-sidebar"><a class="link" href="#display-tags-in-sidebar">4.9. Display Tags in Sidebar</a></h3>
 <div class="paragraph">
 <p>Whenever the user tags a task with a new tag, the tag will be added to the sidebar panel. The user will be able to view
 all of the tags he/she has used to categorize tasks. Entering the command tags c/CATEGORY will expand the tab for the specified category to show all tags listed under that category.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Every time any category or tag is changed in the Student Schedule Planner, it raises a SchedulePlannerChangedEvent. The UI will then handle that event and update the side bar panel with the new version of categories and tags.</p>
 </div>
@@ -1611,7 +1604,7 @@ all of the tags he/she has used to categorize tasks. Entering the command tags c
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-update-the-tags-on-ui"><a class="link" href="#aspect-how-to-update-the-tags-on-ui">Aspect: How to update the tags on UI</a></h5>
 <div class="ulist">
@@ -1648,12 +1641,12 @@ all of the tags he/she has used to categorize tasks. Entering the command tags c
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-progress-bars"><a class="link" href="#display-progress-bars">4.11. Display Progress Bars</a></h3>
+<h3 id="display-progress-bars"><a class="link" href="#display-progress-bars">4.10. Display Progress Bars</a></h3>
 <div class="paragraph">
 <p>The progress bars for today&#8217;s progress and this week&#8217;s progress at the bottom reflect the percentages automatically when the schedule planner is changed in any way.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Whenever the user makes a change in the schedule planner, for example add, delete, or archive a task, it raises a new SchedulePlannerChangedEvent.
 UI part ProgressBarPanel will handle this event and update the values for both today and this week&#8217;s progress bars.</p>
@@ -1698,7 +1691,7 @@ UI part ProgressBarPanel will handle this event and update the values for both t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.11.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-percentages-are-calculated"><a class="link" href="#aspect-how-the-percentages-are-calculated">Aspect: How the percentages are calculated</a></h5>
 <div class="ulist">
@@ -3060,4 +3053,4 @@ reflected in the panel on the bottom right of <code>UI</code>.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 20:50:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 04:45:01 UTC</div></div></div></body></html>
