@@ -1826,6 +1826,7 @@ _{More to be added}_
 [appendix]
 == Non Functional Requirements
 
+
 .  The app should work on most Mainstream OS as long as it has Java `9` or higher installed.
 .  Each command execution time should not take more than 3 seconds.
 
