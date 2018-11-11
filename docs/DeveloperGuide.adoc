@@ -449,10 +449,10 @@ according to the predicate.
 
 `listweek` further implements the following operations:
 
-* numDaysTillSunday(dateName) -- It compute the number of days from current date until closest Sunday (exclusive of
+* `numDaysTillSunday(dateName)` -- It compute the number of days from current date until closest Sunday (exclusive of
 Sunday) using `dateName`. `dateName` is the name of the current day.
 
-* appendDateList(dateList, numDaysTillSunday(dateName)) -- It generates sequential `DDMMYY` values
+* `appendDateList(dateList, numDaysTillSunday(dateName))` -- It generates sequential `DDMMYY` values
 based on the result of `numDaysTillSunday(dateName)` and inserts them into `dateList` . `dateList` is a `List<String>`
 object.
 
@@ -1513,7 +1513,10 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 |`* *` |student |redo my command |correct my accidental "undo"
 
 |`* *` |student |add and view subtasks under each task |know specifically what tasks requires
-E.g CS2103T Project -Write User guide -Review Pull Requests -Peer Evaluation
+E.g CS2103T Project +
+-Write User guide +
+-Review Pull Requests +
+-Peer Evaluation
 
 |`*` |student |add my tasks that are non-school related |have a schedule mixed with both school and non-school related tasks
 

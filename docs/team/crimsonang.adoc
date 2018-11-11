@@ -13,12 +13,12 @@ PROJECT: Student Schedule Planner
 This portfolio showcases the software engineering skills I acquired during my time of study in National University of
  Singapore (NUS).
 
-Student Schedule Planner (SSP) is a desktop application created by my team T12-3 for CS2103T module. SSP
+*Student Schedule Planner* (SSP) is a desktop application created by my team T12-3 for CS2103T module. SSP
 aimed to aid university students to manage their tasks effectively. It is morphed from an existing product called
-`Address Book`, with constraints such as command-line interface must be the main mode of user input.
+*Address Book (Level 4)*, with constraints such as command-line interface must be the main mode of user input.
 
-My contributions to the project included adding `firstday`, `listday` and `listweek` commands to aid the
-users in better monitoring of their tasks.
+My contributions to the project included adding *task monitoring system* which consists of `firstday`,
+`listday` and `listweek` commands to aid the users in better monitoring of their tasks.
 
 == Summary of Contributions
 
@@ -30,7 +30,8 @@ date or from the current date until the closest Sunday.
  due on a particular week and could use this to plan their remaining time properly. Users could also easily know what
   tasks they have on the current week.
 ** Highlights: This implementation was challenging as it required creating a new `model` and `storage` for saving and
-retrieving the data. It was also tedious and time consuming to conduct tests for different dates.
+retrieving the data. It was also tedious and time consuming to conduct both system and manual tests for different
+dates due to the need to manipulate my device's system date.
 ** Credits: https://stackoverflow.com/questions/1816673/how-do-i-check-if-a-file-exists-in-java[#1],
 https://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests[#2],
 https://stackoverflow.com/questions/5175728/how-to-get-the-current-date-time-in-java[#3],
@@ -40,20 +41,44 @@ https://docs.oracle.com/javase/8/docs/api/java/time/LocalDate.html[#5]
 * *Code contributed*: https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&search=crimsonang[RepoSense]
 * *Other contributions*:
 ** Project management:
-*** Morphed and transformed portions of `Address Book` into current product `Student Schedule Planner`.
+*** Morphed and transformed portions of *Address Book (Level 4)* into current product *Student Schedule Planner* :
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/23[#23],
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/31[#31],
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/37[#37],
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/44[#44]
+
 *** Managed releases `mid-v1.3` - `v1.3` (2 releases) on GitHub
 ** Documentation:
 *** Morphed existing diagrams of the Developer Guide:
 https://github.com/CS2103-AY1819S1-T12-3/main/pull/81[#81]
-*** Added `Target User Profile`, `User Stories` of the Developer Guide:
-https://github.com/CS2103-AY1819S1-T12-3/main/pull/1[#1]
+*** Added `Target User Profile`, `User Stories`, `Use Cases` of the Developer Guide:
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/1[#1],
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/20[#20]
+*** Removed portion of `SE-EDU` related contents:
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/17[#17]
+
 ** Community:
-*** Contributed to forum discussions: https://github.com/nus-cs2103-AY1819S1/forum/issues/132[#132],
+
+*** Contributed to forum discussions:
+https://github.com/nus-cs2103-AY1819S1/forum/issues/132[#132],
 https://github.com/nus-cs2103-AY1819S1/forum/issues/146[#146]
-*** Some parts of `listweek` command I added was adopted by a classmate:
-https://github.com/CS2103-AY1819S1-T12-3/main/pull/125[#125]
-*** Some parts of `listday` command test cases I added was adopted by a classmate:
-https://github.com/CS2103-AY1819S1-T12-3/main/pull/201[#201]
+
+*** Some parts of `listweek` command and `ListWeekCommandTest` test cases I added was adopted by a classmate:
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/125/commits/f9702dcbc8cecf2d6d47e306479c43d713bd018e[#125],
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/212/commits/4c1c08d6cb9d863283987dc7d0b7c74e9027d8b6[#212]
+*** Some parts of `ListDayCommandTest` test cases I added was adopted by a classmate:
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/201/commits/c8b4ce5e96239032f35538942769d24cfab7ec68[#201],
+*** Some parts of `DateSamePredicateTest` test cases I added was adopted by a classmate:
+https://github.com/CS2103-AY1819S1-T12-3/main/pull/229/commits/4fe6dbd1a6956d87adf74ab23ff7ab98da4da05c[#229]
+
+*** Reported bugs and suggestions for other teams in the class:
+https://github.com/CS2103-AY1819S1-F10-4/main/issues/220[#220],
+https://github.com/CS2103-AY1819S1-F10-4/main/issues/224[#224],
+https://github.com/CS2103-AY1819S1-F10-4/main/issues/235[#235],
+https://github.com/CS2103-AY1819S1-F10-4/main/issues/238[#238],
+https://github.com/CS2103-AY1819S1-F10-4/main/issues/242[#242],
+https://github.com/CS2103-AY1819S1-F10-4/main/issues/248[#248]
+
 ** Tools:
 *** Integrated two Github plugins (AppVeyor, Coveralls) to the team repo
 

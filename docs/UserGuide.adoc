@@ -442,7 +442,7 @@ image::FirstDayCommand_UG_Before_After.png[width="600"]
 ====
 
 [NOTE]
-There would not be any visible changes upon using the command. The reflection would only occur after relaunching the
+There would not be any visible changes upon using the command. The reflection would only occurs after relaunching the
 application.
 
 [blue]`DDMMYY` refers to the date format of day, month and year. It must complies the following three rules in
