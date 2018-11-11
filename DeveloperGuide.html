@@ -34,13 +34,17 @@
 <li><a href="#log-messages">4.2. Log Messages</a></li>
 <li><a href="#Implementation-Configuration">4.3. Configuration</a></li>
 <li><a href="#view-tasks-due-today-this-week">4.4. View Tasks Due Today/This Week</a></li>
-<li><a href="#list-tasks-by-month">4.5. List Tasks by Month</a></li>
-<li><a href="#generate-academic-calendar-weeks">4.6. Generate Academic Calendar Weeks</a></li>
-<li><a href="#filter-by-tags-code-filter-code-and-code-filterstrict-code">4.7. Filter by Tags (<code>filter</code> and <code>filterstrict</code>)</a></li>
-<li><a href="#list-overdue-tasks">4.8. List Overdue Tasks</a></li>
-<li><a href="#list-archived-tasks">4.9. List Archived Tasks</a></li>
-<li><a href="#display-tags-in-sidebar">4.10. Display Tags in Sidebar</a></li>
-<li><a href="#display-progress-bars">4.11. Display Progress Bars</a></li>
+<li><a href="#archive-task">4.5. Archive Task</a></li>
+<li><a href="#automatic-partial-deletion-of-archived-tasks">4.6. Automatic Partial Deletion of Archived Tasks</a></li>
+<li><a href="#list-tasks-by-month">4.7. List Tasks by Month</a></li>
+<li><a href="#generate-academic-calendar-weeks">4.8. Generate Academic Calendar Weeks</a></li>
+<li><a href="#filter-by-tags-code-filter-code-and-code-filterstrict-code">4.9. Filter by Tags (<code>filter</code> and <code>filterstrict</code>)</a></li>
+<li><a href="#list-overdue-tasks">4.10. List Overdue Tasks</a></li>
+<li><a href="#list-archived-tasks">4.11. List Archived Tasks</a></li>
+<li><a href="#sort-tasks">4.12. Sort tasks</a></li>
+<li><a href="#managing-tags-using-category">4.13. Managing Tags Using Category</a></li>
+<li><a href="#display-tags-in-sidebar">4.14. Display Tags in Sidebar</a></li>
+<li><a href="#display-progress-bars">4.15. Display Progress Bars</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1020,6 +1024,12 @@ as the parameter. <code>DateWeekSamePredicate</code> itself would take <code>dat
 </div>
 <div class="title">Figure 10. Sequence Diagram of ListWeek Command</div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ListMonthCommandSequenceDiagram.png" alt="ListMonthCommandSequenceDiagram">
+</div>
+<div class="title">Figure 11. Sequence Diagram of ListMonth Command</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.2. Design Considerations</a></h4>
@@ -1060,13 +1070,208 @@ E.g listday 130818 to view all tasks for 13 August 2018.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-tasks-by-month"><a class="link" href="#list-tasks-by-month">4.5. List Tasks by Month</a></h3>
+<h3 id="archive-task"><a class="link" href="#archive-task">4.5. Archive Task</a></h3>
+<div class="paragraph">
+<p>The Archive Task feature allows user to archive completed tasks. The archived tasks are hidden from task list,
+can only be viewed through command <code>listarchived</code>. For implementation details
+regarding listing archived tasks, please refer to <a href="#list-archived-tasks">Section 4.11, &#8220;List Archived Tasks&#8221;</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The archiveTask mechanism is facilitated by SchedulePlanner.
+Schedule Planner has two lists of tasks,
+one is taskList for normal tasks, another is archivedTaskList for archived tasks.
+Normal task list is implemented using UniqueTaskList that does not allow duplicates,
+while archived task list is implemented using TaskList that allows duplicates.<br>
+Task list that is used to store normal tasks is implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public class UniqueTaskList implements Iterable&lt;Task&gt; {
+   private boolean tasksAreUnique(List&lt;Task&gt; tasks) {
+       //... Check for duplicates logic...
+   }
+    //...
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>While task list that is used to store archived tasks does not check for duplicates:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public class TaskList implements Iterable&lt;Task&gt; {
+    //...
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the archiveTask mechanism behaves. We first
+assume that user executes command <code>archive 1</code>:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The archiveCommand is created, 1 is recognised as <code>targetIndex</code>.<br></p>
+</li>
+<li>
+<p><code>ArchiveCommand.execute()</code> calls <code>model.archiveTask()</code> and parse in <code>targetIndex</code> as parameter, which is <code>1</code>.<br></p>
+</li>
+<li>
+<p><code>archiveTask()</code> method in schedulePlanner class is called, which deletes the first task shown in current task list from
+task list and stores it into archived task list.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the mechanism works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Archive.png" alt="Archive" width="800">
+</div>
+<div class="title">Figure 12. Sequence Diagram of archive task command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-storage-of-archived-tasks"><a class="link" href="#aspect-storage-of-archived-tasks">Aspect: Storage of archived tasks</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Save archived tasks in a separate list.
+Implement two task lists in Schedule Planner, one for normal tasks, another for archived tasks. For archived tasks,
+instead of using UniqueTaskList, implement a new class that allow duplicates.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: When listing normal tasks, program does not have to filter out archived tasks every time, which makes the
+algorithm more efficient. Besides, users is able to add in new task with same attributes as an archived task,
+which is more reasonable for user.</p>
+</li>
+<li>
+<p>Cons: Listing archived tasks will need a new approach, different from other list commands; new class has to be
+implemented to store archived tasks.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Save archived tasks together with normal tasks.
+Schedule Planner only has one task list.
+Add boolean filed isArchived to Task class to differentiate archived and not archived tasks.<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement.</p>
+</li>
+<li>
+<p>Cons: Each time list command is called, archived tasks have to be filtered out, which may affect performance.
+Besides, user cannot add in new task with same attributes as archived tasks, which is much less user-friendly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatic-partial-deletion-of-archived-tasks"><a class="link" href="#automatic-partial-deletion-of-archived-tasks">4.6. Automatic Partial Deletion of Archived Tasks</a></h3>
+<div class="paragraph">
+<p>The automatic deletion feature removes archived tasks with deadlines date earlier than 2 weeks ago from current time
+point from archived task list. There are two main reasons behind this feature.<br>
+Firstly, we want to optimize the user experience of viewing archived tasks. Users should be able to view archived tasks,
+but displaying all archived tasks will be too bulky and hard to view. In other words, we want to stop the archived task
+list from growing to infinity.<br>
+Another reason is we want to save storage space used by our application as much as possible.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Every time when the application is launched, archived list is checked through. Tasks with deadline date earlier than
+2 weeks ago are then permanently deleted from archived task list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AutoDelete.png" alt="AutoDelete" width="800">
+</div>
+<div class="title">Figure 13. Sequence Diagram of automatic partial deletion of archived tasks feature</div>
+</div>
+<div class="paragraph">
+<p>Given below is detailed explanation of how auto-deletion mechanism behaves:<br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Application is launched</p>
+</li>
+<li>
+<p><code>MainApp#init()</code> is called, which instantiates <code>Model</code> class and calls <code>Model#autoDeleteArchived()</code>.</p>
+</li>
+<li>
+<p><code>Model#autoDeleteArchived()</code> then calls <code>TaskList#autoDelete()</code>. Note that <code>TaskList</code> is an object type
+implemented to store archived tasks. <code>TaskList#autoDelete()</code> then scan through archived tasks and deletes
+those archived tasks with deadline date earlier than 2 weeks before current time point.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-what-tasks-should-we-delete"><a class="link" href="#aspect-what-tasks-should-we-delete">Aspect: What tasks should we delete?</a></h5>
+<div class="paragraph">
+<p>We had a rough idea of deleting away "old" tasks. However, how should we define "old"?<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Delete tasks with deadline date earlier than 2 weeks before current date.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This implementation is easier for testing. Testers do not have to alternate their system time to
+test the feature.</p>
+</li>
+<li>
+<p>Cons: The logic may be less user-friendly comparing to Alternative 2. Usually what users expect is more likely
+to be "able to check tasks that were archived recently". For example, if user has just archived a
+task that has been overdue for 1 month (the deadline date of this task is 1 month earlier than current date),
+he/she may find it not so intuitive if next time he/she runs the app, the task cannot be found in archived task list.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Delete tasks that were archived 2 weeks before current date.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This implementation may be more user-friendly comparing with Alternative 1.</p>
+</li>
+<li>
+<p>Cons: The feature would be hard to test for testers.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-tasks-by-month"><a class="link" href="#list-tasks-by-month">4.7. List Tasks by Month</a></h3>
 <div class="paragraph">
 <p>The <code>listmonth</code> command is another variation of the <code>list</code> command, which supports viewing tasks due from the current
 date till the end of the month.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>listmonth</code> utilises the same implementation used by the <code>list</code> command:</p>
 </div>
@@ -1135,11 +1340,11 @@ as the predicate. <code>DateWeekSamePredicate</code> takes <code>dateList</code>
 <div class="content">
 <img src="images/ListMonthSequenceDiagram.png" alt="ListMonthSequenceDiagram">
 </div>
-<div class="title">Figure 11. Sequence Diagram of ListMonth Command</div>
+<div class="title">Figure 14. Sequence Diagram of ListMonth Command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-does-listmonth-function"><a class="link" href="#aspect-how-does-listmonth-function">Aspect: How does listmonth function</a></h5>
 <div class="ulist">
@@ -1177,7 +1382,7 @@ E.g list 130818 200918 to view all tasks between the two dates.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">4.6. Generate Academic Calendar Weeks</a></h3>
+<h3 id="generate-academic-calendar-weeks"><a class="link" href="#generate-academic-calendar-weeks">4.8. Generate Academic Calendar Weeks</a></h3>
 <div class="paragraph">
 <p>In order to enable users to better monitor their tasks in the schedule planner by knowing what is the current
 academic week, <code>firstday</code> command was added.</p>
@@ -1200,7 +1405,7 @@ Only 17 weeks are referenced from NUS academic calendar. More details at glossar
 </table>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">4.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p><code>firstday</code> mechanism is facilitated by <code>FirstDayCommand</code> and implements the following operations:</p>
 </div>
@@ -1383,17 +1588,17 @@ not exist.
 <div class="content">
 <img src="images/FirstDayCommand_DG_SequenceDiagram.png" alt="FirstDayCommand DG SequenceDiagram" width="650">
 </div>
-<div class="title">Figure 12. Sequence diagram of FirstDay Command</div>
+<div class="title">Figure 15. Sequence diagram of FirstDay Command</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/LaunchMainApp_DG_SequenceDiagram.png" alt="LaunchMainApp DG SequenceDiagram" width="650">
 </div>
-<div class="title">Figure 13. Sequence diagram of launching MainApp</div>
+<div class="title">Figure 16. Sequence diagram of launching MainApp</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-firstday-command-functions"><a class="link" href="#aspect-how-firstday-command-functions">Aspect: How firstday command functions</a></h5>
 <div class="ulist">
@@ -1464,7 +1669,7 @@ description for each weeks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-by-tags-code-filter-code-and-code-filterstrict-code"><a class="link" href="#filter-by-tags-code-filter-code-and-code-filterstrict-code">4.7. Filter by Tags (<code>filter</code> and <code>filterstrict</code>)</a></h3>
+<h3 id="filter-by-tags-code-filter-code-and-code-filterstrict-code"><a class="link" href="#filter-by-tags-code-filter-code-and-code-filterstrict-code">4.9. Filter by Tags (<code>filter</code> and <code>filterstrict</code>)</a></h3>
 <div class="paragraph">
 <p>The <code>filter</code> &amp; <code>filterstrict</code> commands allow the user to filter tasks in the schedule planner according to their tags.
 The user may search for multiple tags at once, and the schedule planner returns a list of tasks containing the tags
@@ -1475,7 +1680,7 @@ specified by the user.</p>
 search, while <code>filterstrict</code> increases the specificity of search.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">4.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Since <code>filter</code> and <code>filterstrict</code> are implemented in similar fasion, we will simply refer to <code>filter</code>.</p>
 </div>
@@ -1522,7 +1727,7 @@ predicate which tests for the tags 'tutorial' and 'CS2100'. <code>FilterCommand.
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-filter-executes"><a class="link" href="#aspect-how-filter-executes">Aspect: How filter executes</a></h5>
 <div class="ulist">
@@ -1560,13 +1765,13 @@ B, or both.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">4.8. List Overdue Tasks</a></h3>
+<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">4.10. List Overdue Tasks</a></h3>
 <div class="paragraph">
 <p>The <code>listoverdue</code> command allows the user to view the list of all overdue tasks. A task is considered overdue if its
 deadline has passed. In other words, the system&#8217;s current date is after the deadline.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">4.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains a UniqueTaskList called tasks.</p>
 </div>
@@ -1577,7 +1782,7 @@ deadline has passed. In other words, the system&#8217;s current date is after th
 <div class="content">
 <img src="images/ListOverdueSequenceDiagram.png" alt="ListOverdueSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 14. Sequence Diagram of ListOverdueCommand</div>
+<div class="title">Figure 17. Sequence Diagram of ListOverdueCommand</div>
 </div>
 <div class="paragraph">
 <p>Step 1. The user executes the command <code>listoverdue</code>.</p>
@@ -1591,7 +1796,7 @@ deadline has passed. In other words, the system&#8217;s current date is after th
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-overdue-tasks-are-stored"><a class="link" href="#aspect-how-the-overdue-tasks-are-stored">Aspect: How the overdue tasks are stored</a></h5>
 <div class="ulist">
@@ -1630,7 +1835,7 @@ the number of tasks is small at any given point of time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-archived-tasks"><a class="link" href="#list-archived-tasks">4.9. List Archived Tasks</a></h3>
+<h3 id="list-archived-tasks"><a class="link" href="#list-archived-tasks">4.11. List Archived Tasks</a></h3>
 <div class="paragraph">
 <p>The <code>listarchived</code> command allows the user to view the list of all archived tasks. Whenever the user completes a task,
 he/she will archive it. When archived, the task will be moved from the task list into a separate archive list that stores
@@ -1638,7 +1843,7 @@ all completed tasks. If the user wishes to view all of his/her completed tasks, 
 all of the archived tasks.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">4.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Model contains two UniqueTaskLists - tasks and archivedTasks - each containing the tasks and archived tasks respectively.</p>
 </div>
@@ -1670,7 +1875,7 @@ all of the archived tasks.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.11.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-change-what-is-displayed"><a class="link" href="#aspect-how-to-change-what-is-displayed">Aspect: How to change what is displayed</a></h5>
 <div class="ulist">
@@ -1704,13 +1909,346 @@ all of the archived tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-tags-in-sidebar"><a class="link" href="#display-tags-in-sidebar">4.10. Display Tags in Sidebar</a></h3>
+<h3 id="sort-tasks"><a class="link" href="#sort-tasks">4.12. Sort tasks</a></h3>
+<div class="paragraph">
+<p>The sorting feature enables tasks to be displayed in the order of deadline date and priority.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">4.12.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Sorting feature does not require any user input command.
+Whenever the tasks are listed, it will always be listed according to deadline date, then priority.
+3 is the highest priority, while 1 is the lowest.<br></p>
+</div>
+<div class="paragraph">
+<p>Assume there are two tasks in a task list, task A and task B. Given below is the scenario when
+task list is retrieved from schedule planner using any kind of <code>list</code> command and how the sorting mechanism
+behanves.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>UniqueTaskList#sorted()</code> is called and <code>Task#compare()</code> is parsed in as comparator.</p>
+</li>
+<li>
+<p><code>Task#compare()</code> calls Date.compare(), which compares the deadline date of task A and task B.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If task A has earlier deadline date than task B, the order will be task A followed by task B, and vice versa.</p>
+</li>
+<li>
+<p>If task A and task B have the same deadline date,
+<code>Priority#compare()</code> is then called, which compares priority of task A and task B.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>If task A has higher priority than task B, the order will be task A followed by task B and vice versa.</p>
+</li>
+<li>
+<p>If task A and task B have the same priority, then <code>Name#compare()</code> is called,
+which compares the task name of A and B according to JAVA <code>compareTo()</code> method of <code>String</code> class.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Sorting.png" alt="Sorting" width="600">
+</div>
+<div class="title">Figure 18. Sequence diagram of sorting feature.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.12.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-should-sorting-be-executed"><a class="link" href="#aspect-how-should-sorting-be-executed">Aspect: How should sorting be executed</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice): </strong> Automatically sort tasks whenever tasks are listed. In other words,
+whenever tasks are shown on UI, they are sorted according to deadline and priority.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: The user experience is better using this approach,
+because tasks are always listed in the order of deadline and priority.
+The code required is less than Alternative 2 as well.</p>
+</li>
+<li>
+<p>Cons: The performance of the application may be affected if the task list size is significantly large,
+because the task list has to be traversed and sorted before displaying on UI. Of course considering actual
+use case, such performance issue should be negligible.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2: </strong> Implement sort command exclusively for sorting tasks. For example, use command <code>sort tasks</code>
+to obtain sorted list of all tasks, and <code>sort archived</code> for sorted list of archived tasks.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not have to worry about performance issue.</p>
+</li>
+<li>
+<p>Cons: Users have to type command <code>sort</code> every time, which is apparently not so user-friendly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-tags-using-category"><a class="link" href="#managing-tags-using-category">4.13. Managing Tags Using Category</a></h3>
+<div class="paragraph">
+<p>The category feature enables users to organize their tags. Users can create category and
+save relevant tags inside category. There are two default categories in schedule planner,
+category <code>Modules</code> and category <code>Others</code>. These two default categories cannot be renamed or
+deleted, but user have full freedom to rename or delete other categories added by themselves.</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">4.13.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Each category has a unique name, and contains a list of tags. The list of tags is implemented
+using UniqueTagList, which does not allow duplicates, in other words, tags with same name.
+Given below is a snippet of implementation of UniqueTagList:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public class UniqueTagList implements Iterable&lt;Tag&gt; {
+    private boolean tagsAreUnique(List&lt;Tag&gt; tags) {
+        //Checks if tags are unique...
+    }
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is a snippet of implementation of category:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public class Category {
+    //Two attributes, name and tag list
+    private String name;
+    private UniqueTagList tags;
+
+    ///Other implementation...
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Schedule Planner contains a list of cateogry list, implemented using <code>UniqueCategoryList</code>.
+<code>UniqueCategoryList</code> is a list used to save categories which does not allow duplicates.
+Any two categories with same name are considered identical. Given below is a snippet
+its implementation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public class UniqueCategoryList implements Iterable&lt;Category&gt; {
+    public boolean contains(String name) {
+        //Checks whether this category name has been used...
+    }
+
+    private boolean categoriesAreUnique(List&lt;Category&gt; categories) {
+        //Checks whether there are duplicate categories...
+    }
+    //Other implementation...
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the category mechanism behaves at each step:<br></p>
+</div>
+<div class="paragraph">
+<p>Step 1. User enters command <code>addcat c/Game list</code> to add a category named <code>Game list</code>.
+The <code>addcat</code> command is executed. <code>AddCategoryCommand#execute()</code> calls <code>Model#addCategory()</code>, which then calls <code>VersionedSchedulePlanner#addCategory()</code>.
+<code>SchedulePlanner#addCategory()</code> then calls <code>UniqueCategoryList#add()</code>. <code>UniqueCategoryList#add()</code> checks if
+the existing category list contains any category with identical name as new category, if exists, <code>DuplicateCategoryException()</code>
+is thrown; if not, new category is created and added to category list.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddCategoryCommand.png" alt="AddCategoryCommand" width="800">
+</div>
+<div class="title">Figure 19. Sequence Diagram of Add Category Command</div>
+</div>
+<div class="paragraph">
+<p>Step 2. User enters command <code>addtag c/Game list t/Zelda</code> to add tag <code>Zelda</code> into category <code>Game list</code>.
+The command string is first passed to <code>AddTagCommandParser</code>, which parses string <code>Zelda</code> to tag (let us call it <code>tagZelda</code>)
+and creates <code>AddTag</code> command.
+The command is then executed. <code>AddTagCommand#execute()</code> calls <code>Model#addTag()</code> and passes
+ <code>tagZelda</code> and ` "Game list" ` as parameter. <code>Model#addTag()</code> then calls
+<code>VersionedSchedulePlanner#addTag()</code>, passes in <code>tagZelda</code> and ` "Game list" ` as parameter.
+ <code>VersionedSchedulePlanner#addCategory()</code> then calls
+<code>UniqueCategoryList#getCategory()</code>, passing in <code>Game list</code> as parameter and obtains corresponding category
+(let us call it <code>categoryGameList</code>).
+<code>Category#addTag()</code> is then called with parameter <code>categoryGameList</code> to add tag <code>tagZelda</code> to category <code>categoryGameList</code>.
+If there already exists a tag named <code>Zelda</code> in UniqueTagList of category <code>categoryGameList</code>, exception <code>DuplicateTagException</code>
+is thrown.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTagCommand.png" alt="AddTagCommand" width="800">
+</div>
+<div class="title">Figure 20. Sequence Daigram of Add Tag Command</div>
+</div>
+<div class="paragraph">
+<p>Step 3. User enters command <code>editcat c/Game list c/Reading list</code> to rename category named <code>Game list</code> to <code>Reading list</code>.
+<code>EditCategoryCommandParser</code> creates <code>EditCategoryCommand</code>.
+When <code>EditCategoryCommand</code> executes, it calls <code>Model#editCategory()</code> and passes in <code>"Game list"</code> and <code>"Reading list"</code>
+ as parameter. <code>Model#editCategory()</code> then calls <code>VersionedSchedulePlanner#editCategory()</code> with parameter
+ <code>"Game list"</code> and <code>"Reading list"</code>. <code>VersionedSchedulePlanner</code> then calls <code>UniqueCategoryList#setCategory()</code>
+ to create a new category with name "Reading list" and same tag list as category <code>categoryGameList</code>, replace category
+ <code>categoryGameList</code> with this new category.
+ Below is a snippet of implementation of <code>UniqueCategoryList#setCategory()</code> used here:
+ ----
+    public void setCategory(String originalName, String newName) {
+        //&#8230;&#8203;
+        if !contains(originalName) {
+            //If there is no category with name "Game list", throw error
+            throw new CategoryNotFoundException();
+        }
+        if (newName.equals(originalName)) {
+            //If name "Reading list" has been used by another category, throw error
+            throw new DuplicateCategoryException();
+        }
+        //Obtain the category with name "Game list"
+        Category oldCategory = getCategory(originalName);
+        //Creat a new category which is identical to original category except name
+        Category newCategory = new Category(newName, oldCategory.getUniqueTagList());
+        internalList.set(internalList.indexOf(oldCategory), newCategory);
+    }
+ ----</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sequence Diagram of Edit Category Command</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditCategoryCommand.png" alt="EditCategoryCommand" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 4. User enters command <code>removecat c/Reading list</code> to remove the category named <code>Reading list</code>. Let us call this
+category <code>categoryReadingList</code>.
+<code>RemoveCategoryCommandParser</code> first creates <code>RemoveCategoryCommand</code>.
+When <code>RemoveCategoryCommand</code> executes, it calls <code>Model#removeCategory()</code> and passes in <code>"Reading list"</code> as parameter.
+<code>Model#removeCategory()</code> calls <code>VersionedSchedulePlanner#removeCategory()</code> with parameter <code>"Reading list"</code>.
+<code>VersionedSchedulePlanner</code> then calls <code>UniqueCategoryList#removeCategory()</code> to find category
+<code>categoryReadingList</code> and remove it.
+After <code>categoryReadingList</code> is removed, its tag list is removed as well. For example, if user has added tag <code>Zelda</code> only in
+category named <code>Reading list</code>, then after removing this category, tag <code>Zelda</code> will be lost from schedule planner.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sequence Diagram of Remove Category Command</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/RemoveCategory.png" alt="RemoveCategory" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Besides adding tag, renaming (editing) and removing, we support clearing category as well.
+Mechanism of clearing category is very similar to renaming (editing) category.
+<code>Model#clearCategory()</code> calls <code>VersionedSchedulePlanner#clearCategory()</code>, which then initialize a new empty
+category with name <code>"Modules"</code>.
+Below is a code snippet of <code>VersionedSchedulePlanner#clearCategory()</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public void clearCategory(String name) {
+        //...
+        this.categories.setCategory(name, new Category(name));
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Below is a code snippet of #UniqueCategoryList#setCategory()` used here, which is slightly different from
+what is used in editing category:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    public void setCategory(String originalName, Category newCategory) {
+        //...
+        Category oldCategory = getCategory(originalName);
+        internalList.set(internalList.indexOf(oldCategory), newCategory);
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>We omit the sequence diagram here because of its similarity to edit category command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">4.13.2. Design Consideration</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-store-and-manage-tags"><a class="link" href="#aspect-how-to-store-and-manage-tags">Aspect: How to store and manage tags</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Store Categories as <code>UniqueCategoryList</code> and allow users to
+add tags to categories. There will be no <code>UniqueTagList</code> directly managed by schedule planner. All tags
+are saved under UniqueTagList under individual Category. Because our application is catered for university
+students, we set two default categories, <code>Modules</code> and <code>Others</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We allow users more freedom to manipulate with their tags and categorize their tags.
+User can add same tag to several categories, and the categories do not interfere. This is the most
+user-friendly design we can think of so far.</p>
+</li>
+<li>
+<p>Cons: The implementation is more complicated than Alternative 2. Besides, this mechanism requires more
+commands to operate, which could be harder for user to remember.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store tags in <code>UniqueTagList</code> directly managed by schedule planner.
+The schedule planner has two tag lists, one is <code>Modules</code> and another one is <code>Others</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is easy to implement, and the operation requires less commands.</p>
+</li>
+<li>
+<p>Cons: User has less freedom in managing tags. This design is less user-friendly than
+Alternative 1.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-tags-in-sidebar"><a class="link" href="#display-tags-in-sidebar">4.14. Display Tags in Sidebar</a></h3>
 <div class="paragraph">
 <p>Whenever the user tags a task with a new tag, the tag will be added to the sidebar panel. The user will be able to view
 all of the tags he/she has used to categorize tasks. Entering the command tags c/CATEGORY will expand the tab for the specified category to show all tags listed under that category.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">4.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">4.14.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Every time any category or tag is changed in the Student Schedule Planner, it raises a SchedulePlannerChangedEvent. The UI will then handle that event and update the side bar panel with the new version of categories and tags.</p>
 </div>
@@ -1746,7 +2284,7 @@ all of the tags he/she has used to categorize tasks. Entering the command tags c
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.10.2. Design Considerations</a></h4>
+<h4 id="design-considerations-11"><a class="link" href="#design-considerations-11">4.14.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-update-the-tags-on-ui"><a class="link" href="#aspect-how-to-update-the-tags-on-ui">Aspect: How to update the tags on UI</a></h5>
 <div class="ulist">
@@ -1783,12 +2321,12 @@ all of the tags he/she has used to categorize tasks. Entering the command tags c
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-progress-bars"><a class="link" href="#display-progress-bars">4.11. Display Progress Bars</a></h3>
+<h3 id="display-progress-bars"><a class="link" href="#display-progress-bars">4.15. Display Progress Bars</a></h3>
 <div class="paragraph">
 <p>The progress bars for today&#8217;s progress and this week&#8217;s progress at the bottom reflect the percentages automatically when the schedule planner is changed in any way.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">4.15.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Whenever the user makes a change in the schedule planner, for example add, delete, or archive a task, it raises a new SchedulePlannerChangedEvent.
 UI part ProgressBarPanel will handle this event and update the values for both today and this week&#8217;s progress bars.</p>
@@ -1833,7 +2371,7 @@ UI part ProgressBarPanel will handle this event and update the values for both t
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.11.2. Design Considerations</a></h4>
+<h4 id="design-considerations-12"><a class="link" href="#design-considerations-12">4.15.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-percentages-are-calculated"><a class="link" href="#aspect-how-the-percentages-are-calculated">Aspect: How the percentages are calculated</a></h5>
 <div class="ulist">
@@ -1930,7 +2468,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 21. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3299,4 +3837,4 @@ reflected in the panel on the bottom right of <code>UI</code>.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 07:01:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 09:25:48 UTC</div></div></div></body></html>
