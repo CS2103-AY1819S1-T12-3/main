@@ -675,6 +675,31 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Schedule Plan
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
 <div class="paragraph">
+<p>The following code snippet shows how the command is implemented:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>...
+// Loop through to add the rest of the tasks.
+for (int i = 1; i &lt; Integer.parseInt(repeat.value); i++) {
+    baseDate.add(Calendar.DAY_OF_YEAR, interval);
+    newDate = schedulerFormat.format(baseDate.getTime());
+    date = new Date(newDate);
+    newTask = new Task(toAdd.getName(), date,
+            toAdd.getPriority(), toAdd.getVenue(), toAdd.getTags());
+    // Add the task only if there is no duplicate task within the model.
+    if (!model.hasTask(newTask)) {
+            model.addTask(newTask);
+    }
+}
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This loop occurs after the first task is added. The tasks are created within the loop with duplicate names, dates, priorities, venues and tags.
+Before adding a task, the function checks with the model if such a task already exists. If not, the task is added. If the task is a duplicate task, it is skipped and the loop proceeds until it terminates.</p>
+</div>
+<div class="paragraph">
 <p>The following sequence diagram shows how the add repeat operation works:</p>
 </div>
 <div class="imageblock">
@@ -1794,6 +1819,35 @@ deadline has passed. In other words, the system&#8217;s current date is after th
 </div>
 <div class="sect3">
 <h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">4.11.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Given below is a code snippet of the ListOverdueCommand.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>...
+public CommandResult execute(Model model, CommandHistory history) {
+    // Filter the task list using the OverduePredicate with the current date as the parameter.
+    model.updateFilteredTaskList(new OverduePredicate(SYSTEM_DATE));
+    EventsCenter.getInstance().post(new ChangeViewEvent(ChangeViewEvent.View.NORMAL));
+    return new CommandResult(MESSAGE_SUCCESS);
+}
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The ListOverdueCommand calls the method updateFilteredTaskList with a new OverduePredicate which has the current date as the parameter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public boolean test(Task task) {
+    return date - task.getDate().yymmdd &gt; 0 ? true : false;
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The test function within OverduePredicate class compares the current system date with the date of the task. If the task&#8217;s date is after
+the current time, the function returns false, and vice versa.</p>
+</div>
 <div class="paragraph">
 <p>Model contains a UniqueTaskList called tasks.</p>
 </div>
@@ -3929,4 +3983,4 @@ Expected: Status message displays that user has completed 20.00% of tasks for th
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:18:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:29:21 UTC</div></div></div></body></html>

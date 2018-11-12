@@ -12,12 +12,21 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Student Schedule Planner is a desktop schedule planner application used by students for schedule planning. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>This project portfolio showcases my contributions to Student Schedule Planner, and how I implemented each of the features.</p>
+</div>
+<div class="paragraph">
+<p>In this project, I, together with Chen Shin, Lin Xu, Thaddeus Lim and Xiao Yilin, morphed a generic Address Book application into a specialised Student Schedule Planner aimed exclusively at university students. This was done with the constraint that a Command Line Interface (CLI) was to be the main mode of interaction with the application.</p>
+</div>
+<div class="paragraph">
+<p>As mentioned before, Student Schedule Planner targets a very specific group of people: students. We took into account the pains that we as university students faced when we were using conventional to-do lists and aimed to solve these pains during this project.</p>
+</div>
+<div class="paragraph">
+<p>Student Schedule Planner is hence a desktop application made specifically for students. The user interacts with the application using a CLI, but it has a Graphical User Interface (GUI) for users to view results in a more user-friendly manner. The application was built using Java and has approximately 10 kLoC.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">2. Summary of contributions</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -35,7 +44,7 @@
 <p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Credits: The Calendar API from Java provided a variety of functions made implementing the AddRepeatCommand simpler than if I had started from scratch._</p>
 </li>
 </ul>
 </div>
@@ -88,7 +97,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">2. Contributions to the User Guide</a></h2>
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -101,7 +110,7 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="adding-a-recurring-task"><a class="link" href="#adding-a-recurring-task">2.1. Adding a Recurring Task</a></h3>
+<h3 id="adding-a-recurring-task"><a class="link" href="#adding-a-recurring-task">3.1. Adding a Recurring Task</a></h3>
 <div class="paragraph">
 <p>Adds copies of the same task to a specified day in the week, for a given number of weeks.<br></p>
 </div>
@@ -177,7 +186,7 @@ will have the deadline set to the 21st  century instead. For example, a task cre
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-overdue-tasks"><a class="link" href="#viewing-overdue-tasks">2.2. Viewing Overdue Tasks</a></h3>
+<h3 id="viewing-overdue-tasks"><a class="link" href="#viewing-overdue-tasks">3.2. Viewing Overdue Tasks</a></h3>
 <div class="paragraph">
 <p>Shows a list all the overdue tasks.<br></p>
 </div>
@@ -213,7 +222,7 @@ will have the deadline set to the 21st  century instead. For example, a task cre
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">3. Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -226,12 +235,37 @@ will have the deadline set to the 21st  century instead. For example, a task cre
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="add-recurring-tasks"><a class="link" href="#add-recurring-tasks">3.1. Add Recurring Tasks</a></h3>
+<h3 id="add-recurring-tasks"><a class="link" href="#add-recurring-tasks">4.1. Add Recurring Tasks</a></h3>
 <div class="paragraph">
 <p>The Add Repeat feature allows the user to add recurring tasks of a specified number of repeats and a specified interval between each repeat.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.1.1. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The following code snippet shows how the command is implemented:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>...
+// Loop through to add the rest of the tasks.
+for (int i = 1; i &lt; Integer.parseInt(repeat.value); i++) {
+    baseDate.add(Calendar.DAY_OF_YEAR, interval);
+    newDate = schedulerFormat.format(baseDate.getTime());
+    date = new Date(newDate);
+    newTask = new Task(toAdd.getName(), date,
+            toAdd.getPriority(), toAdd.getVenue(), toAdd.getTags());
+    // Add the task only if there is no duplicate task within the model.
+    if (!model.hasTask(newTask)) {
+            model.addTask(newTask);
+    }
+}
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This loop occurs after the first task is added. The tasks are created within the loop with duplicate names, dates, priorities, venues and tags.
+Before adding a task, the function checks with the model if such a task already exists. If not, the task is added. If the task is a duplicate task, it is skipped and the loop proceeds until it terminates.</p>
+</div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the add repeat operation works:</p>
 </div>
@@ -243,13 +277,42 @@ will have the deadline set to the 21st  century instead. For example, a task cre
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">3.2. List Overdue Tasks</a></h3>
+<h3 id="list-overdue-tasks"><a class="link" href="#list-overdue-tasks">4.2. List Overdue Tasks</a></h3>
 <div class="paragraph">
 <p>The <code>listoverdue</code> command allows the user to view the list of all overdue tasks. A task is considered overdue if its
 deadline has passed. In other words, the system&#8217;s current date is after the deadline.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Given below is a code snippet of the ListOverdueCommand.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>...
+public CommandResult execute(Model model, CommandHistory history) {
+    // Filter the task list using the OverduePredicate with the current date as the parameter.
+    model.updateFilteredTaskList(new OverduePredicate(SYSTEM_DATE));
+    EventsCenter.getInstance().post(new ChangeViewEvent(ChangeViewEvent.View.NORMAL));
+    return new CommandResult(MESSAGE_SUCCESS);
+}
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The ListOverdueCommand calls the method updateFilteredTaskList with a new OverduePredicate which has the current date as the parameter.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>public boolean test(Task task) {
+    return date - task.getDate().yymmdd &gt; 0 ? true : false;
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The test function within OverduePredicate class compares the current system date with the date of the task. If the task&#8217;s date is after
+the current time, the function returns false, and vice versa.</p>
+</div>
 <div class="paragraph">
 <p>Model contains a UniqueTaskList called tasks.</p>
 </div>
@@ -274,7 +337,7 @@ deadline has passed. In other words, the system&#8217;s current date is after th
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-the-overdue-tasks-are-stored"><a class="link" href="#aspect-how-the-overdue-tasks-are-stored">Aspect: How the overdue tasks are stored</a></h5>
 <div class="ulist">
@@ -315,8 +378,8 @@ the number of tasks is small at any given point of time.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="project"><a class="link" href="#project">4. PROJECT:</a></h2>
+<h2 id="project"><a class="link" href="#project">5. PROJECT:</a></h2>
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:18:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:29:21 UTC</div></div></div></body></html>
