@@ -10,71 +10,131 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Student Schedule Planner (SSP) is a desktop application aimed at helping students manage their schedules
-effectively. SSP is optimised for users who prefer to type in commands, instead of using a Graphical
-User Interface(GUI). Given efficient typing, this application will be much faster than regular to-do
-applications.</p>
+<p>This Personal Project Portfolio details the contributions which I have made to the Student Schedule Planner(SSP)
+project. It also outlines skills which I have picked up, as well as any relevant experiences from other projects
+I have worked on.</p>
+</div>
+<div class="paragraph">
+<p>Student Schedule Planner (SSP) is a desktop application, created by a team comprised of teamates Chen Shin, Lin Xu,
+Park Sang Jun, Xiao Yilin, as well as myself, Thaddeus. It is a planner customised for university students, and it aims
+ to help university students manage their time effectively.</p>
+</div>
+<div class="paragraph">
+<p>SSP incorporates various features that streamline the creation, organisation, and finding of tasks. In addition, it
+allows the user to keep track of the current academic week, and has a progress tracking feature, which displays the
+user&#8217;s progress.</p>
+</div>
+<div class="paragraph">
+<p>Instead of utilising a conventional Graphical User Interface(GUI). SSP is optimised for users who prefer typing out
+their commands. This application has the potential to be much faster than regular planner applications, especially for
+users who are proficient in typing.</p>
+</div>
+<div class="paragraph">
+<p>This project started out with</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to filter tasks according to their tags</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: Allows the user to filter their tasks with respect to their tags. The filter
-command is inclusive, which means that given 2 or more tags to filter, tasks with any, some, or all of the specified
-tags will be listed.</p>
-</li>
-<li>
-<p>Justification: This feature improves the product significantly because a user can filter out tasks with a certain
-tag, expediting the search process, and the app should provide a convenient way to list all these tasks.</p>
-</li>
-<li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth
-analysis of design alternatives. The implementation was challenging as it required the filter to be able to search
-for more than 1 tag in the tasks, which may contain more than 1 tag.</p>
-</li>
-<li>
-<p>Credits: Code from FindCommand was referenced in the implementation of FilterCommand</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>In total, I contributed approximately 1500+ lines of code, in both features and documentation. The features I
+implemented were <code>listmonth</code>, <code>filter</code>, and <code>filterstrict</code>.</p>
 </div>
-</li>
+<div class="paragraph">
+<p>I also aided in refactoring major parts of the codebase, morphing the original "Address Book (Level 4)" code to suit
+our new SSP application. This included changing "addressbook" and "person" references in the code to
+"scheduleplanner" and "task" references respectively, as well as various other forms of refactoring.</p>
+</div>
+<div class="paragraph">
+<p>The features I implemented are as follows:</p>
+</div>
+<div class="sect2">
+<h3 id="major-enhancements"><a class="link" href="#major-enhancements">Major enhancements:</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to list the remaining number of tasks in the current month</strong></p>
+<p>Ability to <strong>list remaining number of tasks in the current month</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: Allows the user to list and view all the remaining tasks in the current month, in chronological
+<p><em>What it does:</em> This feature allows the user to list all remaining tasks in the current month, in chronological
 order. This feature takes into account leap years.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can now narrow the scope of the list
-to the current month, making it easier to manage his/her tasks. The app should provide a convenient way to list
-tasks within common time periods.</p>
+<p><em>Justification:</em> This feature improves the product significantly because the user can narrow the scope of the list
+to the current month, making it easier to manage tasks within this period. This provides a convenient way to list
+tasks that occur in commonly used time frames(day, week, month).</p>
 </li>
 <li>
-<p>Highlights: This enhancement does not affect existing commands and commands to be added in future. It required an
-in-depth analysis of design alternatives. The implementation was challenging as it had to factor in the variations of
- total days in February during leap years.</p>
+<p><em>Highlights:</em> This enhancement does not affect existing commands and commands to be added in future. It required an
+in-depth analysis of design alternatives. The implementation was challenging as it had to factor in the variations
+ of days between months, and in February during leap years.</p>
 </li>
 <li>
-<p>Credits: Code from ListWeekCommand was referenced in the implementation of ListMonthCommand</p>
+<p><em>Credits:</em> Code from ListWeekCommand was referenced in the implementation of ListMonthCommand</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>:</p>
+<p>Ability to <strong>filter tasks inclusively according to tags</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>What it does:</em> This feature allows the user to filter tasks inclusively by their tags. This means that given 2 or
+more tags as user-input, tasks with ANY of the specified tags will be listed. This includes any number of tags.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><em>Justification:</em> This feature improves the product significantly because the user can filter out tasks with certain
+tags, expediting the search process, and reducing the time needed to find a specific task, or tasks belonging to the
+same category.</p>
+</li>
+<li>
+<p><em>Highlights:</em> This enhancement does not affect existing commands and commands to be added in future. The
+implementation was challenging, as it required the filter feature to be able to search for more multiple tags. This
+was made complicated by the fact that each task may contain multiple tags</p>
+</li>
+<li>
+<p><em>Credits:</em> Code from FindCommand was referenced in the implementation of FilterCommand</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ability to <strong>filter tasks exclusively according to tags</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>What it does:</em> This feature allows the user to filter tasks exclusively by their tags. This means that given 2 or
+more tags to filter, only tasks with ALL of the specified tags will be listed.</p>
+</li>
+<li>
+<p><em>Justification:</em> This feature improves the product significantly because the user can now narrow the scope of the
+filter function, further expediting the search process. This feature caters to users who prefer a more strict filter
+mechanic.</p>
+</li>
+<li>
+<p><em>Highlights:</em> This enhancement does not affect existing commands and commands to be added in future. The
+implementation made small tweaks to the filter predicate such that, only tasks containing tags that match all
+user-input tags will be displayed. It resulted in a logic error when no tags were provided, allowing all tasks to be
+listed instead of returning an error. This logic error was resolved.</p>
+</li>
+<li>
+<p><em>Credits:</em> Code from FilterCommand was referenced in the implementation of FilterCommand</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancements"><a class="link" href="#minor-enhancements">Minor enhancements:</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=thaddeuslzy">RepoSense</a></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -85,7 +145,7 @@ in-depth analysis of design alternatives. The implementation was challenging as 
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+<p>Managed releases <code>v1.3.1</code> (1 release) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -110,6 +170,9 @@ in-depth analysis of design alternatives. The implementation was challenging as 
 <li>
 <p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
 </li>
+<li>
+<p>Did cosmetic tweaks to existing contents of the Developer Guide:</p>
+</li>
 </ul>
 </div>
 </li>
@@ -119,9 +182,6 @@ in-depth analysis of design alternatives. The implementation was challenging as 
 <ul>
 <li>
 <p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
 </li>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
@@ -150,8 +210,6 @@ in-depth analysis of design alternatives. The implementation was challenging as 
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -168,6 +226,165 @@ in-depth analysis of design alternatives. The implementation was challenging as 
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="viewing-tasks-due-this-month"><a class="link" href="#viewing-tasks-due-this-month">Viewing Tasks Due This Month</a></h3>
+<div class="paragraph">
+<p>Shows a list of tasks  due from current date, till the end of the current Month.<br></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listmonth</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">listmonth</code> (on the date 021118)<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ListMonth_Before_After.png" alt="ListMonth Before After" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Tasks from 021118 to end of the month (301118) are listed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filtering-tasks-by-tags-inclusive"><a class="link" href="#filtering-tasks-by-tags-inclusive">Filtering Tasks by Tags (Inclusive)</a></h3>
+<div class="paragraph">
+<p>Filters tasks with tags matching ANY of those entered by the user.
+You can include multiple tags when using <code class="blue">filter</code>. For example, <code class="blue">filter tutorial quiz project</code>
+will return tasks with tags matching at least one of user-input tags.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">filter TAG [TAG2] &#8230;&#8203;</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code class="blue">filter tutorial</code><br></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/b-a%20filter%20tutorial.png" alt="b a filter tutorial" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Tasks with the tag <code class="blue">tutorial</code> are listed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code class="blue">filter tutorial cs2100</code><br></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/b-a%20filter%20tutorial%20cs2100.png" alt="b a filter tutorial cs2100" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Tasks with either <code class="blue">tutorial</code>, <code class="blue">2100</code> tags, or both, are listed.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The search is case insensitive. e.g <code class="blue">apples</code> matches <code class="blue">Apples</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filtering-tasks-by-tags-exclusive"><a class="link" href="#filtering-tasks-by-tags-exclusive">Filtering Tasks by Tags (Exclusive)</a></h3>
+<div class="paragraph">
+<p>Filters tasks with tags matching ALL of those entered by the user.
+You can include multiple tags when using <code class="blue">filterstrict</code>. For example, <code class="blue">filterstrict tutorial quiz project</code>
+will return tasks with tags matching ALL user-input tags.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><code class="blue">filterstrict TAG [TAG2] &#8230;&#8203;</code></p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code class="blue">filterstrict tutorial</code><br></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/b-a%20filterstrict%20tutorial.png" alt="b a filterstrict tutorial" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Tasks with the tag <code class="blue">tutorial</code> are listed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code class="blue">filterstrict tutorial geh1034</code><br></p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/b-a%20filterstrict%20tut%20geh.png" alt="b a filterstrict tut geh" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Tasks with both <code class="blue">tutorial</code> and <code class="blue">2100</code> tags are listed.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The search is case insensitive. e.g <code class="blue">apples</code> matches <code class="blue">Apples</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -184,183 +401,113 @@ in-depth analysis of design alternatives. The implementation was challenging as 
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-commands"><a class="link" href="#undo-redo-commands">Undo/Redo Commands</a></h3>
+<h3 id="list-tasks-by-month"><a class="link" href="#list-tasks-by-month">List Tasks by Month</a></h3>
 <div class="paragraph">
-<p>The Undo/Redo feature allows the user to revert the schedule planner to an earlier state when 'undo' is called, or a
-later state when 'redo' is called.</p>
+<p>The <code>listmonth</code> command is another variation of the <code>list</code> command, which supports viewing tasks due from the current
+date till the end of the month.</p>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedSchedulePlanner</code>.
-It extends <code>SchedulePlanner</code> with an undo/redo history, stored internally as an <code>SchedulePlannerStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
+<p><code>listmonth</code> utilises the same implementation used by the <code>list</code> command:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedSchedulePlanner.commit()</code>&#8201;&#8212;&#8201;Saves the current schedule planner state in 'history'.</p>
-</li>
-<li>
-<p><code>VersionedSchedulePlanner.undo()</code>&#8201;&#8212;&#8201;Restores the previous schedule planner state from 'history'.</p>
-</li>
-<li>
-<p><code>VersionedSchedulePlanner.redo()</code>&#8201;&#8212;&#8201;Restores a previously undone schedule planner state from 'history'.</p>
+<p><code>Model#updateFilteredTaskList()</code>&#8201;&#8212;&#8201;Takes in a predicate parameter and updates the model according to the predicate.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in <code>Model</code> interface as <code>Model#commitSchedulePlanner()</code>, <code>Model#undoSchedulePlanner()</code> and <code>Model#redoSchedulePlanner()</code> respectively.</p>
+<p><code>listmonth</code> also utilises the same implementation used by the <code>listweek</code> command:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DateWeekSamePredicate</code>&#8201;&#8212;&#8201;It takes in a <code>dateList</code> parameter. <code>dateList</code> is a <code>List&lt;String&gt;</code> object that contains
+a list of dates from current date to the end of the month in <code>DDMMYY</code> format.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step:</p>
+<p><code>listmonth</code> further implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>numDaysTillEndOfMonth(currentDay)&#8201;&#8212;&#8201;It computes the number of days from current date until the end of the month
+using <code>currentDay</code>.  <code>currentDay</code> is the current date in <code>LocalDate</code> format.</p>
+</li>
+<li>
+<p>appendDateList(dateList, numDaysTillEndOfMonth(currentDay))&#8201;&#8212;&#8201;It generates sequential <code>DDMMYY</code> values
+based on the result of <code>numDaysTillEndOfMonth(currentDay)</code> and adds them into 'dateList` . <code>dateList</code> is a
+<code>List&lt;String&gt;</code> object.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. <code>VersionedSchedulePlanner</code> will be initialized with the
- initial schedule planner state, with <code>currentStatePointer</code> pointing to that single schedule planner state.</p>
+<p>Given below is an example usage scenario and how <code>listmonth</code> mechanism behaves at each steps:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>listmonth</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The command word <code>listmonth</code> invokes <code>LogicManger</code>, which invokes <code>SchedulePlannerParser</code> to return a
+<code>ListMonthCommand</code> object. <code>LogicManager</code> then invokes <code>ListMonthCommand#execute()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>ListMonthCommand#appendDateList(datelist, numDaysTillEndOfMonth(currentDay))</code> will be invoked. It
+generates sequential dates in <code>DDMMYY</code> format which are added into <code>dateList</code>. <code>numDaysTillEndOfMonth(currentDay)</code>
+computes the number of days from the current date till the end of the month based on <code>currentDay</code>. <code>currentDay</code> is the
+current date in <code>LocalDate</code> format.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. <code>model.updateFilteredTaskList()</code> updates the task list with <code>DateWeekSamePredicate</code> as the predicate.
+<code>DateWeekSamePredicate</code> takes <code>dateList</code> in Step 3 as its parameter.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The updated task list would be reflected on <code>UI</code> to be displayed to the user.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the mechanism works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
+<img src="../images/ListMonthSequenceDiagram.png" alt="ListMonthSequenceDiagram">
 </div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command. The <code>delete</code> command calls <code>Model#commitSchedulePlanner()</code>, as a result
- the modified state of the schedule planner is saved in <code>schedulePlannerStateList</code> after the <code>delete 5</code> command
- executes, the <code>currentStatePointer</code> shifts to the newly inserted schedule planner state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/CS2100 Lect &#8230;&#8203;</code> to add a new task. The <code>add</code> command calls
-<code>Model#commitSchedulePlanner()
-`, and the modified schedule planner state is saved into `schedulePlannerStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command execution fails, it will not call <code>Model#commitSchedulePlanner()</code>, so the schedule planner state will not
- be saved into <code>schedulePlannerStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call
-<code>Model#undoSchedulePlanner()</code>, which shifts the <code>currentStatePointer</code> to the previous index, pointing to the
-previous schedule planner state, and restoring the schedule planner to its previous state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0(i.e the initial schedule planner state), then there are no previous states to restore to. The <code>undo</code> command uses <code>Model#canUndoSchedulePlanner()</code> to check this case.
-If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoSchedulePlanner()</code>, which shifts the
-<code>currentStatePointer</code> to the next index, pointing to the next state, and restores the schedule planner to
-that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If <code>currentStatePointer</code> is at index <code>schedulePlannerStateList.size() - 1</code> (i.e pointing to the latest state), then there are no latest states to restore. The <code>redo</code> command uses <code>Model#canRedoSchedulePlanner()</code> to check this case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then executes the command <code>list</code>. Commands that do not modify the schedule planner, such as <code>list</code>,
-will usually not call <code>Model#commitSchedulePlanner()</code>, <code>Model#undoSchedulePlanner()</code> or <code>Model#redoSchedulePlanner()</code>. Thus, the <code>schedulePlannerStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitSchedulePlanner()</code>. If the <code>currentStatePointer</code> is not
-pointing to the latest state in the <code>schedulePlannerStateList</code>, all states after the
-<code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
+<div class="title">Figure 1. Sequence Diagram of ListMonth Command</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<h5 id="aspect-how-does-listmonth-function"><a class="link" href="#aspect-how-does-listmonth-function">Aspect: How does listmonth function</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> The entire schedule planner is saved.</p>
+<p><strong>Alternative 1 (current choice):</strong> Fixed date interval based on commands</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: It is easy to implement.</p>
+<p>Pros: It is easier to implement, and faster for the user.</p>
 </li>
 <li>
-<p>Cons: It may have performance issues in terms of memory usage.</p>
+<p>Cons: It may not be as flexible, as it restricts view to tasks from current date till a fixed date in the future
+(last day of the month)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Each individual command knows how to undo/redo by itself.</p>
+<p><strong>Alternative 2:</strong> Allow <code>list</code> commands to receive arguments for start/end dates
+E.g list 130818 200918 to view all tasks between the two dates.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: It will use less memory (e.g. for <code>delete</code>, just save the task being deleted).</p>
+<p>Pros: It allows flexible viewing for different ranges.</p>
 </li>
 <li>
-<p>Cons: We must ensure that the implementation of each individual command is correct.</p>
+<p>Cons: It would be inconvenient to enter two date(s) each time the command is used.</p>
 </li>
 </ul>
 </div>
@@ -368,33 +515,98 @@ pointing to the latest state in the <code>schedulePlannerStateList</code>, all s
 </ul>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-by-tags-code-filter-code-and-code-filterstrict-code"><a class="link" href="#filter-by-tags-code-filter-code-and-code-filterstrict-code">Filter by Tags (<code>filter</code> and <code>filterstrict</code>)</a></h3>
+<div class="paragraph">
+<p>The <code>filter</code> &amp; <code>filterstrict</code> commands allow the user to filter tasks in the schedule planner according to their tags.
+The user may search for multiple tags at once, and the schedule planner returns a list of tasks containing the tags
+specified by the user.</p>
+</div>
+<div class="paragraph">
+<p>The <code>filter</code> command searches for tasks inclusively, which means that when multiple tags are input, SSP filters tasks
+containing ANY of the user-input tags (e.g 'A', or 'B', or both 'A' &amp; 'B').</p>
+</div>
+<div class="paragraph">
+<p>In contrast, <code>filterstrict</code>,filters tasks containing ALL of the user-input tags. (e.g ONLY 'A' &amp; 'B')</p>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Since <code>filter</code> and <code>filterstrict</code> are implemented in similar fashion, we will simply refer to <code>filter</code>.</p>
+</div>
+<div class="paragraph">
+<p>The filter mechanism utilises <code>FilterCommandParser</code> to parse the user command into separate tags by invoking the method
+<code>FilterCommandParser.parse(args)</code>, where <code>args</code> are the tags to be filtered.  e.g <code>tag1 tag2</code> will be parsed into
+<code>tag1</code> and <code>tag2</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the filter mechanism behaves at each step:</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user executes the command <code>filter tutorial CS2100</code></p>
+</div>
+<div class="paragraph">
+<p>Step 2. The 'filter' command invokes <code>FilterCommandParser</code>, which parses the argument <code>tutorial CS2100</code> into separate
+words <code>tutorial</code> and <code>CS2100</code>, and are stored in an array in the predicate <code>TagsContainsKeywordsPredicate</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. <code>FilterCommandParser</code> then returns a <code>FilterCommand</code> , which contains <code>TagsContainsKeywordsPredicate</code>, a
+predicate which tests for the tags 'tutorial' and 'CS2100'. <code>FilterCommand.execute()</code> calls <code>model
+.updateFilteredTaskList(TagsContainsKeywordsPredicate)</code>, which returns an updated list of tasks containing any of the
+ tags input by the user.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>filter</code> filters tasks inclusively, while <code>filterstrict</code> filters tasks exclusively.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram summarizes what happens when a user executes a new filter command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterSequenceDiagram.png" alt="FilterSequenceDiagram" width="650">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<h5 id="aspect-how-filter-executes"><a class="link" href="#aspect-how-filter-executes">Aspect: How filter executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> A list is used to store the history of schedule planner states.</p>
+<p><strong>Alternative 1 (current choice):</strong> The filter command is inclusive i.e filtering for A and B returns tasks with A,
+B, or both.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: It is easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+<p>Pros: It is easy to implement, it is also consistent with how the 'find' command works.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both
-<code>HistoryManager</code> and <code>VersionedSchedulePlanner</code>.</p>
+<p>Cons: It is not as specific.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> <code>HistoryManager</code> is used for undo/redo.</p>
+<p><strong>Alternative 2:</strong> The filter command is exclusive, i.e filtering for A and B returns tasks with A &amp; B</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+<p>Pros: It is more specific (e.g. filters the tasks more strictly).</p>
 </li>
 <li>
-<p>Cons: It requires dealing with commands that have already been undone: We must remember to skip these commands. It violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+<p>Cons: It is inconsistent with the original implementation of the 'find' command. It is more difficult to implement.</p>
 </li>
 </ul>
 </div>
@@ -410,8 +622,5 @@ pointing to the latest state in the <code>schedulePlannerStateList</code>, all s
 <h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
 <div class="sectionbody">
 <hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 05:43:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:04:46 UTC</div></div></div></body></html>
