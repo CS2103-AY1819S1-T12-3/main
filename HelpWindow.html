@@ -204,16 +204,16 @@ t/CS2100</code>, and <code class="blue">n/CS2103 tutorial</code> are both valid 
 </div>
 </div>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-All tasks will be <strong>sorted chronologically by default</strong>. Tasks that are due earlier will appear before tasks that are
-due later. If <strong>two tasks have the same deadline, they will be arranged according to priority</strong>. 3 is the highest
-priority, while 1 is the lowest.<br>
+Please take note that naming is case-sensitive in Student Schedule Planner. For example, <code>cats</code> and <code>Cats</code> are
+considered different. This applies to task, tag as well as category. Only <code class="blue">find</code> and <code class="blue">filter</code> commands
+are case-insensitive for keywords.
 </td>
 </tr>
 </table>
@@ -252,10 +252,29 @@ priority, while 1 is the lowest.<br>
 <p><code class="blue">add n/exam p/3 t/CS3241 d/101018 v/mpsh1</code></p>
 </div>
 <div class="paragraph">
-<p>Adds a task named <code class="blue">exam</code> with priority level <code class="blue">3</code>,
+<p>Adds a task named <code>exam</code> with priority level <code>3</code>,
 tag <code>CS3241</code> and deadline of <code>101018</code> , venue at <code>mpsh1</code>.</p>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>The priority level must be a number between 1 to 3, where 3 denotes highest priority.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Duplicate tasks are not allowed in Student Schedule Planner; two tasks are considered identical if they
+have same name, deadline date, tags, and venue. If two tasks have same attributes except for priority,
+they are still considered as identical.
+Please take note that task name is case-sensitive. For example, task name <code>study</code> and <code>Study</code> are
+considered different.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -304,6 +323,9 @@ Name, Priority, Deadline, and Venue fields are compulsory, and therefore require
 When you add tasks with new tags (tags that have not been added to any existing categories),
 these tags will be automatically added to default category <code>Others</code>. For details about Category and Tags, refer to
 <a href="#adding-a-category">Section 3.19, &#8220;Adding a Category&#8221;</a> and <a href="#Adding a Tag to a Category">[Adding a Tag to a Category]</a>.
+When you add new tasks with new tags (tags that have not been added to any existing categories),
+these tags will be automatically added to default category <code>Others</code>. For detailed guide about category and tags,
+please refer to <a href="#adding-a-category">Section 3.19, &#8220;Adding a Category&#8221;</a> and <a href="#Adding a Tag to a Category">[Adding a Tag to a Category]</a>.
 </td>
 </tr>
 </table>
@@ -352,6 +374,7 @@ tag <code class="blue">Tutorial</code>, venue at <code class="blue">COM1-0210</c
 <td class="content">
 The number of repeats should be a positive integer (≥1). Setting the repeat as 1 has the same
 effect as using the <code>add</code> command.
+The number of repeats should be an integer that is greater or equals to 1. Setting the repeat as 1 has the same effect as using the <code class="blue">add</code> command.
 </td>
 </tr>
 </table>
@@ -426,6 +449,10 @@ created by the AddRepeatCommand that with the deadline on 1st January 2101 will 
 according to its index number.
 The <code class="blue">INDEX</code> <strong>must be a positive integer</strong> (≥1)</p>
 </div>
+<div class="paragraph">
+<p>The <code>INDEX</code> refers to the index number shown in the displayed task list. Refer to the task according to the index number.
+The <code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -435,6 +462,22 @@ The <code class="blue">INDEX</code> <strong>must be a positive integer</strong> 
 <td class="content">
 At least one of the optional fields must be provided. Existing values of provided field
 will be updated to the input values.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Duplicate tasks are not allowed in Student Schedule Planner; two tasks are considered identical if they
+have same name, deadline date, tags, and venue. If two tasks have same attributes except for priority,
+they are still considered as identical.
+Please take note that task name is case-sensitive. For example, task name <code>study</code> and <code>Study</code> are
+considered different.
 </td>
 </tr>
 </table>
@@ -460,7 +503,7 @@ list. For more detailed guide about auto-sorting, please refer to <a href="#sort
 </td>
 <td class="content">
 Existing tags of a task will be removed when its tag is edited. If input is
-<code class="blue">edit 3 t/project</code>, then the resulting tag(s) of task 3 will be <code class="blue">project</code> only.
+<code class="blue">edit 3 t/project</code>, then the resulting tag(s) of task 3 will be <code>project</code> only.
 </td>
 </tr>
 </table>
@@ -505,9 +548,11 @@ tags of the task of index number <code>3</code> will be removed.
 </div>
 </div>
 <div class="paragraph">
-<p><code class="blue">INDEX</code> refers to the index of the task in the displayed task list. Refer to the task according to its index
+<p>The <code>INDEX</code> refers to the index number shown in the displayed task list. Refer to the task according to the index number.
+The <code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;
+<code>INDEX</code> refers to the index of the task in the displayed task list. Refer to the task according to its index
 number.
-The <code class="blue">INDEX</code> <strong>must be a positive integer</strong>(≥1)</p>
+The <code>INDEX</code> <strong>must be a positive integer</strong>(≥1)</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -556,9 +601,11 @@ Below is the partial screenshots of task list before and after executing the arc
 </div>
 </div>
 <div class="paragraph">
-<p><code class="blue">INDEX</code> refers to the index of the task in the displayed task list. Refer to the task according to its index
+<p>The <code>INDEX</code> refers to the index number shown in the displayed task list. Refer to the task according to the index number.
+The <code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;
+<code>INDEX</code> refers to the index of the task in the displayed task list. Refer to the task according to its index
 number.
-The <code class="blue">INDEX</code> <strong>must be a positive integer</strong>(≥1)</p>
+The <code>INDEX</code> <strong>must be a positive integer</strong>(≥1)</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -707,7 +754,9 @@ deleted from schedule planner when the application relaunches.
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">listweek</code> (on the date 021118)</p>
+<p>The following diagram illustrates that when you used <code class="blue">listweek</code> command on the date <code>021118</code> (02 Nov '18), you will only see tasks
+until <code>041118</code> (04 Nov '18) which is the closest Sunday.
+<code class="blue">listweek</code> (on the date 021118)</p>
 </div>
 <div class="paragraph">
 <p>The following diagram illustrates the SSP when <code class="blue">listweek</code> is executed on the date <code>021118</code>. Only tasks until
@@ -752,6 +801,9 @@ deleted from schedule planner when the application relaunches.
 <div class="content">
 <img src="images/ListMonth_Before_After.png" alt="ListMonth Before After" width="600">
 </div>
+</div>
+<div class="paragraph">
+<p>Tasks from 02 Nov '18 to end of the month (30 Nov '18) are listed.</p>
 </div>
 </div>
 </div>
@@ -859,6 +911,8 @@ E.g for finding <code class="blue">tutorial</code>, <code class="blue">tutorial<
 The order of the keywords does not matter. For example,  <code class="blue">find apples buy</code> and <code class="blue">find buy apples</code> both return
  the
 same tasks.<br>
+You can include multiple keywords when using <code>find</code>. <code class="blue">find CS3230 CS5229</code> will find all tasks with name containing
+<code>CS3230</code> or <code>CS5229</code>.
 </td>
 </tr>
 </table>
@@ -890,8 +944,13 @@ will return tasks with tags matching at least one of the specified tags.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/b-a%20filter%20tutorial.png" alt="b a filter tutorial" width="600">
+</div>
+</div>
 <div class="paragraph">
-<p>Tasks with the tag <code class="blue">tutorial</code> are listed.</p>
+<p>Tasks with the tag <code>tutorial</code> are listed.</p>
 </div>
 <div class="paragraph">
 <p>The diagram below illustrates the SSP when <code class="blue">filter tutorial</code> is executed.</p>
@@ -919,6 +978,9 @@ will return tasks with tags matching at least one of the specified tags.</p>
 <img src="images/b-a%20filter%20tutorial%20cs2100.png" alt="b a filter tutorial cs2100" width="600">
 </div>
 </div>
+<div class="paragraph">
+<p>Tasks with either <code>tutorial</code>, <code>2100</code> tags, or both, are listed.</p>
+</div>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -941,6 +1003,7 @@ E.g for filtering <code class="blue">tutorial</code>, <code class="blue">tutoria
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
+The search is case insensitive. e.g <code>apples</code> matches <code>Apples</code>.
 The order of the keywords does not matter. For example,  <code class="blue">filter tutorial cs2103</code> and <code class="blue">filter cs2103
 tutorial</code> both return the same tasks.<br>
 </td>
@@ -975,7 +1038,7 @@ will return tasks with tags matching ALL of the specified tags.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Tasks with the tag <code class="blue">tutorial</code> are listed.</p>
+<p>Tasks with the tag <code>tutorial</code> are listed.</p>
 </div>
 <div class="paragraph">
 <p>The diagram below illustrates the SSP when <code class="blue">filterstrict tutorial</code> is executed.</p>
@@ -993,7 +1056,7 @@ will return tasks with tags matching ALL of the specified tags.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Tasks with both <code class="blue">tutorial</code> and <code class="blue">2100</code> tags are listed.</p>
+<p>Tasks with both <code>tutorial</code> and <code>2100</code> tags are listed.</p>
 </div>
 <div class="paragraph">
 <p>The diagram below illustrates the SSP when <code class="blue">filterstrict tutorial geh1034</code> is executed.</p>
@@ -1085,19 +1148,19 @@ application.
 </table>
 </div>
 <div class="paragraph">
-<p><code class="blue">DDMMYY</code> refers to the date format of day, month and year. It must fulfil the following criteria:</p>
+<p><code>DDMMYY</code> refers to the date format of day, month and year. It must fulfil the following criteria:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code class="blue">DDMMYY</code> must only be one set of value such as <code>130818</code>. Value such as <code>130818 200818</code> or <code>130818 20</code>
+<p><code>DDMMYY</code> must only be one set of value such as <code>130818</code>. Value such as <code>130818 200818</code> or <code>130818 20</code>
 will be rejected as they are considered as more than one set of date.</p>
 </li>
 <li>
-<p><code class="blue">DDMMYY</code> must be a valid date within 21st century.</p>
+<p><code>DDMMYY</code> must be a valid date within 21st century.</p>
 </li>
 <li>
-<p><code class="blue">DDMMYY</code> must be a Monday.</p>
+<p><code>DDMMYY</code> must be a Monday.</p>
 </li>
 </ol>
 </div>
@@ -1131,22 +1194,38 @@ how to add tags to category, please refer to <a href="#Adding a Tag to a Categor
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="paragraph">
+<p>Category name can contain space. For example, <code>Steam</code>, <code>Steam2</code>,
+<code>Steam shopping list</code> are all valid category names.<br></p>
+</div>
+<div class="paragraph">
+<p><code>Modules</code> and <code>Others</code> are two categories exist by default.</p>
+</div>
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Category names may contain spaces. For example, <code class="blue">Steam</code>, <code class="blue">Steam2</code>,
-<code class="blue">Steam shopping list</code> are all valid category names.<br>
+Please take note that category is case-sensitive. For example, category <code>cats</code> and category <code>Cats</code> are
+considered different.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Duplicated categories are not allowed in schedule planner. All
-categories must have different names.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Duplicated categories are not allowed in schedule planner. All
+categories must have different names.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1202,12 +1281,21 @@ For detailed guide about how to rename categories, please refer to <a href="#ren
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Duplicated tags are not allowed under same category.<br></p>
-</div>
-<div class="paragraph">
-<p>For instance, in above example, you cannot add another tag <code class="blue">Overwatch</code>
-to category <code class="blue">Steam shopping list</code>. However you can save same tag under multiple categories.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Duplicated tags are not allowed under same category.<br>
+For instance, in above example, you cannot add another tag <code>Overwatch</code>
+to category <code>Steam shopping list</code>. However you can save same tag under multiple categories.
+Please take note that naming of tag is case-sensitive. For example, tag name <code>cat</code> and <code>Cat</code>
+are considered different.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1217,7 +1305,7 @@ to category <code class="blue">Steam shopping list</code>. However you can save 
 </td>
 <td class="content">
 When you add new tasks with new tags (tags that have not been added to any existing categories),
-these tags will be automatically added to default category <code class="blue">Others</code>.
+these tags will be automatically added to default category <code>Others</code>.
 </td>
 </tr>
 </table>
@@ -1306,7 +1394,7 @@ category <code>Modules</code>, the tag <code>CS2105</code> will be removed from 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Default categories <code class="blue">Modules</code> and <code class="blue">Others</code> cannot be removed. The only operation available for default categories is to delete
+Default categories <code>Modules</code> and <code>Others</code> cannot be removed. The only operation available for default categories is to delete
 all tags saved under these two categories.
 For more detailed guide about how to do so, please refer to <a href="#clearing-a-category">Section 3.21, &#8220;Clearing a Category&#8221;</a>.
 </td>
@@ -1522,19 +1610,42 @@ Step 3: <code class="blue">progressweek</code><br></p>
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the schedule planner&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands are those commands that modify the schedule planner&#8217;s content:</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p><code class="blue">add</code></p>
+</li>
+<li>
+<p><code class="blue">delete</code></p>
+</li>
+<li>
+<p><code class="blue">edit</code></p>
+</li>
+<li>
+<p><code class="blue">archive</code></p>
+</li>
+<li>
+<p><code class="blue">clear</code></p>
+</li>
+<li>
+<p><code class="blue">addtag</code></p>
+</li>
+<li>
+<p><code class="blue">addcat</code></p>
+</li>
+<li>
+<p><code class="blue">editcat</code></p>
+</li>
+<li>
+<p><code class="blue">removecat</code></p>
+</li>
+<li>
+<p><code class="blue">clearcat</code></p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -2078,4 +2189,4 @@ Example:<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:15:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:39:12 UTC</div></div></div></body></html>

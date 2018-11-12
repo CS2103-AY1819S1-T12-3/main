@@ -178,9 +178,11 @@ Below is the partial screenshots of task list before and after executing the arc
 </div>
 </div>
 <div class="paragraph">
-<p><code class="blue">INDEX</code> refers to the index of the task in the displayed task list. Refer to the task according to its index
+<p>The <code>INDEX</code> refers to the index number shown in the displayed task list. Refer to the task according to the index number.
+The <code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;
+<code>INDEX</code> refers to the index of the task in the displayed task list. Refer to the task according to its index
 number.
-The <code class="blue">INDEX</code> <strong>must be a positive integer</strong>(≥1)</p>
+The <code>INDEX</code> <strong>must be a positive integer</strong>(≥1)</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -238,22 +240,38 @@ how to add tags to category, please refer to <a href="#Adding a Tag to a Categor
 </div>
 </div>
 </div>
-<div class="admonitionblock note">
+<div class="paragraph">
+<p>Category name can contain space. For example, <code>Steam</code>, <code>Steam2</code>,
+<code>Steam shopping list</code> are all valid category names.<br></p>
+</div>
+<div class="paragraph">
+<p><code>Modules</code> and <code>Others</code> are two categories exist by default.</p>
+</div>
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Category names may contain spaces. For example, <code class="blue">Steam</code>, <code class="blue">Steam2</code>,
-<code class="blue">Steam shopping list</code> are all valid category names.<br>
+Please take note that category is case-sensitive. For example, category <code>cats</code> and category <code>Cats</code> are
+considered different.
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Duplicated categories are not allowed in schedule planner. All
-categories must have different names.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Duplicated categories are not allowed in schedule planner. All
+categories must have different names.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -353,7 +371,7 @@ category <code>Modules</code>, the tag <code>CS2105</code> will be removed from 
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Default categories <code class="blue">Modules</code> and <code class="blue">Others</code> cannot be removed. The only operation available for default categories is to delete
+Default categories <code>Modules</code> and <code>Others</code> cannot be removed. The only operation available for default categories is to delete
 all tags saved under these two categories.
 For more detailed guide about how to do so, please refer to <a href="#clearing-a-category">Clearing a Category</a>.
 </td>
@@ -413,25 +431,15 @@ does not overlap with other existing categories in your schedule planner.
 </tr>
 </table>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-All tasks will be <strong>sorted chronologically by default</strong>. Tasks that are due earlier will appear before tasks that are
-due later. If <strong>two tasks have the same deadline, they will be arranged according to priority</strong>. 3 is the highest
-priority, while 1 is the lowest.<br>
-=== Viewing Tasks in the Order of Deadline Date and Priority
-All tasks are automatically loaded in the order of deadlines except for archived tasks.
+</div>
+<div class="sect2">
+<h3 id="viewing-tasks-in-the-order-of-deadline-date-and-priority"><a class="link" href="#viewing-tasks-in-the-order-of-deadline-date-and-priority">Viewing Tasks in the Order of Deadline Date and Priority</a></h3>
+<div class="paragraph">
+<p>All tasks are automatically loaded in the order of deadlines except for archived tasks.
 The order of tasks first depends on deadline date, then priority.<br>
 Given below is an example of two tasks with different deadline dates.
 Task <code>Do CS2030 lab</code> is listed before task <code>Self study</code> because it has
-earlier deadline date.
-</td>
-</tr>
-</table>
+earlier deadline date.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -974,4 +982,4 @@ to obtain sorted list of all tasks, and <code>sort archived</code> for sorted li
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:15:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:39:12 UTC</div></div></div></body></html>
