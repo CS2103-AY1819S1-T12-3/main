@@ -11,26 +11,21 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>This Personal Project Portfolio details the contributions which I have made to the Student Schedule Planner(SSP)
-project. It also outlines skills which I have picked up, as well as any relevant experiences from other projects
-I have worked on.</p>
+project. It also outlines skills which I have picked up.</p>
 </div>
 <div class="paragraph">
-<p>Student Schedule Planner (SSP) is a desktop application, created by a team comprised of teamates Chen Shin, Lin Xu,
-Park Sang Jun, Xiao Yilin, as well as myself, Thaddeus. It is a planner customised for university students, and it aims
- to help university students manage their time effectively.</p>
+<p>Student Schedule Planner (SSP) is a desktop application, created by Team T12-3. It is a planner customised for
+university students, and it aims to help university students manage their time effectively.</p>
 </div>
 <div class="paragraph">
 <p>SSP incorporates various features that streamline the creation, organisation, and finding of tasks. In addition, it
-allows the user to keep track of the current academic week, and has a progress tracking feature, which displays the
-user&#8217;s progress.</p>
+allows the user to keep track of the current academic week, and has a progress tracking feature, which displays
+user progress.</p>
 </div>
 <div class="paragraph">
 <p>Instead of utilising a conventional Graphical User Interface(GUI). SSP is optimised for users who prefer typing out
 their commands. This application has the potential to be much faster than regular planner applications, especially for
 users who are proficient in typing.</p>
-</div>
-<div class="paragraph">
-<p>This project started out with</p>
 </div>
 </div>
 </div>
@@ -44,7 +39,7 @@ implemented were <code>listmonth</code>, <code>filter</code>, and <code>filterst
 <div class="paragraph">
 <p>I also aided in refactoring major parts of the codebase, morphing the original "Address Book (Level 4)" code to suit
 our new SSP application. This included changing "addressbook" and "person" references in the code to
-"scheduleplanner" and "task" references respectively, as well as various other forms of refactoring.</p>
+"scheduleplanner" and "task" references respectively.</p>
 </div>
 <div class="paragraph">
 <p>The features I implemented are as follows:</p>
@@ -62,14 +57,12 @@ our new SSP application. This included changing "addressbook" and "person" refer
 order. This feature takes into account leap years.</p>
 </li>
 <li>
-<p><em>Justification:</em> This feature improves the product significantly because the user can narrow the scope of the list
-to the current month, making it easier to manage tasks within this period. This provides a convenient way to list
-tasks that occur in commonly used time frames(day, week, month).</p>
+<p><em>Justification:</em> The user can narrow the scope of the list to the current month, making it easier to manage tasks
+within this period. This provides a convenient way to list tasks that occur in commonly used time frames(day, week, month).</p>
 </li>
 <li>
-<p><em>Highlights:</em> This enhancement does not affect existing commands and commands to be added in future. It required an
-in-depth analysis of design alternatives. The implementation was challenging as it had to factor in the variations
- of days between months, and in February during leap years.</p>
+<p><em>Highlights:</em> It required an in-depth analysis of design alternatives. The implementation was challenging as it
+had to factor in the variations of days between months, and in February during leap years.</p>
 </li>
 <li>
 <p><em>Credits:</em> Code from ListWeekCommand was referenced in the implementation of ListMonthCommand</p>
@@ -86,14 +79,12 @@ in-depth analysis of design alternatives. The implementation was challenging as 
 more tags as user-input, tasks with ANY of the specified tags will be listed. This includes any number of tags.</p>
 </li>
 <li>
-<p><em>Justification:</em> This feature improves the product significantly because the user can filter out tasks with certain
-tags, expediting the search process, and reducing the time needed to find a specific task, or tasks belonging to the
-same category.</p>
+<p><em>Justification:</em> The user can filter out tasks with certain tags, expediting the search process, and reducing the
+time needed to find a specific task, or tasks belonging to the same category.</p>
 </li>
 <li>
-<p><em>Highlights:</em> This enhancement does not affect existing commands and commands to be added in future. The
-implementation was challenging, as it required the filter feature to be able to search for more multiple tags. This
-was made complicated by the fact that each task may contain multiple tags</p>
+<p><em>Highlights:</em> The implementation was challenging, as it required the filter feature to be able to search for more
+multiple tags. This was made complicated by the fact that each task may contain multiple tags</p>
 </li>
 <li>
 <p><em>Credits:</em> Code from FindCommand was referenced in the implementation of FilterCommand</p>
@@ -110,15 +101,12 @@ was made complicated by the fact that each task may contain multiple tags</p>
 more tags to filter, only tasks with ALL of the specified tags will be listed.</p>
 </li>
 <li>
-<p><em>Justification:</em> This feature improves the product significantly because the user can now narrow the scope of the
-filter function, further expediting the search process. This feature caters to users who prefer a more strict filter
-mechanic.</p>
+<p><em>Justification:</em> The user can now narrow the scope of the filter function, further expediting the search process.
+This feature caters to users who prefer a more strict filter mechanic.</p>
 </li>
 <li>
-<p><em>Highlights:</em> This enhancement does not affect existing commands and commands to be added in future. The
-implementation made small tweaks to the filter predicate such that, only tasks containing tags that match all
-user-input tags will be displayed. It resulted in a logic error when no tags were provided, allowing all tasks to be
-listed instead of returning an error. This logic error was resolved.</p>
+<p><em>Highlights:</em> The implementation made small tweaks to the filter predicate such that, only tasks containing tags
+that match all user-input tags will be displayed.</p>
 </li>
 <li>
 <p><em>Credits:</em> Code from FilterCommand was referenced in the implementation of FilterCommand</p>
@@ -456,7 +444,7 @@ cs2100 tutorial ` both return the same tasks.<br>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write intelligible
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Provided below are sections I contributed to the Developer Guide. They showcase my ability to write intelligible
 technical documentation to aid developers who are looking at the SSP for the first time. It also showcases the
 technical depth of my contributions to the project, and the value of improvements made to the SSP application.</em></p></td>
 </tr>
@@ -535,7 +523,7 @@ current date in <code>LocalDate</code> format.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ListMonthSequenceDiagram.png" alt="ListMonthSequenceDiagram">
+<img src="../images/ListMonthSequenceDiagram.png" alt="width:300">
 </div>
 <div class="title">Figure 1. Sequence Diagram of ListMonth Command</div>
 </div>
@@ -636,7 +624,7 @@ predicate which tests for the tags 'tutorial' and 'CS2100'. <code>FilterCommand.
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/FilterSequenceDiagram.png" alt="FilterSequenceDiagram" width="650">
+<img src="../images/FilterSequenceDiagram.png" alt="FilterSequenceDiagram" width="300">
 </div>
 </div>
 </div>
@@ -675,215 +663,9 @@ B, or both.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Use Cases</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>Student Schedule Planner</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
-</div>
-<h3 id="use-case-filter-tasks-according-to-tags-inclusive" class="discrete">Use case: Filter Tasks according to Tags (Inclusive)</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to filter tasks by its tags from Student Schedule Planner.</p>
-</li>
-<li>
-<p>Student Schedule Planner filters the tasks with tags entered by user.</p>
-</li>
-<li>
-<p>Student Schedule Planner displays the filtered tasks.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The filter task command did not follow the correct format.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Student Schedule Planner shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3a. The filtered task list is empty and thus displays an empty list.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-filter-tasks-according-to-tags-exclusive" class="discrete">Use case: Filter Tasks according to Tags (Exclusive)</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to strictly filter tasks by its tags from Student Schedule Planner.</p>
-</li>
-<li>
-<p>Student Schedule Planner strictly filters the tasks with tags entered by user.</p>
-</li>
-<li>
-<p>Student Schedule Planner displays the strictly filtered tasks.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The filterstrict task command did not follow the correct format.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Student Schedule Planner shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3a. The strictly filtered task list is empty and thus displays an empty list.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="use-case-list-tasks-due-until-the-end-of-the-month"><a class="link" href="#use-case-list-tasks-due-until-the-end-of-the-month">Use case: List tasks due until the end of the month</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view tasks due from the current date until the end of month from the Student Schedule Planner.</p>
-</li>
-<li>
-<p>Student Schedule Planner filters tasks from the range of current date until end of month</p>
-</li>
-<li>
-<p>Student Schedule Planner display list of tasks due from current date until end of month.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The <code>listmonth</code> command did not follow the correct format.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. Student Schedule Planner shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3a. The filtered task list is empty and thus displays an empty list.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix A: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="filtering-tasks"><a class="link" href="#filtering-tasks">Filtering Tasks</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Viewing tasks due this month</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test case: <code>listmonth</code><br>
-Expected: All task(s) that match the current system date until the end of the month will be reflected in the task
-list panel in the <code>UI</code>.</p>
-</li>
-<li>
-<p>Test case: <code>filter tutorial</code>
-Expected: All tasks that contain the tag <code>tutorial</code> will be reflected in the task list panel in the <code>UI</code>.</p>
-</li>
-<li>
-<p>Test case: <code>filter tutorial CS2100</code>
-Expected: All tasks that contain EITHER <code>tutorial</code>, <code>CS2100</code>, OR BOTH tags, will be  reflected in the task list
-panel in the <code>UI</code>.</p>
-</li>
-<li>
-<p>Test case: <code>filterstrict tutorial</code>
-Expected: All tasks that contain the tag <code>tutorial</code> will be reflected in the task list panel in the <code>UI</code>. Similar
-to <code>filter tutorial</code>.</p>
-</li>
-<li>
-<p>Test case: <code>filterstrict tutorial GEH1034</code>
-Expected: All tasks that contain BOTH <code>tutorial</code> and <code>GEH1034</code> tags will be reflected in the task list panel in
-the <code>UI</code></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:39:12 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:42:55 UTC</div></div></div></body></html>
