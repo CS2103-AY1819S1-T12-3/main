@@ -164,8 +164,10 @@ viewing archived tasks, please refer to <a href="#Viewing Archived Tasks">[Viewi
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">archive 1</code><br>
-Task with index <code>1</code> is removed from the task list.<br>
+<p><code class="blue">archive 1</code><br></p>
+</div>
+<div class="paragraph">
+<p>Task with index <code>1</code> is removed from the task list.<br>
 Below is the partial screenshots of task list before and after executing the archive command.</p>
 </div>
 <div class="imageblock">
@@ -176,8 +178,9 @@ Below is the partial screenshots of task list before and after executing the arc
 </div>
 </div>
 <div class="paragraph">
-<p>The <code class="blue">INDEX</code> refers to the index number shown in the displayed task list. Refer to the task according to the index number.
-The <code class="blue">INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><code class="blue">INDEX</code> refers to the index of the task in the displayed task list. Refer to the task according to its index
+number.
+The <code class="blue">INDEX</code> <strong>must be a positive integer</strong>(≥1)</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -209,7 +212,7 @@ deleted from schedule planner when the application relaunches.
 <div class="sect2">
 <h3 id="adding-a-category"><a class="link" href="#adding-a-category">Adding a Category</a></h3>
 <div class="paragraph">
-<p>Adds a new category to the schedule planner.
+<p>Add a new category to the schedule planner.
 You can organize tags by adding tags to relevant categories. For detailed guide about
 how to add tags to category, please refer to <a href="#Adding a Tag to a Category">[Adding a Tag to a Category]</a>.<br></p>
 </div>
@@ -235,25 +238,22 @@ how to add tags to category, please refer to <a href="#Adding a Tag to a Categor
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Category name can contain space. For example, <code class="blue">Steam</code>, <code class="blue">Steam2</code>,
-<code class="blue">Steam shopping list</code> are all valid category names.<br></p>
-</div>
-<div class="paragraph">
-<p><code class="blue">Modules</code> and <code class="blue">Others</code> are two categories exist by default.</p>
-</div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Duplicated categories are not allowed in schedule planner. All
-categories must have different names.
+Category names may contain spaces. For example, <code class="blue">Steam</code>, <code class="blue">Steam2</code>,
+<code class="blue">Steam shopping list</code> are all valid category names.<br>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Duplicated categories are not allowed in schedule planner. All
+categories must have different names.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -322,7 +322,7 @@ category <code>Modules</code>, the tag <code>CS2105</code> will be removed from 
 <div class="sect2">
 <h3 id="deleting-a-category"><a class="link" href="#deleting-a-category">Deleting a Category</a></h3>
 <div class="paragraph">
-<p>Deletes an existing category from schedule planner.</p>
+<p>Delete an existing category from schedule planner.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -364,7 +364,7 @@ For more detailed guide about how to do so, please refer to <a href="#clearing-a
 <div class="sect2">
 <h3 id="renaming-a-category"><a class="link" href="#renaming-a-category">Renaming a Category</a></h3>
 <div class="paragraph">
-<p>Edits name of an existing category.</p>
+<p>Edit the name of an existing category.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -420,9 +420,9 @@ does not overlap with other existing categories in your schedule planner.
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-All tasks will be automatically loaded in the order of deadlines, one that due earlier will appear before one that
-due later. If two tasks have the same deadline, they will be arranged according to priority, one that has
-higher priority will appear in front of one that has lower priority. 3 is the highest priority, while 1 is the lowest.<br>
+All tasks will be <strong>sorted chronologically by default</strong>. Tasks that are due earlier will appear before tasks that are
+due later. If <strong>two tasks have the same deadline, they will be arranged according to priority</strong>. 3 is the highest
+priority, while 1 is the lowest.<br>
 === Viewing Tasks in the Order of Deadline Date and Priority
 All tasks are automatically loaded in the order of deadlines except for archived tasks.
 The order of tasks first depends on deadline date, then priority.<br>
@@ -438,9 +438,25 @@ earlier deadline date.
 <img src="../images/sortingdate.png" alt="sortingdate" width="300">
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="sorting-tasks-by-deadline-date-and-priority"><a class="link" href="#sorting-tasks-by-deadline-date-and-priority">Sorting Tasks by Deadline Date and Priority</a></h3>
 <div class="paragraph">
-<p>If two tasks have the same deadline, the order then depends on priority, one that has
-higher priority will appear in front of one that has lower priority. 3 is the highest priority, while 1 is the lowest.<br>
+<p>All tasks are sorted chronologically by default. The order of tasks first depends on deadline date, then priority.<br></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example of two tasks with different deadlines.
+Task <code class="blue">Do CS2030 lab</code> is listed before task <code class="blue">Self study</code> because it has
+earlier deadline.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/sortingdate.png" alt="sortingdate" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p>If two tasks have the same deadline, then the order depends on priority, one that has
+higher priority will appear before one that has lower priority. 3 is the highest priority, while 1 is the lowest.<br>
 Given below is an example of two tasks with the same deadline dates.</p>
 </div>
 <div class="imageblock">
@@ -958,4 +974,4 @@ to obtain sorted list of all tasks, and <code>sort archived</code> for sorted li
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:07:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:15:32 UTC</div></div></div></body></html>
