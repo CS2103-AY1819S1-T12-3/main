@@ -185,11 +185,11 @@ higher priority will appear in front of one that has lower priority. 3 is the hi
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Input: <code class="blue">add n/exam p/3 t/CS3241 d/101018 v/mpsh1</code></p>
+<p><code class="blue">add n/exam p/3 t/CS3241 d/101018 v/mpsh1</code></p>
 </div>
 <div class="paragraph">
-<p>Outcome: Adds a task named <code class="blue">exam</code> with priority level <code class="blue">3</code>,
-tag <code class="blue">CS3241</code> and deadline of 10th October 2018, venue at mpsh1.</p>
+<p>Adds a task named <code class="blue">exam</code> with priority level <code class="blue">3</code>,
+tag <code>CS3241</code> and deadline of <code>101018</code> , venue at <code>mpsh1</code>.</p>
 </div>
 </div>
 </div>
@@ -317,8 +317,8 @@ will have the deadline set to the 21st  century instead. For example, a task cre
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>Input: <code class="blue">edit 3 p/1 d/121019</code><br>
-Outcome: Priority of existing task with index 3 to 1, and its deadline is changed to 12th October 2019 .</p>
+<p><code class="blue">edit 3 p/1 d/121019</code><br>
+Task with index <code>3</code> will have it&#8217;s priority level change to <code>1</code> , and its deadline is changed to <code>121019</code>.</p>
 </div>
 </div>
 </div>
@@ -329,6 +329,19 @@ The <code class="blue">INDEX</code> <strong>must be a positive integer</strong> 
 <div class="paragraph">
 <p>At least one of the optional fields must be provided. Existing values of provided field
 will be updated to the input values.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As we have implemented auto-sorting, if you edited the <code>date</code> or <code>priority</code>, the task might get reordered in the task
+list. For more detailed guide about auto-sorting, please refer to <a href="#sorting-tasks-by-deadline-date-and-priority">Section 3.13, &#8220;Sorting Tasks by Deadline Date and Priority&#8221;</a>
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -350,8 +363,8 @@ Existing tags of a task will be removed when its tag is edited. If input is
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-To remove all tags of an existing task, you can just type <code class="blue">t/</code>.
-If input is <code class="blue">task 3 t/</code>, all the tags of the task with <code>INDEX</code> 3 will be removed.
+To remove all tags of an existing task e.g for task with index number <code>3</code>, you can type <code class="blue">edit 3 t/</code>, all the
+tags of the task of index number <code>3</code> will be removed.
 </td>
 </tr>
 </table>
@@ -389,8 +402,8 @@ For example, you can use <code class="blue">listday</code> to list the tasks due
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>input: <code class="blue">delete 3</code><br>
-output: Task with index 3 delete from schedule planner.</p>
+<p><code class="blue">delete 3</code><br>
+Task with index number <code>3</code> delete from schedule planner.</p>
 </div>
 </div>
 </div>
@@ -405,7 +418,7 @@ The <code class="blue">INDEX</code> <strong>must be a positive integer</strong> 
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Use the <code>list</code> command to find out the index of the task to be deleted.
+Use the <code class="BLUE">list</code> command to find out the index of the task to be deleted.
 </td>
 </tr>
 </table>
@@ -430,7 +443,7 @@ Use the <code>list</code> command to find out the index of the task to be delete
 <div class="content">
 <div class="paragraph">
 <p><code class="blue">archive 1</code><br>
-Task with index 1 is removed from the task list.</p>
+Task with index <code>1</code> is removed from the task list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -639,14 +652,13 @@ until <code>041118</code> which is the closest Sunday.</p>
 <p>All tasks will be automatically loaded in the order of deadlines.
 The order of tasks first depends on deadline date, then priority.<br>
 Given below is an example of two tasks with different deadline dates.
-Task <code>[blue]`Do CS2030 lab</code> is listed before task <code>Self study</code> because it has
+Task <code class="blue">Do CS2030 lab</code> is listed before task <code>Self study</code> because it has
 earlier deadline date.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/sortingdate.png" alt="sortingdate" width="400">
 </div>
-<div class="title">Figure 1. Partial screenshot of task list</div>
 </div>
 <div class="paragraph">
 <p>If two tasks have the same deadline, the order then depends on priority, one that has
@@ -657,7 +669,6 @@ Given below is an example of two tasks with the same deadline dates.</p>
 <div class="content">
 <img src="images/sortingpriority.png" alt="sortingpriority" width="400">
 </div>
-<div class="title">Figure 2. Partial screenshot of task list</div>
 </div>
 </div>
 <div class="sect2">
@@ -678,8 +689,8 @@ Given below is an example of two tasks with the same deadline dates.</p>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p>input: <code class="blue">find tutorial</code><br>
-output: All tasks with "tutorial" in their names are listed.</p>
+<p><code class="blue">find tutorial</code><br>
+All tasks with <code>tutorial</code> in their names are listed.</p>
 </div>
 </div>
 </div>
@@ -691,16 +702,16 @@ output: All tasks with "tutorial" in their names are listed.</p>
 </td>
 <td class="content">
 The keyword must be whole word.<br>
-E.g for finding "tutorial", "tutorial" must be used, "tut" or other variations would not be allowed.
+E.g for finding <code>tutorial</code>, <code>tutorial</code> must be used, <code>tut</code> or other variations would not be allowed.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The search is case insensitive. For example, <code class="blue">apples</code> and  <code class="blue">Apples</code> both return the same tasks.</p>
+<p>The search is case insensitive. For example, <code>apples</code> and  <code>Apples</code> both return the same tasks.</p>
 </div>
 <div class="paragraph">
-<p>The order of the keywords does not matter. For example,  <code class="blue">apples buy</code> and <code class="blue">buy apples</code> both return the
+<p>The order of the keywords does not matter. For example,  <code>apples buy</code> and <code>buy apples</code> both return the
 same tasks.<br></p>
 </div>
 <div class="admonitionblock tip">
@@ -711,7 +722,7 @@ same tasks.<br></p>
 </td>
 <td class="content">
 You can include multiple keywords when using <code class="blue">find</code>. <code class="blue">find CS3230 CS5229</code> will find all tasks with name containing
-<code class="blue">CS3230</code> or <code class="blue">CS5229</code>.
+<code>CS3230</code> or <code>CS5229</code>.
 </td>
 </tr>
 </table>
@@ -1434,7 +1445,7 @@ Example:<br>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><code class="blue">edit INDEX n/[NAME] p/[PRIORITYLEVEL]t/[TAGS]&#8230;&#8203; d/[DEADLINE]</code><br></p>
+<p><code class="blue">edit INDEX n/[NAME] p/[PRIORITYLEVEL] t/[TAGS]&#8230;&#8203; d/[DEADLINE]</code><br></p>
 </div>
 <div class="paragraph">
 <p>Example:<br>
@@ -1818,4 +1829,4 @@ Example:<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Schedule planner folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 06:29:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:08:01 UTC</div></div></div></body></html>
