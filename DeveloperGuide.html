@@ -87,7 +87,8 @@
 <li><a href="#editing-a-task">F.3. Editing a task</a></li>
 <li><a href="#deleting-a-task">F.4. Deleting a task</a></li>
 <li><a href="#task-monitoring-system">F.5. Task Monitoring System</a></li>
-<li><a href="#testing-gui">F.6. Testing GUI</a></li>
+<li><a href="#filtering-tasks">F.6. Filtering Tasks</a></li>
+<li><a href="#testing-gui">F.7. Testing GUI</a></li>
 </ul>
 </li>
 </ul>
@@ -3912,12 +3913,12 @@ relaunching the application, the application title will be appended with current
 <ol class="loweralpha" type="a">
 <li>
 <p>Test case: <code>listday</code><br>
-Expected: All task(s) that matches the current system date will be reflected in the panel on the bottom right of
+Expected: All task(s) that match the current system date will be reflected in the panel on the bottom right of
 <code>UI</code>.</p>
 </li>
 <li>
 <p>Test case: <code>listweek</code><br>
-Expected: All task(s) that matches the date from the current system date until the closest Sunday will be
+Expected: All task(s) that match the date from the current system date until the closest Sunday will be
 reflected in the panel on the bottom right of <code>UI</code>.</p>
 </li>
 </ol>
@@ -3927,7 +3928,45 @@ reflected in the panel on the bottom right of <code>UI</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="testing-gui"><a class="link" href="#testing-gui">F.6. Testing GUI</a></h3>
+<h3 id="filtering-tasks"><a class="link" href="#filtering-tasks">F.6. Filtering Tasks</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>View tasks due this month</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>listmonth</code><br>
+Expected: All task(s) that match the current system date until the end of the month will be reflected in the task
+list panel in the <code>UI</code>.</p>
+</li>
+<li>
+<p>Test case: <code>filter tutorial</code>
+Expected: All tasks that contain the tag <code>tutorial</code> will be reflected in the task list panel in the <code>UI</code>.</p>
+</li>
+<li>
+<p>Test case: <code>filter tutorial CS2100</code>
+Expected: All tasks that contain EITHER <code>tutorial</code>, <code>CS2100</code>, OR BOTH tags, will be  reflected in the task list
+panel in the <code>UI</code>.</p>
+</li>
+<li>
+<p>Test case: <code>filterstrict tutorial</code>
+Expected: All tasks that contain the tag <code>tutorial</code> will be reflected in the task list panel in the <code>UI</code>. Similar
+to <code>filter tutorial</code>.</p>
+</li>
+<li>
+<p>Test case: <code>filterstrict tutorial GEH1034</code>
+Expected: All tasks that contain BOTH <code>tutorial</code> and <code>GEH1034</code> tags will be reflected in the task list panel in
+the <code>UI</code></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="testing-gui"><a class="link" href="#testing-gui">F.7. Testing GUI</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3983,4 +4022,4 @@ Expected: Status message displays that user has completed 20.00% of tasks for th
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:29:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:58:39 UTC</div></div></div></body></html>
