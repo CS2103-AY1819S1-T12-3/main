@@ -41,10 +41,10 @@
 <p>Justification: This feature gives convenience to users as users with to-do tasks that happen repeatedly (eg. weekly) will not have to manually add the same tasks over and over again.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>Highlights: The implementation forced me to come up with new field classes. The implementation required an understanding of the Calendar API, and duplicate tasks had to be handled.</p>
 </li>
 <li>
-<p>Credits: The Calendar API from Java provided a variety of functions made implementing the AddRepeatCommand simpler than if I had started from scratch._</p>
+<p>Credits: The Calendar API from Java provided a variety of functions made implementing the AddRepeatCommand simpler than if I had started from scratch.</p>
 </li>
 </ul>
 </div>
@@ -53,7 +53,7 @@
 <p><strong>Minor enhancement</strong>: added a list overdue command that allows the user to view his/her overdue tasks.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=park-sang-jun&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-11&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">RepoSense</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -64,7 +64,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Updated User Guide and Developer Guide</p>
+<p>Updated user guide and developer guide, helped to correct awkward phrasing and grammar, markdown.</p>
 </li>
 </ul>
 </div>
@@ -74,7 +74,9 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Reported bugs for other teams:
+<a href="https://github.com/CS2103-AY1819S1-W16-4/main/issues/159">#159</a>,
+<a href="https://github.com/CS2103-AY1819S1-W16-4/main/issues/160">#160</a></p>
 </li>
 </ul>
 </div>
@@ -105,7 +107,7 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Below are my contributions to the User Guide. This shows my ability to write effective documentation for the features I implemented. Furthermore, I helped to refactor the initial user guide for address book level 4 into a user guide for our current application, Student Schedule Planner.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -230,7 +232,7 @@ will have the deadline set to the 21st  century instead. For example, a task cre
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">_Below are my contributions to the Developer Guide. This showcases the technical depth of my contributions to the application and my ability to make abstract technical information easier to understand. This will allow future developers to change or expand on my existing code effortlessly.</p></td>
 </tr>
 </tbody>
 </table>
@@ -265,6 +267,24 @@ for (int i = 1; i &lt; Integer.parseInt(repeat.value); i++) {
 <div class="paragraph">
 <p>This loop occurs after the first task is added. The tasks are created within the loop with duplicate names, priorities, venues and tags.
 Before adding a task, the function checks with the model if such a task already exists. If not, the task is added. If the task is a duplicate task, it is skipped and the loop proceeds until it terminates.</p>
+</div>
+<div class="paragraph">
+<p>The following outlines an example of the command&#8217;s usage.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>repeat n/CS2103T Tutorial i/7 r/3 p/3 t/CS2103T t/Tutorial v/COM1</code></p>
+</div>
+<div class="paragraph">
+<p>Step 2. The AddRepeatParser parses the command and isolates each of the arguments.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The Model checks if the first task exists. If the first task does not exist in Model, it is added. If not, it is skipped.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The execute command loops through to build each repeated task. In each loop, the date is incremented by the specified interval. Same as Step 3, a duplicate task is skipped and a task that does not exist in Model is added.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The changes are committed and the new list is shown to the user.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the add repeat operation works:</p>
@@ -380,6 +400,22 @@ the number of tasks is small at any given point of time.</p>
 <div class="sect1">
 <h2 id="project"><a class="link" href="#project">5. PROJECT:</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Prior to this project, I have undertaken various software engineering projects, either for Orbital 2018 or for hackathons.</p>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:16:41 UTC</div></div></div></body></html>
+<div class="paragraph">
+<p><a href="https://github.com/park-sang-jun/orbital-2018">Speakify</a></p>
+</div>
+<div class="paragraph">
+<p>This Android-based application allows users to practice their speaking skills by helping them to quantify their speaking speed and
+user of various filler words.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/park-sang-jun/reee-searcher">Reee-searcher!</a></p>
+</div>
+<div class="paragraph">
+<p>This Telegram bot was built to help researchers and students to effortlessly summarise articles and research papers and generate a bibligraphy in either the
+APA or MLA format. It helps users to compare a list of articles to see how similar they are.</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:07:12 UTC</div></div></div></body></html>

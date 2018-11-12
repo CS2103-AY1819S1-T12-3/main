@@ -84,13 +84,15 @@
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#adding-a-task">F.2. Adding a task</a></li>
-<li><a href="#editing-a-task">F.3. Editing a task</a></li>
-<li><a href="#archiving-a-task">F.4. Archiving a task</a></li>
-<li><a href="#managing-tags-and-categories">F.5. Managing tags and categories</a></li>
-<li><a href="#deleting-a-task">F.6. Deleting a task</a></li>
-<li><a href="#task-monitoring-system">F.7. Task Monitoring System</a></li>
-<li><a href="#filtering-tasks">F.8. Filtering Tasks</a></li>
-<li><a href="#testing-gui">F.9. Testing GUI</a></li>
+<li><a href="#adding-a-recurring-task">F.3. Adding a recurring task</a></li>
+<li><a href="#viewing-overdue-tasks">F.4. Viewing overdue tasks</a></li>
+<li><a href="#editing-a-task">F.5. Editing a task</a></li>
+<li><a href="#archiving-a-task">F.6. Archiving a task</a></li>
+<li><a href="#managing-tags-and-categories">F.7. Managing tags and categories</a></li>
+<li><a href="#deleting-a-task">F.8. Deleting a task</a></li>
+<li><a href="#task-monitoring-system">F.9. Task Monitoring System</a></li>
+<li><a href="#filtering-tasks">F.10. Filtering Tasks</a></li>
+<li><a href="#testing-gui">F.11. Testing GUI</a></li>
 </ul>
 </li>
 </ul>
@@ -701,6 +703,24 @@ for (int i = 1; i &lt; Integer.parseInt(repeat.value); i++) {
 <div class="paragraph">
 <p>This loop occurs after the first task is added. The tasks are created within the loop with duplicate names, priorities, venues and tags.
 Before adding a task, the function checks with the model if such a task already exists. If not, the task is added. If the task is a duplicate task, it is skipped and the loop proceeds until it terminates.</p>
+</div>
+<div class="paragraph">
+<p>The following outlines an example of the command&#8217;s usage.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user enters the command <code>repeat n/CS2103T Tutorial i/7 r/3 p/3 t/CS2103T t/Tutorial v/COM1</code></p>
+</div>
+<div class="paragraph">
+<p>Step 2. The AddRepeatParser parses the command and isolates each of the arguments.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The Model checks if the first task exists. If the first task does not exist in Model, it is added. If not, it is skipped.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The execute command loops through to build each repeated task. In each loop, the date is incremented by the specified interval. Same as Step 3, a duplicate task is skipped and a task that does not exist in Model is added.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The changes are committed and the new list is shown to the user.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the add repeat operation works:</p>
@@ -3879,7 +3899,52 @@ Expected: No task is added. Error details shown for date field.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-task"><a class="link" href="#editing-a-task">F.3. Editing a task</a></h3>
+<h3 id="adding-a-recurring-task"><a class="link" href="#adding-a-recurring-task">F.3. Adding a recurring task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a recurring task to the task list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>repeat r/5 i/1 n/go to school d/030118 v/NUS p/3</code><br>
+Expected: Five tasks with the same name, priority, venue, but with differing dates of 3, 4, 5, 6, 7 Nov 2018 are added to the list.
+The tasks are reflected in the task list panel. Status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>repeat r/17 i/1 n/sleep d/010101 v/home p/1</code><br>
+Expected: No tasks are added. Error details shown in status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>repeat r/2 i/0 n/sleep d/010101 v/home p/1</code><br>
+Expected: No tasks are added. Error details shown in status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-overdue-tasks"><a class="link" href="#viewing-overdue-tasks">F.4. Viewing overdue tasks</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing tasks due on dates before the current date</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: listoverdue<br>
+Expected: All tasks with dates before the current date are displayed in the task list panel. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-task"><a class="link" href="#editing-a-task">F.5. Editing a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3905,7 +3970,7 @@ Expected: First task is not edited. Error details shown in status message. Statu
 </div>
 </div>
 <div class="sect2">
-<h3 id="archiving-a-task"><a class="link" href="#archiving-a-task">F.4. Archiving a task</a></h3>
+<h3 id="archiving-a-task"><a class="link" href="#archiving-a-task">F.6. Archiving a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3928,7 +3993,7 @@ depending on the deadline date and current system time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-tags-and-categories"><a class="link" href="#managing-tags-and-categories">F.5. Managing tags and categories</a></h3>
+<h3 id="managing-tags-and-categories"><a class="link" href="#managing-tags-and-categories">F.7. Managing tags and categories</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4025,7 +4090,7 @@ If category <code>School</code> does not exist, no tag is added to any category.
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">F.6. Deleting a task</a></h3>
+<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">F.8. Deleting a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4055,7 +4120,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-monitoring-system"><a class="link" href="#task-monitoring-system">F.7. Task Monitoring System</a></h3>
+<h3 id="task-monitoring-system"><a class="link" href="#task-monitoring-system">F.9. Task Monitoring System</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4109,7 +4174,7 @@ reflected in the panel on the bottom right of <code>UI</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filtering-tasks"><a class="link" href="#filtering-tasks">F.8. Filtering Tasks</a></h3>
+<h3 id="filtering-tasks"><a class="link" href="#filtering-tasks">F.10. Filtering Tasks</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4147,7 +4212,7 @@ the <code>UI</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="testing-gui"><a class="link" href="#testing-gui">F.9. Testing GUI</a></h3>
+<h3 id="testing-gui"><a class="link" href="#testing-gui">F.11. Testing GUI</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4178,10 +4243,6 @@ Expected: The Modules pane will be expanded to reveal "CS2100" underneath.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test case: <code>clear</code> followed by <code>progresstoday</code><br>
-Expected: Status message displays that user has completed NaN% of tasks for today.</p>
-</li>
-<li>
 <p>Test case: add 5 tasks due on the current date and archive one of them.
 Expected: Both progress bars for today and this week are 20% filled.</p>
 </li>
@@ -4200,4 +4261,4 @@ Expected: Status message displays that user has completed 20.00% of tasks for th
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 12:16:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:07:12 UTC</div></div></div></body></html>
